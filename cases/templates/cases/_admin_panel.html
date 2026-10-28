@@ -1,0 +1,84 @@
+{% load i18n %}
+{# Wireframe 5: admin case review and assignment #}
+<section class="panel">
+  <div class="panel-head"><h2>{% translate "Admin action" %}</h2><p>{% blocktranslate with value_0=case.get_status_display %}Status now: {{ value_0 }}{% endblocktranslate %}</p></div>
+
+  {% if can_close %}
+  <details class="action" open>
+    <summary>{% translate "Confirm and close" %}</summary>
+    <form class="panel-body" method="post" action="{% url 'cases:admin_close' case.case_number %}" novalidate>
+      {% csrf_token %}
+      <p class="small muted">{% translate "Close the case once you've checked the work is done." %}</p>
+      {% include "partials/field.html" with field=close_form.note %}
+      <button class="btn btn-primary" type="submit">{% translate "Close case" %}</button>
+    </form>
+  </details>
+  {% endif %}
+
+  {% if case.is_open %}
+  <details class="action"{% if not can_close or review_form.errors %} open{% endif %}>
+    <summary>{% if can_assign %}{% translate "Review and assign" %}{% else %}{% translate "Review details" %}{% endif %}</summary>
+    <form class="panel-body" method="post" action="{% url 'cases:admin_review' case.case_number %}" novalidate>
+      {% csrf_token %}
+      {% include "partials/form_errors.html" with form=review_form %}
+      {% if review_form.status %}{% include "partials/field.html" with field=review_form.status %}{% endif %}
+      <div class="field-row">
+        {% include "partials/field.html" with field=review_form.category %}
+        {% include "partials/field.html" with field=review_form.priority %}
+      </div>
+      {% if review_form.authority %}
+        {% include "partials/field.html" with field=review_form.authority %}
+        {% if case.assigned_authority %}<p class="help small muted" style="margin-top:-10px">{% blocktranslate with value_0=case.assigned_authority %}Currently with {{ value_0 }}. Choosing another authority reassigns the case.{% endblocktranslate %}</p>{% endif %}
+      {% endif %}
+      {% include "partials/field.html" with field=review_form.internal_note %}
+      <div class="btn-row">
+        {% if review_form.authority %}
+        <button class="btn btn-primary" type="submit" name="action" value="assign">{% if case.assigned_authority %}{% translate "Reassign case" %}{% else %}{% translate "Assign case" %}{% endif %}</button>
+        {% endif %}
+        <button class="btn btn-secondary" type="submit" name="action" value="save">{% translate "Save changes" %}</button>
+      </div>
+    </form>
+  </details>
+  {% endif %}
+
+  {% if can_admin_solve %}
+  <details class="action"{% if solve_form.errors %} open{% endif %}>
+    <summary>{% translate "Record as solved" %}</summary>
+    <form class="panel-body" method="post" action="{% url 'cases:admin_solve' case.case_number %}" novalidate>
+      {% csrf_token %}
+      <p class="small muted">{% translate "Use this when the issue was fixed without the authority updating the case." %}</p>
+      {% include "partials/field.html" with field=solve_form.resolution_note %}
+      <button class="btn btn-secondary" type="submit">{% translate "Mark as solved" %}</button>
+    </form>
+  </details>
+  {% endif %}
+
+  {% if can_reopen %}
+  <details class="action"{% if feedback_pending or reopen_form.errors %} open{% endif %}>
+    <summary>{% translate "Reopen case" %}</summary>
+    <form class="panel-body" method="post" action="{% url 'cases:admin_reopen' case.case_number %}" novalidate>
+      {% csrf_token %}
+      <p class="small muted">{% blocktranslate with value_0=case.assigned_authority %}Sends the case back to {{ value_0 }}.{% endblocktranslate %}</p>
+      {% include "partials/field.html" with field=reopen_form.reason %}
+      <button class="btn btn-secondary" type="submit">{% translate "Reopen case" %}</button>
+    </form>
+  </details>
+  {% endif %}
+
+  {% if can_reject %}
+  <details class="action danger"{% if reject_form.errors %} open{% endif %}>
+    <summary>{% translate "Reject case" %}</summary>
+    <form class="panel-body" method="post" action="{% url 'cases:admin_reject' case.case_number %}" novalidate>
+      {% csrf_token %}
+      <p class="small muted">{% translate "The reporter is told the reason. Use this for invalid, duplicate, inappropriate or out-of-scope cases." %}</p>
+      {% include "partials/field.html" with field=reject_form.reason %}
+      {% include "partials/field.html" with field=reject_form.note %}
+      <button class="btn btn-danger" type="submit">{% translate "Reject case" %}</button>
+    </form>
+  </details>
+  {% endif %}
+
+  {% if not case.is_open %}
+  <div class="panel-body small muted">{% blocktranslate with value_0=case.get_status_display|lower %}This case is {{ value_0 }}.{% endblocktranslate %} {% if can_reopen %}{% translate "You can still reopen it above." %}{% else %}{% translate "No further action is possible." %}{% endif %}</div>
+  {% endif %}
+</section>

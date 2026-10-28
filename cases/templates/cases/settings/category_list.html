@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Categories" %}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>{% translate "Categories" %}</h1><p>{% translate "Organize the choices on the submission form." %}</p></div>
+  <a class="btn btn-primary" href="{% url 'cases:category_create' %}">{% translate "Add category" %}</a>
+</div>
+<section class="panel">
+  <div class="table-wrap"><table>
+    <thead><tr><th class="num">{% translate "Order" %}</th><th>{% translate "Category" %}</th><th class="num">{% translate "Cases" %}</th><th>{% translate "On the form" %}</th><th><span class="visually-hidden">{% translate "Actions" %}</span></th></tr></thead>
+    <tbody>
+    {% for c in categories %}
+      <tr>
+        <td class="num">{{ c.sort_order }}</td>
+        <td class="row-title"><a href="{% url 'cases:category_edit' c.pk %}">{{ c.name }}</a>{% if c.description %}<div class="meta">{{ c.description }}</div>{% endif %}</td>
+        <td class="num">{{ c.total_cases }}</td>
+        <td>{% if c.is_active %}<span class="status done">{% translate "Shown" %}</span>{% else %}<span class="status closed">{% translate "Hidden" %}</span>{% endif %}</td>
+        <td><div class="btn-row">
+          <a class="btn btn-secondary btn-small" href="{% url 'cases:category_edit' c.pk %}">{% translate "Edit" %}</a>
+          <form method="post" action="{% url 'cases:category_toggle' c.pk %}">{% csrf_token %}
+            <button class="btn btn-secondary btn-small" type="submit">{% if c.is_active %}{% translate "Hide" %}{% else %}{% translate "Show" %}{% endif %}</button>
+          </form>
+        </div></td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="5"><div class="empty"><strong>{% translate "No categories yet" %}</strong>{% translate "Add at least one so people can submit cases." %}</div></td></tr>
+    {% endfor %}
+    </tbody>
+  </table></div>
+</section>
+{% endblock %}

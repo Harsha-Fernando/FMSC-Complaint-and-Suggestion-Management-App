@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% if category %}{% blocktranslate with value_0=category.name %}Edit {{ value_0 }}{% endblocktranslate %}{% else %}{% translate "Add category" %}{% endif %}{% endblock %}
+{% block content %}
+<div class="page-head"><h1>{% if category %}{% blocktranslate with value_0=category.name %}Edit {{ value_0 }}{% endblocktranslate %}{% else %}{% translate "Add category" %}{% endif %}</h1></div>
+<form class="panel panel-body" method="post" novalidate style="max-width:560px">
+  {% csrf_token %}
+  {% include "partials/form_errors.html" %}
+  {% include "partials/field.html" with field=form.name %}
+  {% include "partials/field.html" with field=form.description %}
+  {% include "partials/field.html" with field=form.sort_order %}
+  {% include "partials/field.html" with field=form.is_active %}
+  <div class="btn-row">
+    <button class="btn btn-primary" type="submit">{% if category %}{% translate "Save changes" %}{% else %}{% translate "Add category" %}{% endif %}</button>
+    <a class="btn btn-secondary" href="{% url 'cases:category_list' %}">{% translate "Cancel" %}</a>
+  </div>
+</form>
+{% endblock %}
