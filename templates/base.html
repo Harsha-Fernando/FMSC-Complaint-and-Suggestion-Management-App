@@ -1,0 +1,53 @@
+{% load static ui_icons i18n %}<!doctype html>
+{% get_current_language as LANGUAGE_CODE %}<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#800000">
+  <title>{% block title %}{% translate "Workspace" %}{% endblock %} {% translate "| FMSC Case Desk" %}</title>
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <link rel="stylesheet" href="{% static 'css/language.css' %}">
+</head>
+<body{% if user.is_authenticated %} class="workspace"{% endif %}>
+  <a class="skip-link" href="#main">{% translate "Skip to content" %}</a>
+  {% if user.is_authenticated %}
+  <aside class="sidebar" id="navigation">
+    <a class="brand" href="{% url 'cases:home' %}">
+      {% if university_logo %}<img src="{{ university_logo }}" width="88" height="88" alt="{% translate "University of Sri Jayewardenepura" %}">{% else %}<span class="brand-mark" aria-hidden="true">{% translate "USJ" %}</span>{% endif %}
+      <span class="university-name">{% translate "University of Sri Jayewardenepura" %}</span>
+      <span class="brand-text"><strong>{% translate "FMSC" %}</strong><span>{% translate "Complaint & Suggestion" %}<br>{% translate "Management App" %}</span></span>
+    </a>
+    <nav class="nav" aria-label="{% translate "Main" %}">
+      {% for item in nav_items %}
+        {% if item.group_start %}<div class="sidebar-caption nav-group">{% translate "MANAGE" %}</div>{% endif %}
+        <a href="{{ item.url }}"{% if item.active %} aria-current="page"{% endif %}>{% ui_icon item.icon %}<span>{{ item.label }}</span></a>
+      {% endfor %}
+    </nav>
+    <div class="sidebar-bottom"><form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}<button class="sidebar-logout" type="submit">{% ui_icon 'logout' %}<span>{% translate "Logout" %}</span></button></form><span class="sidebar-footnote">{% translate "A better faculty, together." %}</span></div>
+  </aside>
+  <div class="workspace-body">
+    <header class="utility-bar">
+      <div class="workspace-label"><button class="icon-button mobile-menu" type="button" aria-expanded="false" aria-controls="navigation" aria-label="{% translate "Toggle navigation" %}">{% ui_icon 'menu' %}</button><div class="workspace-title"><strong>{% translate "FMSC Dashboard" %}</strong><span>{% translate "Faculty of Management Studies and Commerce" %}</span></div></div>
+      <div class="utility-actions">
+        {% include "partials/language_selector.html" %}
+        <a class="icon-button notification-link" data-notification-summary="{% url 'cases:notification_summary' %}" href="{% url 'cases:notifications' %}" aria-label="{% if unread_count %}{% blocktranslate with count=unread_count %}Notifications, {{ count }} unread{% endblocktranslate %}{% else %}{% translate 'Notifications' %}{% endif %}">{% ui_icon 'bell' %}{% if unread_count %}<span class="notification-dot" aria-hidden="true">{{ unread_count }}</span>{% endif %}</a>
+        <details class="account-menu">
+          <summary><span class="avatar">{{ user.first_name|first|upper }}{% if user.last_name %}{{ user.last_name|first|upper }}{% elif not user.first_name %}{{ user.display_name|first|upper }}{% endif %}</span><span class="account-name">{{ user.display_name }}<small>{{ user.get_role_display }}</small></span>{% ui_icon 'chevron' %}</summary>
+          <div class="account-popover"><strong>{{ user.display_name }}</strong><span class="small muted">{{ user.get_role_display }}{% if user.authority %} · {{ user.authority }}{% endif %}</span><a href="{% url 'accounts:password_change' %}">{% translate "Change password" %}</a><form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}<button type="submit">{% translate "Sign out" %} {% ui_icon 'logout' %}</button></form></div>
+        </details>
+      </div>
+    </header>
+  {% endif %}
+  <main id="main" class="page{% block page_class %}{% endblock %}" tabindex="-1">
+    {% if messages %}<ul class="messages" role="status">{% for message in messages %}<li class="{{ message.tags }}">{{ message }}</li>{% endfor %}</ul>{% endif %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="footer"><span>{% translate "FMSC Case Desk" %}</span><span>{% translate "Faculty of Management Studies and Commerce" %}</span></footer>
+  {% if user.is_authenticated %}</div>{% endif %}
+  <script src="{% url 'javascript-catalog' %}"></script>
+  <script src="{% static 'js/language.js' %}" defer></script>
+  <script src="{% static 'js/select.js' %}" defer></script>
+  <script src="{% static 'js/workspace.js' %}" defer></script>
+  <script src="{% static 'js/upload.js' %}" defer></script>
+</body>
+</html>

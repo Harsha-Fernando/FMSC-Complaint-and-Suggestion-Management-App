@@ -1,0 +1,7 @@
+{% load i18n %}
+{% if form.non_field_errors %}
+<div class="form-errors" role="alert">
+  <strong>{% if form.non_field_errors|length > 1 %}{% translate "These files could not be accepted:" %}{% else %}{% translate "Check this before you continue:" %}{% endif %}</strong>
+  <ul>{% for e in form.non_field_errors %}<li>{{ e }}</li>{% endfor %}</ul>
+</div>
+{% endif %}
