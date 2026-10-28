@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% load case_tags i18n %}
+{% block title %}{{ case.case_number }}{% endblock %}
+{% block content %}
+<header class="case-head">
+  <div class="case-heading-info">
+  <span class="case-no">{{ case.case_number }}</span>
+  <h1>{{ case.title }}</h1>
+  <div class="badges">
+    {% status_badge case %}
+    {% priority_badge case %}
+    <span class="tag">{{ case.get_case_type_display }}</span>
+    <span class="tag">{{ case.category }}</span>
+  </div>
+  </div>
+  <nav class="case-navigation"><a class="btn btn-primary" href="{% if user.is_reporter %}{% url 'cases:my_cases' %}{% else %}{% url 'cases:home' %}{% endif %}"><span aria-hidden="true">←</span> {% translate "Back to" %} {% if user.is_reporter %}{% translate "my cases" %}{% else %}{% translate "dashboard" %}{% endif %}</a></nav>
+</header>
+
+<div class="case-progress">
+<ol class="rail" aria-label="{% translate "Case progress" %}">
+  {% for step in steps %}
+    <li class="{{ step.state }}"{% if step.state == "current" or step.state == "stopped" %} aria-current="step"{% endif %}>{{ step.label }}</li>
+  {% endfor %}
+</ol>
+</div>
+
+<div class="case-layout">
+  <div class="stack case-content">
+
+    {% if info_request %}
+    <div class="callout" role="alert">
+      <h3>{% translate "The unit handling this case needs more information" %}</h3>
+      <p class="description">{{ info_request.text }}</p>
+      <p class="small"><a href="#reply">{% translate "Reply below" %}</a></p>
+    </div>
+    {% endif %}
+
+    {% if case.status == "rejected" %}
+    <div class="callout rejected">
+      <h3>{% translate "This case was not accepted" %}</h3>
+      <p>{{ case.get_rejection_reason_display }}.</p>
+    </div>
+    {% endif %}
+
+    {% if case.resolution_note and case.status == "solved" or case.resolution_note and case.status == "closed" %}
+    <div class="callout resolved">
+      <h3>{% if case.status == "closed" %}{% translate "Solved and closed" %}{% else %}{% translate "Solved" %}{% endif %}</h3>
+      <p class="description">{{ case.resolution_note }}</p>
+    </div>
+    {% endif %}
+
+    {% if feedback_pending %}
+    <div class="callout" role="alert">
+      <h3>{% translate "The reporter says this is not resolved" %}</h3>
+      <p>{% translate "Read their feedback in the history, then close the case or reopen it for the authority." %}</p>
+    </div>
+    {% endif %}
+
+    {% if reply_form %}
+      <section class="panel" id="reply">
+        <div class="panel-head"><h2>{% translate "Reply with the information" %}</h2></div>
+        <form class="panel-body" method="post" action="{% url 'cases:reply' case.case_number %}" enctype="multipart/form-data" data-upload novalidate>
+          {% csrf_token %}
+          {% include "partials/form_errors.html" with form=reply_form %}
+          {% include "partials/field.html" with field=reply_form.text %}
+          {% include "partials/upload_box.html" with field=reply_form.images %}
+          {% include "partials/upload_box.html" with field=reply_form.videos %}
+          <div class="btn-row" style="margin-top:16px"><button class="btn btn-primary" type="submit">{% translate "Send reply" %}</button></div>
+          {% include "partials/progress.html" %}
+        </form>
+      </section>
+    {% endif %}
+
+    {% if feedback_form %}
+      <section class="panel">
+        <div class="panel-head"><h2>{% translate "Is it actually fixed?" %}</h2><p>{% translate "If not, tell the faculty office. They can reopen the case." %}</p></div>
+        <form class="panel-body" method="post" action="{% url 'cases:feedback' case.case_number %}" novalidate>
+          {% csrf_token %}
+          {% include "partials/field.html" with field=feedback_form.text %}
+          <button class="btn btn-secondary" type="submit">{% translate "Send feedback" %}</button>
+        </form>
+      </section>
+    {% endif %}
+
+    <section class="panel">
+      <div class="panel-head"><h2>{% translate "Description" %}</h2></div>
+      <div class="panel-body"><p class="description">{{ case.description }}</p></div>
+    </section>
+
+    {% if staff_view and case.internal_note %}
+    <section class="panel">
+      <div class="panel-head"><h2>{% translate "Admin note for authority" %}</h2><p>{% translate "Not shown to the reporter" %}</p></div>
+      <div class="panel-body"><p class="description">{{ case.internal_note }}</p></div>
+    </section>
+    {% endif %}
+
+    <section class="panel">
+      <div class="panel-head"><h2>{% translate "Attachments" %}</h2><p>{% blocktranslate count total=attachments|length %}{{ total }} file{% plural %}{{ total }} files{% endblocktranslate %}</p></div>
+      <div class="panel-body">
+        {% if attachments %}
+        <div class="files">
+          {% for f in attachments %}
+          <div class="file">
+            <a href="{{ f.get_absolute_url }}" target="_blank" rel="noopener">
+              <div class="thumb">
+                {% if f.file_type == "image" %}<img src="{{ f.get_absolute_url }}" alt="{{ f.original_name }}" loading="lazy">
+                {% else %}<span>{% translate "Play video" %}</span>{% endif %}
+              </div>
+            </a>
+            <div class="cap">
+              <strong title="{{ f.original_name }}">{{ f.original_name }}</strong>
+              <span>{{ f.get_kind_display }}, {{ f.size|filesize }}</span><br>
+              <a class="small" href="{{ f.get_absolute_url }}?download=1">{% translate "Download" %}</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <p class="muted">{% translate "No files were attached." %}</p>
+        {% endif %}
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><h2>{% translate "History" %}</h2><p>{% if staff_view %}{% translate "Full audit trail" %}{% else %}{% translate "Status changes and messages" %}{% endif %}</p></div>
+      <div class="panel-body">
+        <ol class="timeline">
+          {% for e in timeline %}
+          <li class="{{ e.kind }}{% if e.emphasis %} emphasis{% endif %}">
+            <div class="when">{{ e.when|date:"j M Y, g:i a" }}, {{ e.who }}</div>
+            <div class="what">{{ e.title }}{% if e.internal %}<span class="internal">{% translate "Internal" %}</span>{% endif %}</div>
+            {% if e.text %}<div class="text">{{ e.text }}</div>{% endif %}
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </section>
+  </div>
+
+  <aside class="stack case-sidebar">
+    {% if progress_form %}
+      {% include "cases/_authority_panel.html" %}
+    {% endif %}
+
+    {% if user.is_case_admin %}
+      {% include "cases/_admin_panel.html" %}
+    {% endif %}
+
+    {% if user.is_management_viewer %}
+      <section class="panel panel-body small muted">{% translate "You have read-only access. Case actions are taken by the faculty office and the assigned authority." %}</section>
+    {% endif %}
+
+    {% if user.is_authority_officer and not progress_form %}
+      <section class="panel panel-body small muted">{% blocktranslate with value_0=case.get_status_display|lower %}This case is {{ value_0 }}. There is nothing for your unit to update.{% endblocktranslate %}</section>
+    {% endif %}
+
+    <section class="panel">
+      <div class="panel-head"><h2>{% translate "Details" %}</h2></div>
+      <div class="panel-body">
+        <dl class="facts">
+          <dt>{% translate "Location" %}</dt><dd>{{ case.location }}</dd>
+          <dt>{% translate "Submitted" %}</dt><dd>{{ case.submitted_at|date:"j M Y, g:i a" }}</dd>
+          <dt>{% translate "Submitted by" %}</dt>
+          <dd>{% if case.submitted_by_id == user.pk %}{% translate "You" %}{% else %}{{ case.submitted_by.display_name }}, {{ case.submitted_by.get_role_display|lower }}{% if case.submitted_by.registration_number %} ({{ case.submitted_by.registration_number }}){% endif %}{% if staff_view and case.submitted_by.department %}, {{ case.submitted_by.department }}{% endif %}{% endif %}</dd>
+          <dt>{% translate "Assigned to" %}</dt><dd>{{ case.assigned_authority|default:_("Not assigned yet") }}</dd>
+          {% if case.is_open %}<dt>{% translate "Age" %}</dt><dd><span class="age {{ case.age_days|age_tone }}">{{ case.age_days|age_label }}</span> {% translate "since submission" %}</dd>{% endif %}
+          {% if case.solved_at %}<dt>{% translate "Solved" %}</dt><dd>{{ case.solved_at|date:"j M Y" }}</dd>{% endif %}
+          {% if case.closed_at %}<dt>{% translate "Closed" %}</dt><dd>{{ case.closed_at|date:"j M Y" }}</dd>{% endif %}
+        </dl>
+      </div>
+    </section>
+
+
+  </aside>
+</div>
+{% endblock %}

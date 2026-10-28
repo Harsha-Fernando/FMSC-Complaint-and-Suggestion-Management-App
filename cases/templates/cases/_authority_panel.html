@@ -1,0 +1,17 @@
+{% load i18n %}
+{# Wireframe 7: case progress update and closure #}
+<section class="panel" id="update">
+  <div class="panel-head"><h2>{% translate "Update case progress" %}</h2><p>{% blocktranslate with value_0=case.get_status_display %}Current status: {{ value_0 }}{% endblocktranslate %}</p></div>
+  <form class="panel-body" method="post" action="{% url 'cases:authority_update' case.case_number %}" enctype="multipart/form-data" data-upload novalidate>
+    {% csrf_token %}
+    {% include "partials/form_errors.html" with form=progress_form %}
+    {% include "partials/field.html" with field=progress_form.new_status %}
+    {% include "partials/field.html" with field=progress_form.comment %}
+    {% include "partials/field.html" with field=progress_form.is_internal %}
+    {% include "partials/upload_box.html" with field=progress_form.completion_images %}
+    {% include "partials/upload_box.html" with field=progress_form.completion_videos %}
+    <div style="margin-top:18px">{% include "partials/field.html" with field=progress_form.resolution_note %}</div>
+    <div class="btn-row"><button class="btn btn-primary" type="submit">{% translate "Save progress" %}</button></div>
+    {% include "partials/progress.html" %}
+  </form>
+</section>

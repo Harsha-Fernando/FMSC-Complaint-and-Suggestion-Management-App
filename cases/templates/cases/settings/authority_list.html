@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Authorities" %}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>{% translate "Authorities" %}</h1><p>{% translate "Manage the units responsible for resolving cases." %}</p></div>
+  <a class="btn btn-primary" href="{% url 'cases:authority_create' %}">{% translate "Add authority" %}</a>
+</div>
+<section class="panel">
+  <div class="table-wrap"><table>
+    <thead><tr><th>{% translate "Authority" %}</th><th>{% translate "Contact officer" %}</th><th>{% translate "Email / phone" %}</th><th class="num">{% translate "Open cases" %}</th><th class="num">{% translate "Officers" %}</th><th>{% translate "Status" %}</th><th><span class="visually-hidden">{% translate "Actions" %}</span></th></tr></thead>
+    <tbody>
+    {% for a in authorities %}
+      <tr>
+        <td class="row-title"><a href="{% url 'cases:authority_edit' a.pk %}">{{ a.name }}</a>{% if a.unit %}<div class="meta">{{ a.unit }}</div>{% endif %}</td>
+        <td>{{ a.officer_name|default:"—" }}{% if a.designation %}<div class="small muted">{{ a.designation }}</div>{% endif %}</td>
+        <td class="small">{{ a.email|default:"—" }}{% if a.phone %}<br>{{ a.phone }}{% endif %}</td>
+        <td class="num">{{ a.open_cases }}</td>
+        <td class="num">{{ a.officer_count }}</td>
+        <td>{% if a.is_active %}<span class="status done">{% translate "Active" %}</span>{% else %}<span class="status closed">{% translate "Inactive" %}</span>{% endif %}</td>
+        <td>
+          <div class="btn-row">
+            <a class="btn btn-secondary btn-small" href="{% url 'cases:authority_edit' a.pk %}">{% translate "Edit" %}</a>
+            <form method="post" action="{% url 'cases:authority_toggle' a.pk %}">{% csrf_token %}
+              <button class="btn btn-secondary btn-small" type="submit">{% if a.is_active %}{% translate "Deactivate" %}{% else %}{% translate "Activate" %}{% endif %}</button>
+            </form>
+            {% if not a.total_cases %}
+            <form method="post" action="{% url 'cases:authority_delete' a.pk %}" onsubmit="return confirm('Delete {{ a.name|escapejs }}? This cannot be undone.');">{% csrf_token %}
+              <button class="btn btn-danger btn-small" type="submit">{% translate "Delete" %}</button>
+            </form>
+            {% endif %}
+          </div>
+        </td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="7"><div class="empty"><strong>{% translate "No authorities yet" %}</strong>{% translate "Add the units that handle cases, such as the Maintenance Division or IT Unit." %}</div></td></tr>
+    {% endfor %}
+    </tbody>
+  </table></div>
+</section>
+<p class="small muted" style="margin-top:14px">{% translate "An authority with cases on record can't be deleted, so its history stays intact. Deactivate it instead. Officers are linked to an authority on their user account." %}</p>
+{% endblock %}
