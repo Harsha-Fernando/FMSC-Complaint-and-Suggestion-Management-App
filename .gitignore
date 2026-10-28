@@ -39,6 +39,7 @@ htmlcov/
 coverage.xml
 /build/
 /dist/
+/team-handoff/
 *.egg-info/
 
 # Browser-test dependencies and generated reports

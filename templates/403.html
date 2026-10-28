@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Not allowed" %}{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>{% translate "You don't have access to this page" %}</h1><p>{% translate "Your role doesn't include this screen. If you think it should, contact the system administrator." %}</p></div></div>
+<p><a class="btn btn-primary" href="{% url 'cases:home' %}">{% translate "Go to your home page" %}</a></p>
+{% endblock %}

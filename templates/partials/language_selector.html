@@ -1,0 +1,9 @@
+{% load i18n ui_icons %}{% get_current_language as CURRENT_LANGUAGE %}
+<details class="language-menu" data-language-menu>
+  <summary aria-label="{% translate 'Language' %}" title="{% translate 'Change language' %}">{% ui_icon 'globe' %}<span translate="no">{{ CURRENT_LANGUAGE|upper }}</span>{% ui_icon 'chevron' %}</summary>
+  <div class="language-options">
+    {% for code, name in language_options %}
+    <form method="post" action="{% url 'set_language' %}" data-language-form>{% csrf_token %}<input type="hidden" name="next" value="{{ language_next|default:request.get_full_path }}"><button type="submit" name="language" value="{{ code }}" lang="{{ code }}" translate="no"{% if CURRENT_LANGUAGE == code %} aria-current="true"{% endif %}>{{ name }}{% if CURRENT_LANGUAGE == code %}<span aria-hidden="true">✓</span>{% endif %}</button></form>
+    {% endfor %}
+  </div>
+</details>

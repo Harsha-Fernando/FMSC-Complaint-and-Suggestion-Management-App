@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Not found" %}{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>{% translate "We couldn't find that page" %}</h1><p>{% translate "The case number may be wrong, or the case may belong to someone else." %}</p></div></div>
+<p><a class="btn btn-primary" href="{% url 'cases:home' %}">{% translate "Go to your home page" %}</a></p>
+{% endblock %}

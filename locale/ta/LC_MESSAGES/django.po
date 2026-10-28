@@ -1,0 +1,2843 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FMSC Case Desk\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-25 17:30+0530\n"
+"PO-Revision-Date: 2026-10-25 00:00+0530\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: accounts/admin.py:15
+msgid "Not specified"
+msgstr "குறிப்பிடப்படவில்லை"
+
+#: accounts/admin.py:31
+msgid "Person"
+msgstr "தனிப்பட்ட விவரங்கள்"
+
+#: accounts/admin.py:32
+msgid "Faculty role"
+msgstr "பீடப் பயனர் வகை"
+
+#: accounts/admin.py:33
+msgid "Access"
+msgstr "அணுகல்"
+
+#: accounts/admin.py:34
+msgid "Dates"
+msgstr "தேதிகள்"
+
+#: accounts/admin.py:58 accounts/templates/admin/accounts/user/import.html:32
+#: cases/forms.py:409 cases/forms.py:416
+msgid "Name"
+msgstr "பெயர்"
+
+#: accounts/admin.py:87
+msgid "Select a valid role."
+msgstr "செல்லுபடியாகும் பங்கைத் தேர்ந்தெடுக்கவும்."
+
+#: accounts/forms.py:9
+msgid "Email or registration number"
+msgstr "மின்னஞ்சல் அல்லது பதிவு எண்"
+
+#: accounts/forms.py:14
+msgid "Password"
+msgstr "கடவுச்சொல்"
+
+#: accounts/forms.py:21
+msgid "That email, registration number or password is not right. Check them and try again."
+msgstr "மின்னஞ்சல், பதிவு எண் அல்லது கடவுச்சொல் தவறானது. சரிபார்த்து மீண்டும் முயலவும்."
+
+#: accounts/forms.py:24
+msgid "This account has been deactivated. Contact the faculty office."
+msgstr "இந்தக் கணக்கு முடக்கப்பட்டுள்ளது. பீட அலுவலகத்தைத் தொடர்புகொள்ளவும்."
+
+#: accounts/forms.py:29
+msgid "CSV file"
+msgstr "CSV கோப்பு"
+
+#: accounts/forms.py:29
+msgid "Upload a UTF-8 CSV file, up to 5 MB and 10,000 accounts."
+msgstr "அதிகபட்சம் 5 MB மற்றும் 10,000 கணக்குகள் கொண்ட UTF-8 CSV கோப்பைப் பதிவேற்றவும்."
+
+#: accounts/importing.py:24
+msgid "The CSV file must be no larger than 5 MB."
+msgstr "CSV கோப்பு 5 MB ஐ மீறக்கூடாது."
+
+#: accounts/importing.py:28
+msgid "Save the file as UTF-8 CSV and upload it again."
+msgstr "கோப்பை UTF-8 CSV ஆகச் சேமித்து மீண்டும் பதிவேற்றவும்."
+
+#: accounts/importing.py:33
+msgid "Use the template headers. Email and role columns are required; duplicate or unknown columns are not allowed."
+msgstr "மாதிரியின் நெடுவரிசைத் தலைப்புகளைப் பயன்படுத்தவும். email மற்றும் role நெடுவரிசைகள் அவசியம். நகல் அல்லது அறியப்படாத நெடுவரிசைகள் அனுமதிக்கப்படாது."
+
+#: accounts/importing.py:37
+msgid "Every CSV row must have the same number of columns as the header."
+msgstr "ஒவ்வொரு CSV வரியிலும் தலைப்பு வரியிலுள்ள அதே எண்ணிக்கையிலான நெடுவரிசைகள் இருக்க வேண்டும்."
+
+#: accounts/importing.py:42
+msgid "Import no more than 10,000 accounts at a time."
+msgstr "ஒரு முறையில் 10,000 கணக்குகளுக்கு மேல் இறக்குமதி செய்ய வேண்டாம்."
+
+#: accounts/importing.py:44
+msgid "The CSV file has no account rows."
+msgstr "CSV கோப்பில் கணக்கு வரிகள் இல்லை."
+
+#: accounts/importing.py:47
+msgid "The CSV file could not be read. Check its quoting and columns."
+msgstr "CSV கோப்பைப் படிக்க முடியவில்லை. மேற்கோள் குறிகளையும் நெடுவரிசைகளையும் சரிபார்க்கவும்."
+
+#: accounts/importing.py:67
+msgid "Import between 1 and 10,000 accounts."
+msgstr "1 முதல் 10,000 வரையிலான கணக்குகளை இறக்குமதி செய்யவும்."
+
+#: accounts/importing.py:74
+msgid "This import does not allow the selected role."
+msgstr "இந்த இறக்குமதியில் தேர்ந்தெடுத்த பங்கு அனுமதிக்கப்படாது."
+
+#: accounts/importing.py:77
+msgid "An existing account has a different role. Change roles individually in user management."
+msgstr "ஏற்கனவே உள்ள கணக்கிற்கு வேறு பங்கு உள்ளது. பயனர் நிர்வாகத்தில் பங்குகளைத் தனித்தனியாக மாற்றவும்."
+
+#: accounts/importing.py:100
+msgid "Select an existing authority for this account."
+msgstr "இந்தக் கணக்கிற்கு ஏற்கனவே உள்ள பொறுப்பான பிரிவைத் தேர்ந்தெடுக்கவும்."
+
+#: accounts/importing.py:102
+msgid "Only authority accounts can have an authority."
+msgstr "பொறுப்பான பிரிவின் கணக்குகளுக்கு மட்டுமே ஒரு பிரிவை ஒதுக்கலாம்."
+
+#: accounts/importing.py:114
+#, python-format
+msgid "Duplicate value in the CSV column: %(column)s."
+msgstr "CSV நெடுவரிசையில் நகல் மதிப்பு உள்ளது: %(column)s."
+
+#: accounts/importing.py:119
+#, python-format
+msgid "This value already belongs to another account: %(column)s."
+msgstr "இந்த மதிப்பு ஏற்கனவே மற்றொரு கணக்கிற்கு உரியது: %(column)s."
+
+#: accounts/importing.py:122
+#: cases/templates/cases/dashboards/authority_dashboard.html:28
+msgid "Update"
+msgstr "புதுப்பிக்கவும்"
+
+#: accounts/importing.py:122
+msgid "Create"
+msgstr "உருவாக்கு"
+
+#: accounts/importing.py:141
+msgid "Accounts changed after the preview. Upload the CSV again to review the latest changes."
+msgstr "முன்னோட்டத்திற்குப் பிறகு கணக்குகள் மாறியுள்ளன. சமீபத்திய மாற்றங்களைச் சரிபார்க்க CSV கோப்பை மீண்டும் பதிவேற்றவும்."
+
+#: accounts/locale_support.py:10
+msgid "This field is required."
+msgstr "இந்தப் புலம் கட்டாயமானது."
+
+#: accounts/locale_support.py:11
+msgid "Enter a valid email address."
+msgstr "சரியான மின்னஞ்சல் முகவரியை உள்ளிடவும்."
+
+#: accounts/locale_support.py:12
+msgid "Enter a valid date."
+msgstr "சரியான தேதியை உள்ளிடவும்."
+
+#: accounts/locale_support.py:13
+msgid "Enter a valid value."
+msgstr "சரியான பெறுமதியை உள்ளிடவும்."
+
+#: accounts/locale_support.py:14
+msgid "Enter a whole number."
+msgstr "முழு எண்ணை உள்ளிடவும்."
+
+#: accounts/locale_support.py:15
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr "சரியான விருப்பத்தைத் தேர்ந்தெடுக்கவும். அந்த விருப்பம் பட்டியலில் இல்லை."
+
+#: accounts/locale_support.py:16
+msgid "Old password"
+msgstr "தற்போதைய கடவுச்சொல்"
+
+#: accounts/locale_support.py:17
+msgid "New password"
+msgstr "புதிய கடவுச்சொல்"
+
+#: accounts/locale_support.py:18
+msgid "New password confirmation"
+msgstr "புதிய கடவுச்சொல்லை உறுதிப்படுத்தவும்"
+
+#: accounts/locale_support.py:19
+msgid "The two password fields didn’t match."
+msgstr "இரு கடவுச்சொற்களும் பொருந்தவில்லை."
+
+#: accounts/locale_support.py:20
+msgid "Your old password was entered incorrectly. Please enter it again."
+msgstr "தற்போதைய கடவுச்சொல் தவறானது. மீண்டும் உள்ளிடவும்."
+
+#: accounts/locale_support.py:21
+msgid "Your password can’t be entirely numeric."
+msgstr "கடவுச்சொல் முழுவதும் எண்களாக இருக்கக் கூடாது."
+
+#: accounts/locale_support.py:22
+msgid "Your password can’t be a commonly used password."
+msgstr "பொதுவாகப் பயன்படுத்தப்படும் கடவுச்சொல்லைப் பயன்படுத்த வேண்டாம்."
+
+#: accounts/locale_support.py:23
+msgid "Your password can’t be too similar to your other personal information."
+msgstr "கடவுச்சொல் உங்கள் தனிப்பட்ட தகவல்களுக்கு மிக ஒத்ததாக இருக்கக் கூடாது."
+
+#: accounts/locale_support.py:24
+msgid "This password is too common."
+msgstr "இந்தக் கடவுச்சொல் மிகவும் பொதுவானது."
+
+#: accounts/locale_support.py:25
+msgid "This password is entirely numeric."
+msgstr "இந்தக் கடவுச்சொல்லில் எண்கள் மட்டுமே உள்ளன."
+
+#: accounts/locale_support.py:26
+msgid "Monday"
+msgstr "திங்கள்"
+
+#: accounts/locale_support.py:27
+msgid "Tuesday"
+msgstr "செவ்வாய்"
+
+#: accounts/locale_support.py:28
+msgid "Wednesday"
+msgstr "புதன்"
+
+#: accounts/locale_support.py:29
+msgid "Thursday"
+msgstr "வியாழன்"
+
+#: accounts/locale_support.py:30
+msgid "Friday"
+msgstr "வெள்ளி"
+
+#: accounts/locale_support.py:31
+msgid "Saturday"
+msgstr "சனி"
+
+#: accounts/locale_support.py:32
+msgid "Sunday"
+msgstr "ஞாயிறு"
+
+#: accounts/locale_support.py:33
+msgid "Mon"
+msgstr "திங்"
+
+#: accounts/locale_support.py:34
+msgid "Tue"
+msgstr "செவ்"
+
+#: accounts/locale_support.py:35
+msgid "Wed"
+msgstr "புத"
+
+#: accounts/locale_support.py:36
+msgid "Thu"
+msgstr "வியா"
+
+#: accounts/locale_support.py:37
+msgid "Fri"
+msgstr "வெள்"
+
+#: accounts/locale_support.py:38
+msgid "Sat"
+msgstr "சனி"
+
+#: accounts/locale_support.py:39
+msgid "Sun"
+msgstr "ஞாயி"
+
+#: accounts/locale_support.py:40
+msgid "January"
+msgstr "ஜனவரி"
+
+#: accounts/locale_support.py:41
+msgid "February"
+msgstr "பிப்ரவரி"
+
+#: accounts/locale_support.py:42
+msgid "March"
+msgstr "மார்ச்"
+
+#: accounts/locale_support.py:43
+msgid "April"
+msgstr "ஏப்ரல்"
+
+#: accounts/locale_support.py:44
+msgid "May"
+msgstr "மே"
+
+#: accounts/locale_support.py:45
+msgid "June"
+msgstr "ஜூன்"
+
+#: accounts/locale_support.py:46
+msgid "July"
+msgstr "ஜூலை"
+
+#: accounts/locale_support.py:47
+msgid "August"
+msgstr "ஆகஸ்ட்"
+
+#: accounts/locale_support.py:48
+msgid "September"
+msgstr "செப்டம்பர்"
+
+#: accounts/locale_support.py:49
+msgid "October"
+msgstr "அக்டோபர்"
+
+#: accounts/locale_support.py:50
+msgid "November"
+msgstr "நவம்பர்"
+
+#: accounts/locale_support.py:51
+msgid "December"
+msgstr "டிசம்பர்"
+
+#: accounts/locale_support.py:52
+msgid "jan"
+msgstr "ஜன"
+
+#: accounts/locale_support.py:53
+msgid "feb"
+msgstr "பிப்"
+
+#: accounts/locale_support.py:54
+msgid "mar"
+msgstr "மார்"
+
+#: accounts/locale_support.py:55
+msgid "apr"
+msgstr "ஏப்"
+
+#: accounts/locale_support.py:56
+msgid "may"
+msgstr "மே"
+
+#: accounts/locale_support.py:57
+msgid "jun"
+msgstr "ஜூன்"
+
+#: accounts/locale_support.py:58
+msgid "jul"
+msgstr "ஜூலை"
+
+#: accounts/locale_support.py:59
+msgid "aug"
+msgstr "ஆக"
+
+#: accounts/locale_support.py:60
+msgid "sep"
+msgstr "செப்"
+
+#: accounts/locale_support.py:61
+msgid "oct"
+msgstr "அக்"
+
+#: accounts/locale_support.py:62
+msgid "nov"
+msgstr "நவ"
+
+#: accounts/locale_support.py:63
+msgid "dec"
+msgstr "டிச"
+
+#: accounts/locale_support.py:64
+msgid "p.m."
+msgstr "பி.ப."
+
+#: accounts/locale_support.py:65
+msgid "a.m."
+msgstr "மு.ப."
+
+#: accounts/locale_support.py:66
+msgid "PM"
+msgstr "பி.ப."
+
+#: accounts/locale_support.py:67
+msgid "AM"
+msgstr "மு.ப."
+
+#: accounts/locale_support.py:71
+#, python-format
+msgid "This password is too short. It must contain at least %d character."
+msgid_plural "This password is too short. It must contain at least %d characters."
+msgstr[0] "கடவுச்சொல் மிகவும் குறுகியது. குறைந்தது %d எழுத்துகள் தேவை."
+msgstr[1] "கடவுச்சொல் மிகவும் குறுகியது. குறைந்தது %d எழுத்துகள் தேவை."
+
+#: accounts/locale_support.py:72
+#, python-format
+msgid "Your password must contain at least %(min_length)d character."
+msgid_plural "Your password must contain at least %(min_length)d characters."
+msgstr[0] "கடவுச்சொல்லில் குறைந்தது %(min_length)d எழுத்துகள் இருக்க வேண்டும்."
+msgstr[1] "கடவுச்சொல்லில் குறைந்தது %(min_length)d எழுத்துகள் இருக்க வேண்டும்."
+
+#: accounts/locale_support.py:73
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] "%(num)d வருடம்"
+msgstr[1] "%(num)d வருடங்கள்"
+
+#: accounts/locale_support.py:74
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] "%(num)d மாதம்"
+msgstr[1] "%(num)d மாதங்கள்"
+
+#: accounts/locale_support.py:75
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] "%(num)d வாரம்"
+msgstr[1] "%(num)d வாரங்கள்"
+
+#: accounts/locale_support.py:76
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] "%(num)d நாள்"
+msgstr[1] "%(num)d நாட்கள்"
+
+#: accounts/locale_support.py:77
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] "%(num)d மணி"
+msgstr[1] "%(num)d மணி"
+
+#: accounts/locale_support.py:78
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] "%(num)d நிமிடம்"
+msgstr[1] "%(num)d நிமிடங்கள்"
+
+#: accounts/models.py:18
+msgid "Student"
+msgstr "மாணவர்"
+
+#: accounts/models.py:19
+msgid "Lecturer"
+msgstr "விரிவுரையாளர்"
+
+#: accounts/models.py:20
+msgid "Administrator"
+msgstr "நிர்வாகி"
+
+#: accounts/models.py:21
+msgid "Relevant authority"
+msgstr "பொறுப்பான பிரிவு"
+
+#: accounts/models.py:22
+msgid "Faculty management"
+msgstr "பீட முகாமைத்துவம்"
+
+#: accounts/models.py:23
+msgid "System administrator"
+msgstr "கணினி அமைப்பு நிர்வாகி"
+
+#: accounts/models.py:32
+msgid "Students sign in with this or their email."
+msgstr "மாணவர்கள் இந்த எண் அல்லது மின்னஞ்சல் மூலம் உள்நுழையலாம்."
+
+#: accounts/models.py:35 accounts/templates/admin/accounts/user/import.html:32
+msgid "CPM number"
+msgstr "CPM எண்"
+
+#: accounts/models.py:36
+msgid "Enter exactly five digits, for example 25678."
+msgstr "சரியாக ஐந்து இலக்கங்களை உள்ளிடவும். எடுத்துக்காட்டு: 25678."
+
+#: accounts/models.py:37
+msgid "Required for students. Keep leading zeros."
+msgstr "மாணவர்களுக்கு அவசியம். தொடக்கப் பூஜ்ஜியங்களை வைத்திருக்கவும்."
+
+#: accounts/models.py:40 accounts/templates/admin/accounts/user/import.html:32
+msgid "Lecturer ID"
+msgstr "விரிவுரையாளர் அடையாள எண்"
+
+#: accounts/models.py:41
+msgid "Use letters, numbers, dots, hyphens, underscores or slashes."
+msgstr "எழுத்துகள், எண்கள், புள்ளிகள், இணைப்புக்குறிகள், அடிக்கோடுகள் அல்லது சாய்வுக்கோடுகளைப் பயன்படுத்தவும்."
+
+#: accounts/models.py:42
+msgid "Required for lecturers. IDs are not case-sensitive."
+msgstr "விரிவுரையாளர்களுக்கு அவசியம். பெரிய, சிறிய எழுத்து வேறுபாடு கருதப்படாது."
+
+#: accounts/models.py:53
+msgid "Only for relevant authority users: the unit whose cases they handle."
+msgstr "அலுவலர் பொறுப்பேற்கும் பிரிவு."
+
+#: accounts/models.py:67
+msgid "A CPM number is required for a student."
+msgstr "மாணவருக்கு CPM எண் அவசியம்."
+
+#: accounts/models.py:69
+msgid "A lecturer ID is required for a lecturer."
+msgstr "விரிவுரையாளருக்கு விரிவுரையாளர் அடையாள எண் அவசியம்."
+
+#: accounts/models.py:71
+msgid "Only students can have a CPM number."
+msgstr "மாணவர்களுக்கு மட்டுமே CPM எண் இருக்க முடியும்."
+
+#: accounts/models.py:73
+msgid "Only lecturers can have a lecturer ID."
+msgstr "விரிவுரையாளர்களுக்கு மட்டுமே விரிவுரையாளர் அடையாள எண் இருக்க முடியும்."
+
+#: accounts/templates/accounts/auth_base.html:7
+#: accounts/templates/accounts/login.html:13
+#: accounts/templates/accounts/password_reset_complete.html:7
+msgid "Sign in"
+msgstr "உள்நுழையவும்"
+
+#: accounts/templates/accounts/auth_base.html:7 templates/base.html:7
+msgid "| FMSC Case Desk"
+msgstr "FMSC கோரிக்கை மையம்"
+
+#: accounts/templates/accounts/auth_base.html:12 templates/base.html:12
+msgid "Skip to content"
+msgstr "உள்ளடக்கத்திற்குச் செல்லவும்"
+
+#: accounts/templates/accounts/auth_base.html:18
+#: accounts/templates/accounts/auth_base.html:22 templates/base.html:16
+#: templates/base.html:17
+msgid "University of Sri Jayewardenepura"
+msgstr "ஸ்ரீ ஜயவர்தனபுர பல்கலைக்கழகம்"
+
+#: accounts/templates/accounts/auth_base.html:19
+#: accounts/templates/accounts/auth_base.html:22 templates/base.html:30
+#: templates/base.html:45
+msgid "Faculty of Management Studies and Commerce"
+msgstr "முகாமைத்துவக் கற்கைகள் மற்றும் வணிகவியல் பீடம்"
+
+#: accounts/templates/accounts/auth_base.html:25
+msgid "Your voice."
+msgstr "உங்கள் குரல்."
+
+#: accounts/templates/accounts/auth_base.html:25
+msgid "Our next step."
+msgstr "எங்கள் அடுத்த படி."
+
+#: accounts/templates/accounts/auth_base.html:26
+msgid "A better faculty starts with a conversation. Report a concern, share an idea, and follow its progress."
+msgstr "பிரச்சினை அல்லது யோசனையைப் பகிர்ந்து அதன் முன்னேற்றத்தைக் காணுங்கள். சிறந்த பீடத்திற்கு உங்கள் குரலைச் சேருங்கள்."
+
+#: accounts/templates/accounts/auth_base.html:28
+msgid "Submit a complaint or suggestion, with photos or a short video if they help."
+msgstr "தேவையெனில் புகைப்படம் அல்லது குறுகிய காணொளியுடன் புகார் அல்லது பரிந்துரையைச் சமர்ப்பிக்கவும்."
+
+#: accounts/templates/accounts/auth_base.html:29
+msgid "The faculty office reviews it and sends it to the unit responsible."
+msgstr "பீட அலுவலகம் பரிசீலித்து பொறுப்பான பிரிவுக்கு அனுப்பும்."
+
+#: accounts/templates/accounts/auth_base.html:30
+msgid "You get a message when the case is solved."
+msgstr "கோரிக்கை தீர்க்கப்படும்போது உங்களுக்கு அறிவிக்கப்படும்."
+
+#: accounts/templates/accounts/auth_base.html:33
+msgid "Need help signing in? Contact the faculty office."
+msgstr "உள்நுழைய உதவி வேண்டுமா? பீட அலுவலகத்தைத் தொடர்புகொள்ளவும்."
+
+#: accounts/templates/accounts/login.html:4
+msgid "FMSC CASE DESK"
+msgstr "FMSC கோரிக்கை மையம்"
+
+#: accounts/templates/accounts/login.html:5
+msgid "Welcome back"
+msgstr "மீண்டும் வரவேற்கிறோம்"
+
+#: accounts/templates/accounts/login.html:6
+msgid "Use your university email or registration number."
+msgstr "பல்கலைக்கழக மின்னஞ்சல் அல்லது பதிவு எண்ணைப் பயன்படுத்தவும்."
+
+#: accounts/templates/accounts/login.html:15
+msgid "Forgot your password?"
+msgstr "கடவுச்சொல் மறந்துவிட்டதா?"
+
+#: accounts/templates/accounts/password_change.html:3
+#: accounts/templates/accounts/password_change.html:5 templates/base.html:36
+msgid "Change password"
+msgstr "கடவுச்சொல்லை மாற்றவும்"
+
+#: accounts/templates/accounts/password_change.html:12
+#: accounts/templates/accounts/password_reset_confirm.html:11
+msgid "Save password"
+msgstr "கடவுச்சொல்லைச் சேமிக்கவும்"
+
+#: accounts/templates/accounts/password_reset_complete.html:3
+#: accounts/templates/accounts/password_reset_complete.html:5
+msgid "Password saved"
+msgstr "கடவுச்சொல் சேமிக்கப்பட்டது"
+
+#: accounts/templates/accounts/password_reset_complete.html:6
+msgid "You can now sign in with your new password."
+msgstr "இப்போது புதிய கடவுச்சொல்லுடன் உள்நுழையலாம்."
+
+#: accounts/templates/accounts/password_reset_confirm.html:3
+#: accounts/templates/accounts/password_reset_confirm.html:6
+msgid "Set a new password"
+msgstr "புதிய கடவுச்சொல்லை அமைக்கவும்"
+
+#: accounts/templates/accounts/password_reset_confirm.html:14
+msgid "This link has expired"
+msgstr "இந்த இணைப்பு காலாவதியாகிவிட்டது"
+
+#: accounts/templates/accounts/password_reset_confirm.html:15
+msgid "Reset links work once. Ask for a new one and use the latest email."
+msgstr "இணைப்பை ஒருமுறை மட்டுமே பயன்படுத்தலாம். புதிய இணைப்பைக் கோரி அண்மைய மின்னஞ்சலைப் பயன்படுத்தவும்."
+
+#: accounts/templates/accounts/password_reset_confirm.html:16
+msgid "Request a new link"
+msgstr "புதிய இணைப்பைக் கோரவும்"
+
+#: accounts/templates/accounts/password_reset_done.html:3
+#: accounts/templates/accounts/password_reset_done.html:5
+msgid "Check your email"
+msgstr "உங்கள் மின்னஞ்சலைப் பார்க்கவும்"
+
+#: accounts/templates/accounts/password_reset_done.html:6
+msgid "If that address has an account, a reset link is on its way. It works once and expires in three days."
+msgstr "அந்த முகவரிக்கு கணக்கு இருப்பின் இணைப்பு அனுப்பப்படும். அது ஒருமுறை செல்லுபடியாகும்; மூன்று நாட்களில் காலாவதியாகும்."
+
+#: accounts/templates/accounts/password_reset_done.html:7
+#: accounts/templates/accounts/password_reset_form.html:12
+msgid "Back to sign in"
+msgstr "உள்நுழைவுக்குத் திரும்பவும்"
+
+#: accounts/templates/accounts/password_reset_form.html:3
+msgid "Reset password"
+msgstr "கடவுச்சொல்லை மீளமைக்கவும்"
+
+#: accounts/templates/accounts/password_reset_form.html:5
+msgid "Reset your password"
+msgstr "உங்கள் கடவுச்சொல்லை மீளமைக்கவும்"
+
+#: accounts/templates/accounts/password_reset_form.html:6
+msgid "Enter your university email. If it has an account, we'll send a link to set a new password."
+msgstr "பல்கலைக்கழக மின்னஞ்சலை உள்ளிடவும். கணக்கு இருப்பின் புதிய கடவுச்சொல்லை அமைக்க இணைப்பை அனுப்புவோம்."
+
+#: accounts/templates/accounts/password_reset_form.html:10
+msgid "Send reset link"
+msgstr "மீளமைப்பு இணைப்பை அனுப்பவும்"
+
+#: accounts/templates/admin/accounts/user/change_list.html:5
+#: accounts/templates/admin/accounts/user/import.html:4 accounts/views.py:73
+msgid "Import accounts"
+msgstr "கணக்குகளை இறக்குமதி செய்க"
+
+#: accounts/templates/admin/accounts/user/change_list.html:12
+#: accounts/templates/admin/accounts/user/import.html:32
+msgid "Role"
+msgstr "பங்கு"
+
+#: accounts/templates/admin/accounts/user/change_list.html:14
+msgid "All roles"
+msgstr "அனைத்துப் பங்குகள்"
+
+#: accounts/templates/admin/accounts/user/change_list.html:17
+#: templates/partials/filters.html:8
+msgid "Apply filters"
+msgstr "வடிகட்டிகளைப் பயன்படுத்தவும்"
+
+#: accounts/templates/admin/accounts/user/import.html:4
+msgid "Home"
+msgstr "முகப்பு"
+
+#: accounts/templates/admin/accounts/user/import.html:4
+#: cases/context_processors.py:63
+msgid "Users"
+msgstr "பயனர்கள்"
+
+#: accounts/templates/admin/accounts/user/import.html:7
+msgid "Create or update student and lecturer accounts from the official register. Existing accounts are matched by email."
+msgstr "அதிகாரப்பூர்வப் பதிவிலிருந்து மாணவர் மற்றும் விரிவுரையாளர் கணக்குகளை உருவாக்கவும் அல்லது புதுப்பிக்கவும். இருக்கும் கணக்குகள் மின்னஞ்சல் மூலம் பொருத்தப்படும்."
+
+#: accounts/templates/admin/accounts/user/import.html:8
+msgid "Download CSV template"
+msgstr "CSV மாதிரியைப் பதிவிறக்கவும்"
+
+#: accounts/templates/admin/accounts/user/import.html:8
+msgid "Back to users"
+msgstr "பயனர்களுக்குத் திரும்பு"
+
+#: accounts/templates/admin/accounts/user/import.html:9
+msgid "CSV requirements"
+msgstr "CSV தேவைகள்"
+
+#: accounts/templates/admin/accounts/user/import.html:10
+msgid "Students need a unique five-digit CPM number. Lecturers need a unique lecturer ID. Leading zeros are preserved; lecturer IDs are not case-sensitive."
+msgstr "மாணவர்களுக்குத் தனித்துவமான ஐந்து இலக்க CPM எண் அவசியம். விரிவுரையாளர்களுக்குத் தனித்துவமான அடையாள எண் அவசியம். தொடக்கப் பூஜ்ஜியங்கள் பாதுகாக்கப்படும்; விரிவுரையாளர் அடையாள எண்களில் பெரிய, சிறிய எழுத்து வேறுபாடு கருதப்படாது."
+
+#: accounts/templates/admin/accounts/user/import.html:11
+msgid "Use student or lecturer in the role column. Keep the template column names in English. Do not include passwords."
+msgstr "role நெடுவரிசையில் student அல்லது lecturer பயன்படுத்தவும். மாதிரியின் நெடுவரிசைப் பெயர்களை ஆங்கிலத்திலேயே வைத்திருக்கவும். கடவுச்சொற்களைச் சேர்க்க வேண்டாம்."
+
+#: accounts/templates/admin/accounts/user/import.html:12
+msgid "Existing passwords, account activity and case records are preserved. New users set their password through Forgot your password? using their email."
+msgstr "இருக்கும் கடவுச்சொற்கள், கணக்கின் செயலில் உள்ள நிலை மற்றும் கோரிக்கைப் பதிவுகள் பாதுகாக்கப்படும். புதிய பயனர்கள் தங்கள் மின்னஞ்சலைப் பயன்படுத்தி கடவுச்சொல் மறந்துவிட்டதா? மூலம் கடவுச்சொல்லை அமைக்கலாம்."
+
+#: accounts/templates/admin/accounts/user/import.html:18
+msgid "Preview import"
+msgstr "இறக்குமதியை முன்னோட்டமிடு"
+
+#: accounts/templates/admin/accounts/user/import.html:22
+msgid "Fix these problems and upload the file again"
+msgstr "இந்தப் பிழைகளைச் சரிசெய்து கோப்பை மீண்டும் பதிவேற்றவும்"
+
+#: accounts/templates/admin/accounts/user/import.html:23
+msgid "No accounts were changed. Up to 100 problem rows are shown."
+msgstr "எந்தக் கணக்கும் மாற்றப்படவில்லை. பிழையுள்ள அதிகபட்சம் 100 வரிகள் காட்டப்படும்."
+
+#: accounts/templates/admin/accounts/user/import.html:24
+#, python-format
+msgid "Row %(number)s"
+msgstr "வரி %(number)s"
+
+#: accounts/templates/admin/accounts/user/import.html:29
+#: accounts/templates/admin/accounts/user/import.html:32
+msgid "Review before importing"
+msgstr "இறக்குமதிக்கு முன் சரிபார்க்கவும்"
+
+#: accounts/templates/admin/accounts/user/import.html:30
+#, python-format
+msgid "New accounts: %(created)s · Existing accounts to update: %(updated)s"
+msgstr "புதிய கணக்குகள்: %(created)s · புதுப்பிக்க வேண்டிய கணக்குகள்: %(updated)s"
+
+#: accounts/templates/admin/accounts/user/import.html:31
+msgid "The first 50 rows are shown below. Every row has been checked. This preview expires after 15 minutes."
+msgstr "முதல் 50 வரிகள் கீழே காட்டப்படும். ஒவ்வொரு வரியும் சரிபார்க்கப்பட்டுள்ளது. இந்த முன்னோட்டம் 15 நிமிடங்களில் காலாவதியாகும்."
+
+#: accounts/templates/admin/accounts/user/import.html:32
+msgid "Row"
+msgstr "வரி"
+
+#: accounts/templates/admin/accounts/user/import.html:32
+#: cases/templates/cases/dashboards/authority_dashboard.html:19
+msgid "Action"
+msgstr "நடவடிக்கை"
+
+#: accounts/templates/admin/accounts/user/import.html:32 cases/forms.py:409
+msgid "Email"
+msgstr "மின்னஞ்சல்"
+
+#: accounts/templates/admin/accounts/user/import.html:32
+msgid "Registration number"
+msgstr "பதிவு எண்"
+
+#: accounts/templates/admin/accounts/user/import.html:32
+msgid "Department"
+msgstr "துறை"
+
+#: accounts/templates/admin/accounts/user/import.html:32
+msgid "Contact number"
+msgstr "தொடர்பு எண்"
+
+#: accounts/templates/admin/accounts/user/import.html:33
+msgid "Confirm import"
+msgstr "இறக்குமதியை உறுதிசெய்"
+
+#: accounts/views.py:27
+msgid "Unsupported language."
+msgstr "ஆதரிக்கப்படாத மொழி."
+
+#: accounts/views.py:50
+msgid "This preview has expired or is invalid. Upload the CSV again."
+msgstr "இந்த முன்னோட்டம் காலாவதியாகியுள்ளது அல்லது செல்லாது. CSV கோப்பை மீண்டும் பதிவேற்றவும்."
+
+#: accounts/views.py:54
+msgid "Accounts changed during import. No accounts were changed. Upload the CSV again."
+msgstr "இறக்குமதியின்போது கணக்குகள் மாறின. எந்தக் கணக்கும் மாற்றப்படவில்லை. CSV கோப்பை மீண்டும் பதிவேற்றவும்."
+
+#: accounts/views.py:57
+#, python-format
+msgid "Created: %(created)s · Updated: %(updated)s."
+msgstr "உருவாக்கப்பட்டவை: %(created)s · புதுப்பிக்கப்பட்டவை: %(updated)s."
+
+#: cases/configuration_views.py:41 cases/configuration_views.py:44
+#: cases/configuration_views.py:95 cases/configuration_views.py:98
+msgid "updated"
+msgstr "புதுப்பிக்கப்பட்டது"
+
+#: cases/configuration_views.py:41 cases/configuration_views.py:44
+#: cases/configuration_views.py:95 cases/configuration_views.py:98
+msgid "added"
+msgstr "சேர்க்கப்பட்டது"
+
+#: cases/configuration_views.py:44 cases/configuration_views.py:58
+#, python-format
+msgid "%(value_0)s %(value_1)s."
+msgstr "%(value_0)s %(value_1)s."
+
+#: cases/configuration_views.py:55
+msgid "activated"
+msgstr "செயல்படுத்தப்பட்டது"
+
+#: cases/configuration_views.py:55
+msgid "deactivated"
+msgstr "முடக்கப்பட்டது"
+
+#: cases/configuration_views.py:69
+#, python-format
+msgid "%(value_0)s has cases on record, so it cannot be deleted. Deactivate it instead: it keeps its history but gets no new cases."
+msgstr "%(value_0)s பிரிவில் கோரிக்கைகள் இருப்பதால் நீக்க முடியாது. வரலாற்றைப் பாதுகாக்க முடக்கவும்."
+
+#: cases/configuration_views.py:76
+#, python-format
+msgid "%(value_0)s deleted."
+msgstr "%(value_0)s நீக்கப்பட்டது."
+
+#: cases/configuration_views.py:98
+#, python-format
+msgid "Category %(value_0)s %(value_1)s."
+msgstr "%(value_0)s வகை %(value_1)s."
+
+#: cases/configuration_views.py:109
+msgid "shown on the form"
+msgstr "படிவத்தில் காட்டப்படும்"
+
+#: cases/configuration_views.py:109
+msgid "hidden from the form"
+msgstr "படிவத்தில் மறைக்கப்பட்டது"
+
+#: cases/configuration_views.py:112
+#, python-format
+msgid "%(value_0)s is now %(value_1)s."
+msgstr "%(value_0)s இப்போது %(value_1)s."
+
+#: cases/context_processors.py:42 cases/context_processors.py:56
+#: cases/templates/cases/dashboards/admin_dashboard.html:3
+#: cases/templates/cases/reporter_home.html:3
+msgid "Dashboard"
+msgstr "முகப்பு"
+
+#: cases/context_processors.py:43 cases/templates/cases/case_form.html:3
+#: cases/templates/cases/case_form.html:8 cases/templates/cases/my_cases.html:7
+msgid "Submit a case"
+msgstr "கோரிக்கையைச் சமர்ப்பிக்கவும்"
+
+#: cases/context_processors.py:44 cases/templates/cases/my_cases.html:3
+#: cases/templates/cases/my_cases.html:6
+msgid "My cases"
+msgstr "எனது கோரிக்கைகள்"
+
+#: cases/context_processors.py:47
+#: cases/templates/cases/dashboards/authority_dashboard.html:3
+#: cases/templates/cases/dashboards/authority_dashboard.html:6
+msgid "Work queue"
+msgstr "பணிப் பட்டியல்"
+
+#: cases/context_processors.py:50 cases/context_processors.py:58
+msgid "Overview"
+msgstr "கண்ணோட்டம்"
+
+#: cases/context_processors.py:51
+#: cases/templates/cases/dashboards/admin_dashboard.html:6
+msgid "Case dashboard"
+msgstr "கோரிக்கை முகப்பு"
+
+#: cases/context_processors.py:52
+msgid "Reports"
+msgstr "அறிக்கைகள்"
+
+#: cases/context_processors.py:57
+msgid "All cases"
+msgstr "அனைத்து கோரிக்கைகள்"
+
+#: cases/context_processors.py:59
+#: cases/templates/cases/settings/authority_list.html:3
+#: cases/templates/cases/settings/authority_list.html:6
+msgid "Authorities"
+msgstr "பொறுப்பான பிரிவுகள்"
+
+#: cases/context_processors.py:60
+#: cases/templates/cases/settings/category_list.html:3
+#: cases/templates/cases/settings/category_list.html:6
+msgid "Categories"
+msgstr "வகைகள்"
+
+#: cases/dashboard_data.py:78 templates/partials/dashboard_charts.html:8
+msgid "Total cases"
+msgstr "மொத்த கோரிக்கைகள்"
+
+#: cases/dashboard_data.py:78
+msgid "All your submissions"
+msgstr "உங்கள் அனைத்து சமர்ப்பிப்புகளும்"
+
+#: cases/dashboard_data.py:78
+msgid "In this view"
+msgstr "இந்தக் காட்சியில்"
+
+#: cases/dashboard_data.py:79
+#: cases/templates/cases/settings/authority_list.html:11
+msgid "Open cases"
+msgstr "திறந்த கோரிக்கைகள்"
+
+#: cases/dashboard_data.py:79
+msgid "Work outstanding"
+msgstr "நிலுவைப் பணிகள்"
+
+#: cases/dashboard_data.py:79
+msgid "Not yet closed"
+msgstr "இன்னும் மூடப்படவில்லை"
+
+#: cases/dashboard_data.py:80
+msgid "Solved cases"
+msgstr "தீர்க்கப்பட்ட கோரிக்கைகள்"
+
+#: cases/dashboard_data.py:80 cases/templates/cases/dashboards/reports.html:20
+msgid "Solved or closed"
+msgstr "தீர்க்கப்பட்டது அல்லது மூடப்பட்டது"
+
+#: cases/dashboard_data.py:81 templates/partials/quick_actions.html:18
+msgid "Urgent cases"
+msgstr "அவசர கோரிக்கைகள்"
+
+#: cases/dashboard_data.py:81
+msgid "Open priority cases"
+msgstr "திறந்த அவசர கோரிக்கைகள்"
+
+#: cases/forms.py:54
+#, python-format
+msgid "%(value_0)s, up to %(value_1)s MB each."
+msgstr "%(value_0)s, ஒவ்வொரு கோப்பும் அதிகபட்சம் %(value_1)s MB."
+
+#: cases/forms.py:67
+#, python-format
+msgid "%(value_0)s, up to %(value_1)s MB each. Keep clips short."
+msgstr "%(value_0)s, ஒவ்வொரு கோப்பும் அதிகபட்சம் %(value_1)s MB. குறுகிய காணொளிகளைப் பயன்படுத்தவும்."
+
+#: cases/forms.py:86
+#, python-format
+msgid "Attach at most %(count)s files at a time."
+msgstr "ஒரு நேரத்தில் அதிகபட்சம் %(count)s கோப்புகளை இணைக்கவும்."
+
+#: cases/forms.py:97
+msgid "I confirm that the information submitted is accurate to the best of my knowledge."
+msgstr "நான் அறிந்தவரை சமர்ப்பிக்கும் தகவல்கள் சரியானவை என உறுதிப்படுத்துகிறேன்."
+
+#: cases/forms.py:99
+msgid "Tick the declaration to submit the case."
+msgstr "கோரிக்கையைச் சமர்ப்பிக்க உறுதிப்படுத்தலைத் தேர்ந்தெடுக்கவும்."
+
+#: cases/forms.py:108
+msgid "e.g. Projector not working in Hall A"
+msgstr "எ.கா. A மண்டபத்தில் ப்ரொஜெக்டர் இயங்கவில்லை"
+
+#: cases/forms.py:109
+msgid "Building, room or office"
+msgstr "கட்டிடம், அறை அல்லது அலுவலகம்"
+
+#: cases/forms.py:111
+msgid "What happened, when, and who is affected?"
+msgstr "என்ன நடந்தது, எப்போது, யார் பாதிக்கப்பட்டனர்?"
+
+#: cases/forms.py:114 cases/templates/cases/case_form.html:18
+msgid "Case type"
+msgstr "கோரிக்கை வகை"
+
+#: cases/forms.py:114
+msgid "Short title"
+msgstr "சுருக்கமான தலைப்பு"
+
+#: cases/forms.py:114 cases/forms.py:176 cases/forms.py:349
+#: cases/templates/cases/case_form.html:24
+#: cases/templates/cases/dashboards/admin_dashboard.html:22
+#: cases/templates/cases/dashboards/admin_dashboard.html:61
+#: cases/templates/cases/dashboards/authority_dashboard.html:19
+#: cases/templates/cases/dashboards/reports.html:35
+#: cases/templates/cases/my_cases.html:28
+#: templates/partials/recent_cases.html:4
+msgid "Priority"
+msgstr "முன்னுரிமை"
+
+#: cases/forms.py:114 cases/forms.py:175 cases/forms.py:343
+#: cases/templates/cases/dashboards/reports.html:35
+#: cases/templates/cases/dashboards/reports.html:62
+#: cases/templates/cases/settings/category_list.html:11
+msgid "Category"
+msgstr "வகை"
+
+#: cases/forms.py:114 cases/templates/cases/case_detail.html:161
+msgid "Location"
+msgstr "இடம்"
+
+#: cases/forms.py:114 cases/forms.py:416
+#: cases/templates/cases/case_detail.html:86
+msgid "Description"
+msgstr "விவரம்"
+
+#: cases/forms.py:116
+msgid "Urgent means a safety risk or something stopping classes or exams today."
+msgstr "பாதுகாப்பு ஆபத்து அல்லது இன்றைய வகுப்பு/பரீட்சையைத் தடுக்கும் பிரச்சினைக்கு அவசரம் என்பதைத் தேர்ந்தெடுக்கவும்."
+
+#: cases/forms.py:122
+msgid "Choose a category"
+msgstr "ஒரு வகையைத் தேர்ந்தெடுக்கவும்"
+
+#: cases/forms.py:126
+msgid "Photos"
+msgstr "புகைப்படங்கள்"
+
+#: cases/forms.py:126
+msgid "Videos"
+msgstr "காணொளிகள்"
+
+#: cases/forms.py:139
+msgid "Your reply"
+msgstr "உங்கள் பதில்"
+
+#: cases/forms.py:146
+msgid "Add photos"
+msgstr "புகைப்படங்களைச் சேர்க்கவும்"
+
+#: cases/forms.py:146
+msgid "Add videos"
+msgstr "காணொளிகளைச் சேர்க்கவும்"
+
+#: cases/forms.py:159
+msgid "What is still not right?"
+msgstr "இன்னும் தீர்க்கப்படாதது என்ன?"
+
+#: cases/forms.py:174 cases/forms.py:352
+#: cases/templates/cases/dashboards/admin_dashboard.html:61
+#: cases/templates/cases/dashboards/authority_dashboard.html:19
+#: cases/templates/cases/dashboards/authority_dashboard.html:42
+#: cases/templates/cases/dashboards/management_dashboard.html:74
+#: cases/templates/cases/dashboards/reports.html:35
+#: cases/templates/cases/my_cases.html:28
+#: cases/templates/cases/settings/authority_list.html:11
+#: templates/partials/recent_cases.html:4
+msgid "Status"
+msgstr "நிலை"
+
+#: cases/forms.py:178
+msgid "Assign to"
+msgstr "ஒப்படைக்க வேண்டிய பிரிவு"
+
+#: cases/forms.py:181
+msgid "Choose an authority"
+msgstr "ஒரு பிரிவைத் தேர்ந்தெடுக்கவும்"
+
+#: cases/forms.py:184 cases/templates/cases/case_detail.html:92
+msgid "Admin note for authority"
+msgstr "பிரிவுக்கான நிர்வாகியின் குறிப்பு"
+
+#: cases/forms.py:187
+msgid "The assigned authority sees this. The reporter does not."
+msgstr "இது பொறுப்பான பிரிவுக்கு மட்டுமே தெரியும்; சமர்ப்பித்தவருக்குத் தெரியாது."
+
+#: cases/forms.py:197 cases/forms.py:304
+#, python-format
+msgid "%(status)s (no change)"
+msgstr "%(status)s (மாற்றமில்லை)"
+
+#: cases/forms.py:233 cases/services.py:365
+#, python-format
+msgid "A %(value_0)s case cannot be assigned."
+msgstr "%(value_0)s நிலையிலுள்ள கோரிக்கையை ஒப்படைக்க முடியாது."
+
+#: cases/forms.py:236
+msgid "Choose the authority to assign this case to."
+msgstr "இந்தக் கோரிக்கையை ஒப்படைக்க வேண்டிய பிரிவைத் தேர்ந்தெடுக்கவும்."
+
+#: cases/forms.py:241
+msgid "Reason"
+msgstr "காரணம்"
+
+#: cases/forms.py:243
+msgid "Message to the reporter"
+msgstr "சமர்ப்பித்தவருக்கான செய்தி"
+
+#: cases/forms.py:246
+msgid "Optional. For a duplicate, give the original case number."
+msgstr "விருப்பத்தேர்வு. நகல் கோரிக்கையெனில் அசல் கோரிக்கை எண்ணைக் குறிப்பிடவும்."
+
+#: cases/forms.py:252
+msgid "Closing note"
+msgstr "மூடுவதற்கான குறிப்பு"
+
+#: cases/forms.py:260
+msgid "Why is the resolution not satisfactory?"
+msgstr "தீர்வு ஏன் திருப்திகரமாக இல்லை?"
+
+#: cases/forms.py:267 cases/forms.py:291 cases/models.py:280
+msgid "Resolution note"
+msgstr "தீர்வுக் குறிப்பு"
+
+#: cases/forms.py:269 cases/forms.py:318 cases/services.py:482
+#: cases/services.py:536
+msgid "Add a resolution note before marking the case as solved."
+msgstr "தீர்க்கப்பட்டது எனக் குறிக்கும் முன் தீர்வுக் குறிப்பைச் சேர்க்கவும்."
+
+#: cases/forms.py:280
+msgid "New status"
+msgstr "புதிய நிலை"
+
+#: cases/forms.py:282
+msgid "Progress comment"
+msgstr "முன்னேற்றக் குறிப்பு"
+
+#: cases/forms.py:284
+msgid "Action taken or current progress"
+msgstr "எடுக்கப்பட்ட நடவடிக்கை அல்லது தற்போதைய முன்னேற்றம்"
+
+#: cases/forms.py:285
+msgid "If you choose “Waiting for information”, write the question for the reporter here."
+msgstr "தகவலுக்காகக் காத்திருப்பின், சமர்ப்பித்தவரிடம் கேட்கும் கேள்வியை இங்கே எழுதவும்."
+
+#: cases/forms.py:288
+msgid "Internal only (hide this comment from the reporter)"
+msgstr "உள்பயன்பாட்டுக்கு மட்டும் (சமர்ப்பித்தவருக்குக் காட்ட வேண்டாம்)"
+
+#: cases/forms.py:294
+msgid "Required when marking the case as solved."
+msgstr "தீர்க்கப்பட்டது எனக் குறிக்கும்போது கட்டாயம்."
+
+#: cases/forms.py:311
+msgid "Completion photos"
+msgstr "நிறைவுப் புகைப்படங்கள்"
+
+#: cases/forms.py:311
+msgid "Completion videos"
+msgstr "நிறைவுக் காணொளிகள்"
+
+#: cases/forms.py:324
+msgid "Write what information you need from the reporter."
+msgstr "சமர்ப்பித்தவரிடமிருந்து தேவைப்படும் தகவலை எழுதவும்."
+
+#: cases/forms.py:337
+msgid "From"
+msgstr "இருந்து"
+
+#: cases/forms.py:340
+msgid "To"
+msgstr "வரை"
+
+#: cases/forms.py:343
+msgid "All categories"
+msgstr "அனைத்து வகைகள்"
+
+#: cases/forms.py:346 cases/templates/cases/dashboards/admin_dashboard.html:40
+#: cases/templates/cases/dashboards/admin_dashboard.html:61
+#: cases/templates/cases/dashboards/management_dashboard.html:87
+#: cases/templates/cases/dashboards/reports.html:35
+#: cases/templates/cases/dashboards/reports.html:69
+#: cases/templates/cases/settings/authority_list.html:11
+#: cases/view_helpers.py:46
+msgid "Authority"
+msgstr "பொறுப்பான பிரிவு"
+
+#: cases/forms.py:346
+msgid "All authorities"
+msgstr "அனைத்து பிரிவுகள்"
+
+#: cases/forms.py:349
+msgid "All priorities"
+msgstr "அனைத்து முன்னுரிமைகள்"
+
+#: cases/forms.py:352
+msgid "All statuses"
+msgstr "அனைத்து நிலைகள்"
+
+#: cases/forms.py:355 cases/templates/cases/dashboards/reports.html:35
+#: cases/templates/cases/my_cases.html:28
+#: templates/partials/recent_cases.html:4
+msgid "Type"
+msgstr "வகை"
+
+#: cases/forms.py:355
+msgid "All types"
+msgstr "அனைத்து கோரிக்கை வகைகள்"
+
+#: cases/forms.py:358 cases/templates/cases/my_cases.html:22
+msgid "Search"
+msgstr "தேடவும்"
+
+#: cases/forms.py:360 cases/templates/cases/my_cases.html:21
+msgid "Case number or title"
+msgstr "கோரிக்கை எண் அல்லது தலைப்பு"
+
+#: cases/forms.py:367
+msgid "The end date is before the start date."
+msgstr "முடிவுத் தேதி தொடக்கத் தேதிக்கு முந்தியது."
+
+#: cases/forms.py:409
+msgid "Active (can receive new cases)"
+msgstr "செயலில் (புதிய கோரிக்கைகளைப் பெறலாம்)"
+
+#: cases/forms.py:409 cases/templates/cases/settings/authority_list.html:11
+msgid "Contact officer"
+msgstr "தொடர்பு அலுவலர்"
+
+#: cases/forms.py:409
+msgid "Designation"
+msgstr "பதவி"
+
+#: cases/forms.py:409
+msgid "Phone"
+msgstr "தொலைபேசி"
+
+#: cases/forms.py:409
+msgid "Unit"
+msgstr "பிரிவு"
+
+#: cases/forms.py:416
+msgid "Active (shown on the submission form)"
+msgstr "செயலில் (சமர்ப்பிப்பு படிவத்தில் காட்டப்படும்)"
+
+#: cases/forms.py:416
+msgid "Order in list"
+msgstr "பட்டியல் வரிசை"
+
+#: cases/models.py:36
+msgid "Assignment emails also go to this address."
+msgstr "ஒப்படைப்புக்கான மின்னஞ்சல்கள் இந்த முகவரிக்கும் அனுப்பப்படும்."
+
+#: cases/models.py:40
+msgid "Inactive authorities stay on old cases but cannot receive new ones."
+msgstr "முடக்கப்பட்ட பிரிவுகள் பழைய கோரிக்கைகளில் இருக்கும்; புதியவை ஒப்படைக்கப்படாது."
+
+#: cases/models.py:59 cases/templates/cases/case_detail.html:162
+#: cases/templates/cases/dashboards/admin_dashboard.html:61
+#: cases/view_helpers.py:110 templates/partials/dashboard_charts.html:18
+#: templates/partials/dashboard_charts.html:28
+msgid "Submitted"
+msgstr "சமர்ப்பிக்கப்பட்டது"
+
+#: cases/models.py:60
+msgid "Under review"
+msgstr "பரிசீலனையில்"
+
+#: cases/models.py:61 cases/templates/cases/dashboards/admin_dashboard.html:79
+#: cases/templates/cases/dashboards/management_dashboard.html:87
+msgid "Not started"
+msgstr "தொடங்கப்படவில்லை"
+
+#: cases/models.py:62
+#: cases/templates/cases/dashboards/management_dashboard.html:87
+#: cases/view_helpers.py:112
+msgid "Assigned"
+msgstr "ஒப்படைக்கப்பட்டது"
+
+#: cases/models.py:63
+#: cases/templates/cases/dashboards/management_dashboard.html:87
+#: cases/view_helpers.py:113
+msgid "In progress"
+msgstr "செயற்பாட்டில்"
+
+#: cases/models.py:64
+msgid "Waiting for information"
+msgstr "தகவலுக்காகக் காத்திருக்கிறது"
+
+#: cases/models.py:65 cases/templates/cases/case_detail.html:47
+#: cases/templates/cases/case_detail.html:167
+#: cases/templates/cases/dashboards/admin_dashboard.html:40
+#: cases/templates/cases/dashboards/admin_dashboard.html:79
+#: cases/templates/cases/dashboards/authority_dashboard.html:42
+#: cases/view_helpers.py:114 templates/partials/dashboard_charts.html:18
+#: templates/partials/dashboard_charts.html:28
+msgid "Solved"
+msgstr "தீர்க்கப்பட்டது"
+
+#: cases/models.py:66 cases/templates/cases/case_detail.html:168
+#: cases/templates/cases/dashboards/admin_dashboard.html:79
+#: cases/view_helpers.py:115
+msgid "Closed"
+msgstr "மூடப்பட்டது"
+
+#: cases/models.py:67 cases/templates/cases/dashboards/admin_dashboard.html:79
+#: cases/templates/cases/dashboards/reports.html:21
+msgid "Rejected"
+msgstr "நிராகரிக்கப்பட்டது"
+
+#: cases/models.py:68
+msgid "Reopened"
+msgstr "மீண்டும் திறக்கப்பட்டது"
+
+#: cases/models.py:130
+msgid "Complaint"
+msgstr "புகார்"
+
+#: cases/models.py:131
+msgid "Suggestion"
+msgstr "பரிந்துரை"
+
+#: cases/models.py:134 cases/templates/cases/dashboards/admin_dashboard.html:79
+#: cases/templates/cases/dashboards/management_dashboard.html:36
+#: cases/templates/cases/dashboards/management_dashboard.html:87
+#: cases/templates/cases/dashboards/reports.html:19
+msgid "Urgent"
+msgstr "அவசரம்"
+
+#: cases/models.py:135 cases/templates/cases/dashboards/admin_dashboard.html:79
+#: cases/templates/cases/dashboards/management_dashboard.html:36
+msgid "Normal"
+msgstr "சாதாரணம்"
+
+#: cases/models.py:138
+msgid "Invalid or not enough detail"
+msgstr "செல்லாதது அல்லது போதிய விவரமில்லை"
+
+#: cases/models.py:139
+msgid "Duplicate of another case"
+msgstr "மற்றொரு கோரிக்கையின் நகல்"
+
+#: cases/models.py:140
+msgid "Inappropriate content"
+msgstr "பொருத்தமற்ற உள்ளடக்கம்"
+
+#: cases/models.py:141
+msgid "Outside the faculty's scope"
+msgstr "பீடத்தின் வரம்பிற்கு வெளியானது"
+
+#: cases/models.py:162
+msgid "Not shown to the person who reported."
+msgstr "சமர்ப்பித்தவருக்குக் காட்டப்படாது."
+
+#: cases/models.py:242
+msgid "Image"
+msgstr "படம்"
+
+#: cases/models.py:243
+msgid "Video"
+msgstr "காணொளி"
+
+#: cases/models.py:246
+msgid "Supporting evidence"
+msgstr "ஆதாரச் சான்றுகள்"
+
+#: cases/models.py:247
+msgid "Completion evidence"
+msgstr "நிறைவுச் சான்றுகள்"
+
+#: cases/models.py:248
+msgid "Added with a reply"
+msgstr "பதிலுடன் சேர்க்கப்பட்டது"
+
+#: cases/models.py:276
+msgid "Progress update"
+msgstr "முன்னேற்றப் புதுப்பிப்பு"
+
+#: cases/models.py:277 cases/models.py:308
+msgid "Information requested"
+msgstr "தகவல் கோரப்பட்டது"
+
+#: cases/models.py:278
+msgid "Reply from reporter"
+msgstr "சமர்ப்பித்தவரின் பதில்"
+
+#: cases/models.py:279
+msgid "Admin note"
+msgstr "நிர்வாகியின் குறிப்பு"
+
+#: cases/models.py:281
+msgid "Rejection reason"
+msgstr "நிராகரிப்புக் காரணம்"
+
+#: cases/models.py:282 cases/models.py:311
+msgid "Reporter feedback"
+msgstr "சமர்ப்பித்தவரின் கருத்து"
+
+#: cases/models.py:283
+msgid "Reopen reason"
+msgstr "மீண்டும் திறப்பதற்கான காரணம்"
+
+#: cases/models.py:289
+msgid "Internal comments are hidden from the person who reported."
+msgstr "உள் குறிப்புகள் சமர்ப்பித்தவருக்குத் தெரியாது."
+
+#: cases/models.py:305
+msgid "New case"
+msgstr "புதிய கோரிக்கை"
+
+#: cases/models.py:306
+msgid "Case assigned"
+msgstr "கோரிக்கை ஒப்படைக்கப்பட்டது"
+
+#: cases/models.py:307
+msgid "Status update"
+msgstr "நிலைப் புதுப்பிப்பு"
+
+#: cases/models.py:309
+msgid "Case solved"
+msgstr "கோரிக்கை தீர்க்கப்பட்டது"
+
+#: cases/models.py:310
+msgid "Reply received"
+msgstr "பதில் பெறப்பட்டது"
+
+#: cases/models.py:312
+msgid "Pending case reminder"
+msgstr "நிலுவைக் கோரிக்கை நினைவூட்டல்"
+
+#: cases/models.py:345
+msgid "Case submitted"
+msgstr "கோரிக்கை சமர்ப்பிக்கப்பட்டது"
+
+#: cases/models.py:346
+msgid "Status changed"
+msgstr "நிலை மாற்றப்பட்டது"
+
+#: cases/models.py:347
+msgid "Authority assigned"
+msgstr "பிரிவு ஒதுக்கப்பட்டது"
+
+#: cases/models.py:348
+msgid "Field changed"
+msgstr "புலம் மாற்றப்பட்டது"
+
+#: cases/models.py:349
+msgid "Comment added"
+msgstr "குறிப்பு சேர்க்கப்பட்டது"
+
+#: cases/models.py:350
+msgid "Attachment added"
+msgstr "இணைப்பு சேர்க்கப்பட்டது"
+
+#: cases/models.py:351
+msgid "Configuration changed"
+msgstr "அமைப்பு மாற்றப்பட்டது"
+
+#: cases/services.py:143
+msgid "Your case is being reviewed by the faculty office."
+msgstr "பீட அலுவலகம் உங்கள் கோரிக்கையைப் பரிசீலிக்கிறது."
+
+#: cases/services.py:144
+msgid "Your case has been accepted and is waiting to be assigned."
+msgstr "உங்கள் கோரிக்கை ஏற்கப்பட்டது; பிரிவுக்கு ஒப்படைக்கக் காத்திருக்கிறது."
+
+#: cases/services.py:145
+#, python-format
+msgid "Your case has been assigned to %(authority)s."
+msgstr "உங்கள் கோரிக்கை %(authority)s பிரிவுக்கு ஒப்படைக்கப்பட்டது."
+
+#: cases/services.py:146
+msgid "Work on your case is in progress."
+msgstr "உங்கள் கோரிக்கைக்கான பணிகள் நடைபெறுகின்றன."
+
+#: cases/services.py:147
+msgid "More information is needed on your case. Open it to reply."
+msgstr "உங்கள் கோரிக்கைக்கு மேலதிக தகவல் தேவை. திறந்து பதிலளிக்கவும்."
+
+#: cases/services.py:148
+msgid "Your case has been solved."
+msgstr "உங்கள் கோரிக்கை தீர்க்கப்பட்டது."
+
+#: cases/services.py:149
+msgid "Your case has been closed."
+msgstr "உங்கள் கோரிக்கை மூடப்பட்டது."
+
+#: cases/services.py:150
+msgid "Your case was not accepted."
+msgstr "உங்கள் கோரிக்கை ஏற்கப்படவில்லை."
+
+#: cases/services.py:151
+msgid "Your case has been reopened and sent back for action."
+msgstr "உங்கள் கோரிக்கை மீண்டும் திறக்கப்பட்டு நடவடிக்கைக்கு அனுப்பப்பட்டது."
+
+#: cases/services.py:156
+#, python-format
+msgid "Your case is now %(status)s."
+msgstr "உங்கள் கோரிக்கையின் தற்போதைய நிலை: %(status)s."
+
+#: cases/services.py:157
+msgid "the relevant authority"
+msgstr "சம்பந்தப்பட்ட பொறுப்பான பிரிவு"
+
+#: cases/services.py:162
+#, python-format
+msgid "%(message)s %(extra)s"
+msgstr "%(message)s %(extra)s"
+
+#: cases/services.py:272
+#, python-format
+msgid "New case submitted: %(title)s"
+msgstr "புதிய கோரிக்கை சமர்ப்பிக்கப்பட்டது: %(title)s"
+
+#: cases/services.py:281
+msgid "You can reply only while the case is waiting for information."
+msgstr "தகவலுக்காகக் காத்திருக்கும் நிலையிலேயே பதிலளிக்கலாம்."
+
+#: cases/services.py:290
+#, python-format
+msgid "The reporter replied with the information you asked for: %(value_0)s"
+msgstr "கோரப்பட்ட தகவலுக்கு சமர்ப்பித்தவர் பதிலளித்துள்ளார்: %(value_0)s"
+
+#: cases/services.py:301
+msgid "Feedback can be sent only on a solved case."
+msgstr "தீர்க்கப்பட்ட கோரிக்கைக்கு மட்டுமே கருத்து அனுப்பலாம்."
+
+#: cases/services.py:307
+#, python-format
+msgid "Reporter says the case is not resolved: %(value_0)s"
+msgstr "கோரிக்கை தீர்க்கப்படவில்லை என சமர்ப்பித்தவர் கூறுகிறார்: %(value_0)s"
+
+#: cases/services.py:323
+#, python-format
+msgid "A case that is %(value_0)s cannot be moved to %(value_1)s from the review form."
+msgstr "பரிசீலனைப் படிவத்தில் %(value_0)s நிலையிலிருந்து %(value_1)s நிலைக்கு மாற்ற முடியாது."
+
+#: cases/services.py:367
+#, python-format
+msgid "%(value_0)s is inactive. Choose an active authority."
+msgstr "%(value_0)s முடக்கப்பட்டுள்ளது. செயலில் உள்ள பிரிவைத் தேர்ந்தெடுக்கவும்."
+
+#: cases/services.py:370
+#, python-format
+msgid "This case is already assigned to %(value_0)s."
+msgstr "இந்தக் கோரிக்கை ஏற்கனவே %(value_0)s பிரிவுக்கு ஒப்படைக்கப்பட்டுள்ளது."
+
+#: cases/services.py:394
+#, python-format
+msgid "%(value_0)s assigned to %(value_1)s: %(value_2)s"
+msgstr "%(value_0)s %(value_1)s பிரிவுக்கு ஒப்படைக்கப்பட்டது: %(value_2)s"
+
+#: cases/services.py:394
+msgid "Urgent case"
+msgstr "அவசர கோரிக்கை"
+
+#: cases/services.py:394
+#: cases/templates/cases/dashboards/admin_dashboard.html:22
+#: cases/templates/cases/dashboards/admin_dashboard.html:40
+#: templates/partials/recent_cases.html:4
+msgid "Case"
+msgstr "கோரிக்கை"
+
+#: cases/services.py:403
+#, python-format
+msgid "Case moved from %(value_0)s to %(value_1)s: %(value_2)s"
+msgstr "கோரிக்கை %(value_0)s பிரிவிலிருந்து %(value_1)s பிரிவுக்கு மாற்றப்பட்டது: %(value_2)s"
+
+#: cases/services.py:414
+#, python-format
+msgid "A %(value_0)s case cannot be rejected."
+msgstr "%(value_0)s நிலையிலுள்ள கோரிக்கையை நிராகரிக்க முடியாது."
+
+#: cases/services.py:421
+#, python-format
+msgid "Reason: %(value_0)s"
+msgstr "காரணம்: %(value_0)s"
+
+#: cases/services.py:427
+#, python-format
+msgid "Case withdrawn by the administrator: %(value_0)s"
+msgstr "நிர்வாகி கோரிக்கையை மீளப்பெற்றார்: %(value_0)s"
+
+#: cases/services.py:437
+msgid "Only a solved case can be closed."
+msgstr "தீர்க்கப்பட்ட கோரிக்கையை மட்டுமே மூட முடியும்."
+
+#: cases/services.py:449
+msgid "Only a solved or closed case can be reopened."
+msgstr "தீர்க்கப்பட்ட அல்லது மூடப்பட்ட கோரிக்கையை மட்டுமே மீண்டும் திறக்க முடியும்."
+
+#: cases/services.py:451
+msgid "Assign an authority before reopening this case."
+msgstr "மீண்டும் திறக்கும் முன் ஒரு பிரிவை ஒதுக்கவும்."
+
+#: cases/services.py:459
+#, python-format
+msgid "Case reopened and sent back to %(value_0)s: %(value_1)s"
+msgstr "கோரிக்கை மீண்டும் திறக்கப்பட்டு %(value_0)s பிரிவுக்கு அனுப்பப்பட்டது: %(value_1)s"
+
+#: cases/services.py:475
+#, python-format
+msgid "A %(value_0)s case cannot be updated."
+msgstr "%(value_0)s நிலையிலுள்ள கோரிக்கையைப் புதுப்பிக்க முடியாது."
+
+#: cases/services.py:478
+#, python-format
+msgid "A case cannot move from %(value_0)s to %(value_1)s."
+msgstr "கோரிக்கையை %(value_0)s நிலையிலிருந்து %(value_1)s நிலைக்கு மாற்ற முடியாது."
+
+#: cases/services.py:485
+msgid "Write what information you need before asking the reporter."
+msgstr "தகவலைக் கோரும் முன் தேவைப்படும் விவரங்களை எழுதவும்."
+
+#: cases/services.py:487
+msgid "An information request must be visible to the reporter."
+msgstr "தகவல் கோரிக்கை சமர்ப்பித்தவருக்குத் தெரிய வேண்டும்."
+
+#: cases/services.py:503
+msgid "Nothing to save. Add a comment, a file or a new status."
+msgstr "சேமிக்க மாற்றமில்லை. குறிப்பு, கோப்பு அல்லது புதிய நிலையைச் சேர்க்கவும்."
+
+#: cases/services.py:509 cases/services.py:541
+#, python-format
+msgid "Resolution: %(value_0)s"
+msgstr "தீர்வு: %(value_0)s"
+
+#: cases/services.py:514
+#, python-format
+msgid "%(value_0)s marked the case solved. Confirm and close it: %(value_1)s"
+msgstr "%(value_0)s கோரிக்கையைத் தீர்த்ததாகக் குறித்துள்ளார். உறுதிப்படுத்தி மூடவும்: %(value_1)s"
+
+#: cases/services.py:524
+#, python-format
+msgid "New progress update on your case: %(value_0)s"
+msgstr "உங்கள் கோரிக்கையில் புதிய முன்னேற்றப் புதுப்பிப்பு: %(value_0)s"
+
+#: cases/services.py:534
+#, python-format
+msgid "A %(value_0)s case cannot be marked solved."
+msgstr "%(value_0)s நிலையிலுள்ள கோரிக்கையைத் தீர்க்கப்பட்டது எனக் குறிக்க முடியாது."
+
+#: cases/services.py:575
+#, python-format
+msgid "for %(authority)s"
+msgstr "%(authority)s பிரிவுக்கான"
+
+#: cases/services.py:579
+msgid "waiting for the administrator"
+msgstr "நிர்வாகியின் நடவடிக்கைக்காகக் காத்திருக்கிறது"
+
+#: cases/services.py:585
+#, python-format
+msgid "Reminder: case %(value_0)s has had no action for %(value_1)s days (%(value_2)s): %(value_3)s"
+msgstr "நினைவூட்டல்: %(value_0)s கோரிக்கையில் %(value_1)s நாட்களாக நடவடிக்கை இல்லை (%(value_2)s): %(value_3)s"
+
+#: cases/templates/cases/_admin_panel.html:4
+msgid "Admin action"
+msgstr "நிர்வாகி நடவடிக்கைகள்"
+
+#: cases/templates/cases/_admin_panel.html:4
+#, python-format
+msgid "Status now: %(value_0)s"
+msgstr "தற்போதைய நிலை: %(value_0)s"
+
+#: cases/templates/cases/_admin_panel.html:8
+msgid "Confirm and close"
+msgstr "உறுதிப்படுத்தி மூடவும்"
+
+#: cases/templates/cases/_admin_panel.html:11
+msgid "Close the case once you've checked the work is done."
+msgstr "பணி முடிந்ததைச் சரிபார்த்த பின் கோரிக்கையை மூடவும்."
+
+#: cases/templates/cases/_admin_panel.html:13
+msgid "Close case"
+msgstr "கோரிக்கையை மூடவும்"
+
+#: cases/templates/cases/_admin_panel.html:20
+msgid "Review and assign"
+msgstr "பரிசீலித்து ஒப்படைக்கவும்"
+
+#: cases/templates/cases/_admin_panel.html:20
+msgid "Review details"
+msgstr "விவரங்களைப் பரிசீலிக்கவும்"
+
+#: cases/templates/cases/_admin_panel.html:31
+#, python-format
+msgid "Currently with %(value_0)s. Choosing another authority reassigns the case."
+msgstr "தற்போது %(value_0)s பிரிவில் உள்ளது. வேறு பிரிவைத் தேர்ந்தெடுத்தால் மீண்டும் ஒப்படைக்கப்படும்."
+
+#: cases/templates/cases/_admin_panel.html:36
+msgid "Reassign case"
+msgstr "மீண்டும் ஒப்படைக்கவும்"
+
+#: cases/templates/cases/_admin_panel.html:36
+msgid "Assign case"
+msgstr "கோரிக்கையை ஒப்படைக்கவும்"
+
+#: cases/templates/cases/_admin_panel.html:38
+#: cases/templates/cases/settings/authority_form.html:21
+#: cases/templates/cases/settings/category_form.html:14
+msgid "Save changes"
+msgstr "மாற்றங்களைச் சேமிக்கவும்"
+
+#: cases/templates/cases/_admin_panel.html:46
+msgid "Record as solved"
+msgstr "தீர்க்கப்பட்டது எனப் பதிவிடவும்"
+
+#: cases/templates/cases/_admin_panel.html:49
+msgid "Use this when the issue was fixed without the authority updating the case."
+msgstr "பிரிவு புதுப்பிக்காவிட்டாலும் பிரச்சினை தீர்க்கப்பட்டிருந்தால் பயன்படுத்தவும்."
+
+#: cases/templates/cases/_admin_panel.html:51
+msgid "Mark as solved"
+msgstr "தீர்க்கப்பட்டது எனக் குறிக்கவும்"
+
+#: cases/templates/cases/_admin_panel.html:58
+#: cases/templates/cases/_admin_panel.html:63
+msgid "Reopen case"
+msgstr "மீண்டும் திறக்கவும்"
+
+#: cases/templates/cases/_admin_panel.html:61
+#, python-format
+msgid "Sends the case back to %(value_0)s."
+msgstr "கோரிக்கை மீண்டும் %(value_0)s பிரிவுக்கு அனுப்பப்படும்."
+
+#: cases/templates/cases/_admin_panel.html:70
+#: cases/templates/cases/_admin_panel.html:76
+msgid "Reject case"
+msgstr "கோரிக்கையை நிராகரிக்கவும்"
+
+#: cases/templates/cases/_admin_panel.html:73
+msgid "The reporter is told the reason. Use this for invalid, duplicate, inappropriate or out-of-scope cases."
+msgstr "காரணம் சமர்ப்பித்தவருக்குத் தெரிவிக்கப்படும். செல்லாத, நகலான அல்லது வரம்பிற்கு வெளியான கோரிக்கைகளுக்குப் பயன்படுத்தவும்."
+
+#: cases/templates/cases/_admin_panel.html:82
+#, python-format
+msgid "This case is %(value_0)s."
+msgstr "இந்தக் கோரிக்கையின் நிலை %(value_0)s."
+
+#: cases/templates/cases/_admin_panel.html:82
+msgid "You can still reopen it above."
+msgstr "மேலே மீண்டும் திறக்கலாம்."
+
+#: cases/templates/cases/_admin_panel.html:82
+msgid "No further action is possible."
+msgstr "மேலும் நடவடிக்கை எடுக்க முடியாது."
+
+#: cases/templates/cases/_authority_panel.html:4
+msgid "Update case progress"
+msgstr "கோரிக்கை முன்னேற்றத்தைப் புதுப்பிக்கவும்"
+
+#: cases/templates/cases/_authority_panel.html:4
+#, python-format
+msgid "Current status: %(value_0)s"
+msgstr "தற்போதைய நிலை: %(value_0)s"
+
+#: cases/templates/cases/_authority_panel.html:14
+msgid "Save progress"
+msgstr "முன்னேற்றத்தைச் சேமிக்கவும்"
+
+#: cases/templates/cases/case_detail.html:16
+msgid "Back to"
+msgstr "திரும்பவும்"
+
+#: cases/templates/cases/case_detail.html:16
+msgid "my cases"
+msgstr "எனது கோரிக்கைகள்"
+
+#: cases/templates/cases/case_detail.html:16
+msgid "dashboard"
+msgstr "முகப்பு"
+
+#: cases/templates/cases/case_detail.html:20
+msgid "Case progress"
+msgstr "கோரிக்கை முன்னேற்றம்"
+
+#: cases/templates/cases/case_detail.html:32
+msgid "The unit handling this case needs more information"
+msgstr "இந்தக் கோரிக்கையைக் கையாளும் பிரிவுக்கு மேலதிக தகவல் தேவை"
+
+#: cases/templates/cases/case_detail.html:34
+msgid "Reply below"
+msgstr "கீழே பதிலளிக்கவும்"
+
+#: cases/templates/cases/case_detail.html:40
+msgid "This case was not accepted"
+msgstr "இந்தக் கோரிக்கை ஏற்கப்படவில்லை"
+
+#: cases/templates/cases/case_detail.html:47
+msgid "Solved and closed"
+msgstr "தீர்க்கப்பட்டு மூடப்பட்டது"
+
+#: cases/templates/cases/case_detail.html:54
+msgid "The reporter says this is not resolved"
+msgstr "தீர்க்கப்படவில்லை என சமர்ப்பித்தவர் கூறுகிறார்"
+
+#: cases/templates/cases/case_detail.html:55
+msgid "Read their feedback in the history, then close the case or reopen it for the authority."
+msgstr "வரலாற்றில் உள்ள கருத்தைப் படித்து கோரிக்கையை மூடவும் அல்லது மீண்டும் பிரிவுக்கு அனுப்பவும்."
+
+#: cases/templates/cases/case_detail.html:61
+msgid "Reply with the information"
+msgstr "தகவலுடன் பதிலளிக்கவும்"
+
+#: cases/templates/cases/case_detail.html:68
+msgid "Send reply"
+msgstr "பதிலை அனுப்பவும்"
+
+#: cases/templates/cases/case_detail.html:76
+msgid "Is it actually fixed?"
+msgstr "பிரச்சினை உண்மையில் தீர்க்கப்பட்டதா?"
+
+#: cases/templates/cases/case_detail.html:76
+msgid "If not, tell the faculty office. They can reopen the case."
+msgstr "இல்லையெனில் பீட அலுவலகத்திற்குத் தெரிவிக்கவும். அவர்கள் மீண்டும் திறக்கலாம்."
+
+#: cases/templates/cases/case_detail.html:80
+msgid "Send feedback"
+msgstr "கருத்தை அனுப்பவும்"
+
+#: cases/templates/cases/case_detail.html:92
+msgid "Not shown to the reporter"
+msgstr "சமர்ப்பித்தவருக்குக் காட்டப்படாது"
+
+#: cases/templates/cases/case_detail.html:98
+#: cases/templates/cases/case_form.html:38
+msgid "Attachments"
+msgstr "இணைப்புகள்"
+
+#: cases/templates/cases/case_detail.html:98
+#, python-format
+msgid "%(total)s file"
+msgid_plural "%(total)s files"
+msgstr[0] "%(total)s கோப்பு"
+msgstr[1] "%(total)s கோப்புகள்"
+
+#: cases/templates/cases/case_detail.html:107
+msgid "Play video"
+msgstr "காணொளியை இயக்கவும்"
+
+#: cases/templates/cases/case_detail.html:113
+msgid "Download"
+msgstr "பதிவிறக்கவும்"
+
+#: cases/templates/cases/case_detail.html:119
+msgid "No files were attached."
+msgstr "கோப்புகள் இணைக்கப்படவில்லை."
+
+#: cases/templates/cases/case_detail.html:125
+msgid "History"
+msgstr "வரலாறு"
+
+#: cases/templates/cases/case_detail.html:125
+msgid "Full audit trail"
+msgstr "முழு தணிக்கைப் பதிவு"
+
+#: cases/templates/cases/case_detail.html:125
+msgid "Status changes and messages"
+msgstr "நிலை மாற்றங்கள் மற்றும் செய்திகள்"
+
+#: cases/templates/cases/case_detail.html:131
+msgid "Internal"
+msgstr "உள்பயன்பாடு"
+
+#: cases/templates/cases/case_detail.html:150
+msgid "You have read-only access. Case actions are taken by the faculty office and the assigned authority."
+msgstr "உங்களுக்குப் பார்வையிடும் அனுமதி மட்டுமே உண்டு. பீட அலுவலகமும் பொறுப்பான பிரிவும் நடவடிக்கை எடுக்கும்."
+
+#: cases/templates/cases/case_detail.html:154
+#, python-format
+msgid "This case is %(value_0)s. There is nothing for your unit to update."
+msgstr "இந்தக் கோரிக்கை %(value_0)s நிலையில் உள்ளது. உங்கள் பிரிவு புதுப்பிக்க எதுவுமில்லை."
+
+#: cases/templates/cases/case_detail.html:158
+msgid "Details"
+msgstr "விவரங்கள்"
+
+#: cases/templates/cases/case_detail.html:163
+msgid "Submitted by"
+msgstr "சமர்ப்பித்தவர்"
+
+#: cases/templates/cases/case_detail.html:164 cases/view_helpers.py:42
+msgid "You"
+msgstr "நீங்கள்"
+
+#: cases/templates/cases/case_detail.html:165
+msgid "Assigned to"
+msgstr "ஒப்படைக்கப்பட்ட பிரிவு"
+
+#: cases/templates/cases/case_detail.html:165
+msgid "Not assigned yet"
+msgstr "இன்னும் ஒப்படைக்கப்படவில்லை"
+
+#: cases/templates/cases/case_detail.html:166
+#: cases/templates/cases/dashboards/admin_dashboard.html:22
+#: cases/templates/cases/dashboards/admin_dashboard.html:61
+#: cases/templates/cases/dashboards/authority_dashboard.html:19
+#: cases/templates/cases/dashboards/reports.html:35
+msgid "Age"
+msgstr "கடந்த காலம்"
+
+#: cases/templates/cases/case_detail.html:166
+msgid "since submission"
+msgstr "சமர்ப்பித்ததிலிருந்து"
+
+#: cases/templates/cases/case_form.html:7
+msgid "LET’S MAKE IT BETTER"
+msgstr "ஒன்றிணைந்து மேம்படுத்துவோம்"
+
+#: cases/templates/cases/case_form.html:9
+msgid "The faculty office reads every case and sends it to the unit responsible."
+msgstr "பீட அலுவலகம் ஒவ்வொரு கோரிக்கையையும் படித்து பொறுப்பான பிரிவுக்கு அனுப்பும்."
+
+#: cases/templates/cases/case_form.html:20
+msgid "Choose complaint or suggestion."
+msgstr "புகார் அல்லது பரிந்துரையைத் தேர்ந்தெடுக்கவும்."
+
+#: cases/templates/cases/case_form.html:46
+msgid "Submit case"
+msgstr "கோரிக்கையைச் சமர்ப்பிக்கவும்"
+
+#: cases/templates/cases/case_form.html:47
+#: cases/templates/cases/settings/authority_form.html:22
+#: cases/templates/cases/settings/category_form.html:15
+msgid "Cancel"
+msgstr "ரத்துசெய்யவும்"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:12
+#, python-format
+msgid "%(value_0)s awaiting review"
+msgstr "பரிசீலனைக்காக %(value_0)s"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:12
+#, python-format
+msgid "%(total)s solved case ready to confirm."
+msgid_plural "%(total)s solved cases ready to confirm."
+msgstr[0] "தீர்க்கப்பட்ட %(total)s கோரிக்கை உறுதிப்படுத்தத் தயாராக உள்ளது."
+msgstr[1] "தீர்க்கப்பட்ட %(total)s கோரிக்கைகள் உறுதிப்படுத்தத் தயாராக உள்ளன."
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:16
+msgid "Review & closure queues"
+msgstr "பரிசீலனை மற்றும் மூடல் பட்டியல்கள்"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:16
+#, python-format
+msgid "%(value_0)s new · %(value_1)s to close"
+msgstr "புதியவை %(value_0)s · மூட வேண்டியவை %(value_1)s"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:19
+msgid "Waiting for review"
+msgstr "பரிசீலனைக்காகக் காத்திருக்கிறது"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:19
+msgid "Newly submitted and under review, urgent first"
+msgstr "புதிய மற்றும் பரிசீலனையில் உள்ளவை, அவசரமானவை முதலில்"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:33
+msgid "Nothing to review"
+msgstr "பரிசீலிக்க எதுவுமில்லை"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:33
+msgid "New submissions will appear here."
+msgstr "புதிய கோரிக்கைகள் இங்கே காட்டப்படும்."
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:37
+msgid "Solved, waiting to close"
+msgstr "தீர்க்கப்பட்டது, மூடக் காத்திருக்கிறது"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:37
+msgid "Confirm the work is done, then close"
+msgstr "பணி முடிந்ததை உறுதிப்படுத்தி மூடவும்"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:51
+msgid "Nothing to close"
+msgstr "மூட எதுவுமில்லை"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:51
+msgid "Cases appear here when an authority marks them solved."
+msgstr "பிரிவு தீர்க்கப்பட்டது எனக் குறிக்கும்போது இங்கே காட்டப்படும்."
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:58
+msgid "Not started: ageing report"
+msgstr "தொடங்கப்படாத கோரிக்கைகளின் கால அறிக்கை"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:58
+#, python-format
+msgid "%(value_0)s cases"
+msgstr "%(value_0)s கோரிக்கைகள்"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:61
+#: cases/templates/cases/dashboards/authority_dashboard.html:19
+#: cases/templates/cases/dashboards/authority_dashboard.html:42
+#: cases/templates/cases/dashboards/reports.html:35
+#: cases/templates/cases/my_cases.html:28
+msgid "Case no."
+msgstr "கோரிக்கை எண்"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:61
+#: cases/templates/cases/dashboards/authority_dashboard.html:19
+#: cases/templates/cases/dashboards/authority_dashboard.html:42
+#: cases/templates/cases/dashboards/reports.html:35
+#: cases/templates/cases/my_cases.html:28
+#: templates/partials/recent_cases.html:4
+msgid "Title"
+msgstr "தலைப்பு"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:68
+#: cases/templates/cases/dashboards/reports.html:70
+msgid "Not assigned"
+msgstr "ஒப்படைக்கப்படவில்லை"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:71
+#: cases/templates/cases/dashboards/management_dashboard.html:46
+msgid "days"
+msgstr "நாட்கள்"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:76
+msgid "Every accepted case has started"
+msgstr "ஏற்கப்பட்ட அனைத்து கோரிக்கைகளிலும் பணி தொடங்கியுள்ளது"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:76
+msgid "Cases that are waiting for action will be listed here with their age."
+msgstr "நடவடிக்கைக்காகக் காத்திருக்கும் கோரிக்கைகளும் கடந்த நாட்களும் இங்கே காட்டப்படும்."
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:78
+msgid "All case metrics"
+msgstr "அனைத்து கோரிக்கை அளவீடுகள்"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:79
+msgid "Total"
+msgstr "மொத்தம்"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:79
+msgid "Attempted"
+msgstr "நடவடிக்கை எடுக்கப்பட்டவை"
+
+#: cases/templates/cases/dashboards/admin_dashboard.html:79
+msgid "Not attempted"
+msgstr "நடவடிக்கை எடுக்கப்படாதவை"
+
+#: cases/templates/cases/dashboards/authority_dashboard.html:7
+msgid "Your account is not linked to a unit yet"
+msgstr "உங்கள் கணக்கு இன்னும் பிரிவுடன் இணைக்கப்படவில்லை"
+
+#: cases/templates/cases/dashboards/authority_dashboard.html:7
+msgid "Ask the system administrator to set your authority (for example, Maintenance Division) on your account. Cases will appear here after that."
+msgstr "உங்கள் கணக்கில் பொறுப்பான பிரிவை இணைக்க அமைப்பு நிர்வாகியிடம் கோரவும். அதன் பின் கோரிக்கைகள் இங்கே காட்டப்படும்."
+
+#: cases/templates/cases/dashboards/authority_dashboard.html:10
+msgid "Cases assigned to your unit. Urgent first, then oldest."
+msgstr "உங்கள் பிரிவுக்கு ஒப்படைக்கப்பட்டவை. முதலில் அவசரமானவை, பின்னர் பழையவை."
+
+#: cases/templates/cases/dashboards/authority_dashboard.html:16
+msgid "My assigned cases"
+msgstr "எனக்கு ஒப்படைக்கப்பட்ட கோரிக்கைகள்"
+
+#: cases/templates/cases/dashboards/authority_dashboard.html:34
+#, python-format
+msgid "No open cases for %(value_0)s"
+msgstr "%(value_0)s பிரிவில் திறந்த கோரிக்கைகள் இல்லை"
+
+#: cases/templates/cases/dashboards/authority_dashboard.html:34
+msgid "When the faculty office assigns a case to your unit, you'll get a notification and it will appear here."
+msgstr "பீட அலுவலகம் கோரிக்கையை ஒப்படைத்ததும் அறிவிக்கப்படும்; அது இங்கே காட்டப்படும்."
+
+#: cases/templates/cases/dashboards/authority_dashboard.html:40
+msgid "Recently solved"
+msgstr "அண்மையில் தீர்க்கப்பட்டவை"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:3
+#: cases/templates/cases/dashboards/management_dashboard.html:7
+msgid "Management overview"
+msgstr "முகாமைத்துவக் கண்ணோட்டம்"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:8
+msgid "How cases are reported and how quickly units resolve them."
+msgstr "கோரிக்கைச் சமர்ப்பிப்புகளும் பிரிவுகளின் தீர்வு வேகமும்."
+
+#: cases/templates/cases/dashboards/management_dashboard.html:10
+msgid "Open reports"
+msgstr "அறிக்கைகளைத் திறக்கவும்"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:16
+msgid "Headline figures"
+msgstr "முக்கிய அளவீடுகள்"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:18
+msgid "Complaints / suggestions"
+msgstr "புகார்கள் / பரிந்துரைகள்"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:25
+#: templates/partials/dashboard_charts.html:11
+msgid "Complaints"
+msgstr "புகார்கள்"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:25
+#: templates/partials/dashboard_charts.html:12
+msgid "Suggestions"
+msgstr "பரிந்துரைகள்"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:29
+msgid "Urgent / normal"
+msgstr "அவசரம் / சாதாரணம்"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:40
+msgid "Resolution rate"
+msgstr "தீர்வு விகிதம்"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:42
+msgid "Solved or closed, out of cases not rejected"
+msgstr "நிராகரிக்கப்படாதவற்றில் தீர்க்கப்பட்ட அல்லது மூடப்பட்ட விகிதம்"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:45
+msgid "Average resolution"
+msgstr "சராசரி தீர்வு நேரம்"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:47
+msgid "From submission to solved"
+msgstr "சமர்ப்பித்ததிலிருந்து தீர்வு வரை"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:55
+msgid "Top categories"
+msgstr "முக்கிய வகைகள்"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:55
+msgid "Number of cases in each category"
+msgstr "ஒவ்வொரு வகையிலுமுள்ள கோரிக்கைகளின் எண்ணிக்கை"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:67
+msgid "No cases in this period."
+msgstr "இந்தக் காலப்பகுதியில் கோரிக்கைகள் இல்லை."
+
+#: cases/templates/cases/dashboards/management_dashboard.html:72
+msgid "Cases by status"
+msgstr "நிலைவாரியான கோரிக்கைகள்"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:74
+#: cases/templates/cases/dashboards/reports.html:17
+#: cases/templates/cases/dashboards/reports.html:26
+#: cases/templates/cases/dashboards/reports.html:62
+#: cases/templates/cases/dashboards/reports.html:69
+#: cases/templates/cases/settings/category_list.html:11
+msgid "Cases"
+msgstr "கோரிக்கைகள்"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:85
+msgid "Authority-wise pending cases"
+msgstr "பிரிவுவாரியான நிலுவைக் கோரிக்கைகள்"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:85
+msgid "Open cases with each unit. Average age counts days since submission."
+msgstr "பிரிவுகளின் திறந்த கோரிக்கைகள். சராசரிக் காலம் சமர்ப்பித்ததிலிருந்து கணக்கிடப்படும்."
+
+#: cases/templates/cases/dashboards/management_dashboard.html:87
+msgid "Solved, not closed"
+msgstr "தீர்க்கப்பட்டது, மூடப்படவில்லை"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:87
+msgid "Average age"
+msgstr "சராசரிக் காலம்"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:91
+#: cases/templates/cases/settings/authority_list.html:20
+msgid "Inactive"
+msgstr "முடக்கப்பட்டது"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:97
+#, python-format
+msgid "%(value_0)s days"
+msgstr "%(value_0)s நாட்கள்"
+
+#: cases/templates/cases/dashboards/management_dashboard.html:100
+msgid "No authorities set up yet."
+msgstr "இன்னும் பிரிவுகள் அமைக்கப்படவில்லை."
+
+#: cases/templates/cases/dashboards/reports.html:3
+#: cases/templates/cases/dashboards/reports.html:7
+msgid "Cases and reports"
+msgstr "கோரிக்கைகள் மற்றும் அறிக்கைகள்"
+
+#: cases/templates/cases/dashboards/reports.html:8
+msgid "Find a case or export a filtered report."
+msgstr "கோரிக்கையைத் தேடவும் அல்லது வடிகட்டிய அறிக்கையை ஏற்றுமதி செய்யவும்."
+
+#: cases/templates/cases/dashboards/reports.html:10
+msgid "Download CSV"
+msgstr "CSV பதிவிறக்கவும்"
+
+#: cases/templates/cases/dashboards/reports.html:16
+msgid "Totals for this filter"
+msgstr "இந்த வடிகட்டியின் மொத்தங்கள்"
+
+#: cases/templates/cases/dashboards/reports.html:18
+#: cases/templates/cases/my_cases.html:14
+msgid "Open"
+msgstr "திறந்தவை"
+
+#: cases/templates/cases/dashboards/reports.html:27
+msgid "Sort cases"
+msgstr "கோரிக்கை வரிசை"
+
+#: cases/templates/cases/dashboards/reports.html:27
+msgid "Sort"
+msgstr "வரிசை"
+
+#: cases/templates/cases/dashboards/reports.html:28
+msgid "Newest"
+msgstr "புதியவை முதலில்"
+
+#: cases/templates/cases/dashboards/reports.html:29
+msgid "Oldest"
+msgstr "பழையவை முதலில்"
+
+#: cases/templates/cases/dashboards/reports.html:30
+msgid "Urgent first"
+msgstr "அவசரமானவை முதலில்"
+
+#: cases/templates/cases/dashboards/reports.html:53
+msgid "No cases match these filters"
+msgstr "இந்த வடிகட்டிகளுக்குப் பொருந்தும் கோரிக்கைகள் இல்லை"
+
+#: cases/templates/cases/dashboards/reports.html:53
+msgid "Widen the date range or clear a filter."
+msgstr "தேதிப் பரப்பை விரிவுபடுத்தவும் அல்லது வடிகட்டியை நீக்கவும்."
+
+#: cases/templates/cases/dashboards/reports.html:57
+msgid "Category & authority breakdown"
+msgstr "வகை மற்றும் பிரிவுவாரியான விவரங்கள்"
+
+#: cases/templates/cases/dashboards/reports.html:60
+msgid "By category"
+msgstr "வகைவாரியாக"
+
+#: cases/templates/cases/dashboards/reports.html:63
+#: cases/templates/cases/dashboards/reports.html:70
+msgid "No cases"
+msgstr "கோரிக்கைகள் இல்லை"
+
+#: cases/templates/cases/dashboards/reports.html:67
+msgid "By authority"
+msgstr "பிரிவுவாரியாக"
+
+#: cases/templates/cases/my_cases.html:6
+msgid "Everything you've submitted, newest first."
+msgstr "உங்கள் சமர்ப்பிப்புகள், புதியவை முதலில்."
+
+#: cases/templates/cases/my_cases.html:12
+msgid "Filter my cases"
+msgstr "எனது கோரிக்கைகளை வடிகட்டவும்"
+
+#: cases/templates/cases/my_cases.html:13
+msgid "All"
+msgstr "அனைத்தும்"
+
+#: cases/templates/cases/my_cases.html:15
+msgid "Needs my reply"
+msgstr "எனது பதில் தேவை"
+
+#: cases/templates/cases/my_cases.html:16
+msgid "Finished"
+msgstr "முடிந்தவை"
+
+#: cases/templates/cases/my_cases.html:20
+msgid "Search my cases"
+msgstr "எனது கோரிக்கைகளைத் தேடவும்"
+
+#: cases/templates/cases/my_cases.html:28
+msgid "Updated"
+msgstr "புதுப்பிக்கப்பட்டது"
+
+#: cases/templates/cases/my_cases.html:46
+#, python-format
+msgid "No cases match “%(value_0)s”"
+msgstr "“%(value_0)s” பொருந்தும் கோரிக்கைகள் இல்லை"
+
+#: cases/templates/cases/my_cases.html:46
+msgid "Try the case number, or part of the title."
+msgstr "கோரிக்கை எண் அல்லது தலைப்பின் ஒரு பகுதியைப் பயன்படுத்தவும்."
+
+#: cases/templates/cases/my_cases.html:47
+msgid "Nothing needs your reply"
+msgstr "உங்கள் பதில் தேவையில்லை"
+
+#: cases/templates/cases/my_cases.html:47
+msgid "If a unit asks you a question about a case, it will appear here."
+msgstr "பிரிவு தகவல் கேட்டால் இங்கே காட்டப்படும்."
+
+#: cases/templates/cases/my_cases.html:48
+msgid "No cases here yet"
+msgstr "இன்னும் கோரிக்கைகள் இல்லை"
+
+#: cases/templates/cases/my_cases.html:48
+msgid "Submit a complaint or suggestion"
+msgstr "புகார் அல்லது பரிந்துரையைச் சமர்ப்பிக்கவும்"
+
+#: cases/templates/cases/notifications.html:3
+#: cases/templates/cases/notifications.html:6 templates/base.html:33
+msgid "Notifications"
+msgstr "அறிவிப்புகள்"
+
+#: cases/templates/cases/notifications.html:6
+msgid "Your latest case updates, all in one place."
+msgstr "உங்கள் அண்மைய கோரிக்கைப் புதுப்பிப்புகள் ஒரே இடத்தில்."
+
+#: cases/templates/cases/notifications.html:9
+msgid "Mark all as read"
+msgstr "அனைத்தையும் படித்ததாகக் குறிக்கவும்"
+
+#: cases/templates/cases/notifications.html:13
+msgid "New updates are available."
+msgstr "புதிய புதுப்பிப்புகள் உள்ளன."
+
+#: cases/templates/cases/notifications.html:13
+msgid "Refresh notifications"
+msgstr "அறிவிப்புகளை மீளேற்றவும்"
+
+#: cases/templates/cases/notifications.html:25
+msgid "(unread)"
+msgstr "(படிக்காதது)"
+
+#: cases/templates/cases/notifications.html:27
+#, python-format
+msgid "%(value_0)s ago"
+msgstr "%(value_0)s முன்பு"
+
+#: cases/templates/cases/notifications.html:35
+msgid "No notifications yet"
+msgstr "இன்னும் அறிவிப்புகள் இல்லை"
+
+#: cases/templates/cases/notifications.html:35
+msgid "You'll be told here when one of your cases changes."
+msgstr "உங்கள் கோரிக்கையில் மாற்றம் ஏற்பட்டால் இங்கே அறிவிக்கப்படும்."
+
+#: cases/templates/cases/reporter_home.html:6
+msgid "Your dashboard"
+msgstr "உங்கள் முகப்பு"
+
+#: cases/templates/cases/reporter_home.html:8
+#, python-format
+msgid "%(total)s case needs your reply"
+msgid_plural "%(total)s cases need your reply"
+msgstr[0] "%(total)s கோரிக்கைக்கு உங்கள் பதில் தேவை"
+msgstr[1] "%(total)s கோரிக்கைகளுக்கு உங்கள் பதில் தேவை"
+
+#: cases/templates/cases/reporter_home.html:8
+msgid "View requests for information →"
+msgstr "தகவல் கோரிக்கைகளைப் பார்க்கவும் →"
+
+#: cases/templates/cases/reporter_home.html:15
+msgid "Latest update"
+msgstr "அண்மைய புதுப்பிப்பு"
+
+#: cases/templates/cases/reporter_home.html:15
+msgid "You’re all caught up"
+msgstr "புதிய அறிவிப்புகள் இல்லை"
+
+#: cases/templates/cases/reporter_home.html:15
+msgid "Your case updates will appear here."
+msgstr "உங்கள் கோரிக்கைப் புதுப்பிப்புகள் இங்கே காட்டப்படும்."
+
+#: cases/templates/cases/settings/authority_form.html:3
+#: cases/templates/cases/settings/authority_form.html:5
+#: cases/templates/cases/settings/category_form.html:3
+#: cases/templates/cases/settings/category_form.html:5
+#, python-format
+msgid "Edit %(value_0)s"
+msgstr "%(value_0)s திருத்தவும்"
+
+#: cases/templates/cases/settings/authority_form.html:3
+#: cases/templates/cases/settings/authority_form.html:5
+#: cases/templates/cases/settings/authority_form.html:21
+#: cases/templates/cases/settings/authority_list.html:7
+msgid "Add authority"
+msgstr "பிரிவைச் சேர்க்கவும்"
+
+#: cases/templates/cases/settings/authority_list.html:6
+msgid "Manage the units responsible for resolving cases."
+msgstr "கோரிக்கைகளைத் தீர்க்கும் பிரிவுகளை நிர்வகிக்கவும்."
+
+#: cases/templates/cases/settings/authority_list.html:11
+msgid "Email / phone"
+msgstr "மின்னஞ்சல் / தொலைபேசி"
+
+#: cases/templates/cases/settings/authority_list.html:11
+msgid "Officers"
+msgstr "அலுவலர்கள்"
+
+#: cases/templates/cases/settings/authority_list.html:11
+#: cases/templates/cases/settings/category_list.html:11
+msgid "Actions"
+msgstr "நடவடிக்கைகள்"
+
+#: cases/templates/cases/settings/authority_list.html:20
+msgid "Active"
+msgstr "செயலில்"
+
+#: cases/templates/cases/settings/authority_list.html:23
+#: cases/templates/cases/settings/category_list.html:20
+msgid "Edit"
+msgstr "திருத்தவும்"
+
+#: cases/templates/cases/settings/authority_list.html:25
+msgid "Deactivate"
+msgstr "முடக்கவும்"
+
+#: cases/templates/cases/settings/authority_list.html:25
+msgid "Activate"
+msgstr "செயல்படுத்தவும்"
+
+#: cases/templates/cases/settings/authority_list.html:29
+msgid "Delete"
+msgstr "நீக்கவும்"
+
+#: cases/templates/cases/settings/authority_list.html:36
+msgid "No authorities yet"
+msgstr "இன்னும் பிரிவுகள் இல்லை"
+
+#: cases/templates/cases/settings/authority_list.html:36
+msgid "Add the units that handle cases, such as the Maintenance Division or IT Unit."
+msgstr "பராமரிப்பு அல்லது தகவல் தொழில்நுட்பப் பிரிவு போன்ற பொறுப்பான பிரிவுகளைச் சேர்க்கவும்."
+
+#: cases/templates/cases/settings/authority_list.html:41
+msgid "An authority with cases on record can't be deleted, so its history stays intact. Deactivate it instead. Officers are linked to an authority on their user account."
+msgstr "கோரிக்கைகள் உள்ள பிரிவை நீக்க முடியாது. வரலாற்றைப் பாதுகாக்க முடக்கவும். அலுவலர்களின் கணக்குகளில் பிரிவை இணைக்கவும்."
+
+#: cases/templates/cases/settings/category_form.html:3
+#: cases/templates/cases/settings/category_form.html:5
+#: cases/templates/cases/settings/category_form.html:14
+#: cases/templates/cases/settings/category_list.html:7
+msgid "Add category"
+msgstr "வகையைச் சேர்க்கவும்"
+
+#: cases/templates/cases/settings/category_list.html:6
+msgid "Organize the choices on the submission form."
+msgstr "சமர்ப்பிப்பு படிவத்தின் வகைகளை ஒழுங்குபடுத்தவும்."
+
+#: cases/templates/cases/settings/category_list.html:11
+msgid "Order"
+msgstr "வரிசை"
+
+#: cases/templates/cases/settings/category_list.html:11
+msgid "On the form"
+msgstr "படிவத்தில்"
+
+#: cases/templates/cases/settings/category_list.html:18
+msgid "Shown"
+msgstr "காட்டப்படும்"
+
+#: cases/templates/cases/settings/category_list.html:18
+msgid "Hidden"
+msgstr "மறைக்கப்பட்டது"
+
+#: cases/templates/cases/settings/category_list.html:22
+msgid "Hide"
+msgstr "மறைக்கவும்"
+
+#: cases/templates/cases/settings/category_list.html:22
+msgid "Show"
+msgstr "காட்டவும்"
+
+#: cases/templates/cases/settings/category_list.html:27
+msgid "No categories yet"
+msgstr "இன்னும் வகைகள் இல்லை"
+
+#: cases/templates/cases/settings/category_list.html:27
+msgid "Add at least one so people can submit cases."
+msgstr "கோரிக்கைகளைச் சமர்ப்பிக்க குறைந்தது ஒரு வகையைச் சேர்க்கவும்."
+
+#: cases/templatetags/case_tags.py:44
+msgid "Today"
+msgstr "இன்று"
+
+#: cases/templatetags/case_tags.py:46 cases/templatetags/case_tags.py:47
+#, python-format
+msgid "%(count)s day"
+msgid_plural "%(count)s days"
+msgstr[0] "%(count)s நாள்"
+msgstr[1] "%(count)s நாட்கள்"
+
+#: cases/tests/test_i18n.py:127
+msgid "Future message without a translation"
+msgstr ""
+
+#: cases/validators.py:74
+#, python-format
+msgid "“%(value_0)s” is not an accepted %(value_1)s type. Use %(value_2)s."
+msgstr "“%(value_0)s” ஏற்கப்படும் %(value_1)s வகை அல்ல. %(value_2)s பயன்படுத்தவும்."
+
+#: cases/validators.py:78
+#, python-format
+msgid "“%(value_0)s” is %(value_1)s. %(value_2)ss must be %(value_3)s MB or smaller."
+msgstr "“%(value_0)s” அளவு %(value_1)s. %(value_2)s அதிகபட்சம் %(value_3)s MB ஆக இருக்க வேண்டும்."
+
+#: cases/validators.py:81
+#, python-format
+msgid "“%(value_0)s” is empty. Choose the file again."
+msgstr "“%(value_0)s” காலியாக உள்ளது. கோப்பை மீண்டும் தேர்ந்தெடுக்கவும்."
+
+#: cases/validators.py:84
+#, python-format
+msgid "“%(value_0)s” does not look like a real %(value_1)s file. Export it again from your phone or camera and retry."
+msgstr "“%(value_0)s” சரியான %(value_1)s கோப்பாகத் தெரியவில்லை. மீண்டும் ஏற்றுமதி செய்து முயலவும்."
+
+#: cases/validators.py:96
+#, python-format
+msgid "“%(value_0)s” could not be opened as an image."
+msgstr "“%(value_0)s” படமாகத் திறக்க முடியவில்லை."
+
+#: cases/view_helpers.py:24
+msgid "Case not found"
+msgstr "கோரிக்கை காணப்படவில்லை"
+
+#: cases/view_helpers.py:40
+msgid "System"
+msgstr "அமைப்பு"
+
+#: cases/view_helpers.py:44
+msgid "Reporter"
+msgstr "சமர்ப்பித்தவர்"
+
+#: cases/view_helpers.py:49
+#, python-format
+msgid "%(name)s (Administrator)"
+msgstr "%(name)s (நிர்வாகி)"
+
+#: cases/view_helpers.py:49
+msgid "Faculty office"
+msgstr "பீட அலுவலகம்"
+
+#: cases/view_helpers.py:111
+msgid "Reviewed"
+msgstr "பரிசீலிக்கப்பட்டது"
+
+#: cases/views.py:91
+#, python-format
+msgid "Case %(value_0)s submitted. You will get a message here and by email when its status changes."
+msgstr "%(value_0)s கோரிக்கை சமர்ப்பிக்கப்பட்டது. நிலை மாறும்போது இங்கும் மின்னஞ்சலிலும் அறிவிக்கப்படும்."
+
+#: cases/views.py:202
+msgid "Reply sent. The case is back with the authority."
+msgstr "பதில் அனுப்பப்பட்டது. கோரிக்கை மீண்டும் பிரிவுக்கு அனுப்பப்பட்டது."
+
+#: cases/views.py:219
+msgid "Thanks. The faculty office will check the case and reopen it if needed."
+msgstr "நன்றி. பீட அலுவலகம் பரிசீலித்து தேவையெனில் மீண்டும் திறக்கும்."
+
+#: cases/views.py:238
+msgid "reassigned"
+msgstr "மீண்டும் ஒப்படைக்கப்பட்டது"
+
+#: cases/views.py:238
+msgid "assigned"
+msgstr "ஒப்படைக்கப்பட்டது"
+
+#: cases/views.py:249
+#, python-format
+msgid "Case %(value_0)s to %(value_1)s. They have been notified."
+msgstr "கோரிக்கை %(value_1)s பிரிவுக்கு %(value_0)s. பிரிவுக்கு அறிவிக்கப்பட்டது."
+
+#: cases/views.py:259
+msgid "No changes to save."
+msgstr "சேமிக்க மாற்றமில்லை."
+
+#: cases/views.py:261
+msgid "Changes saved."
+msgstr "மாற்றங்கள் சேமிக்கப்பட்டன."
+
+#: cases/views.py:275
+msgid "Case rejected. The reporter has been told why."
+msgstr "கோரிக்கை நிராகரிக்கப்பட்டது. சமர்ப்பித்தவருக்குக் காரணம் தெரிவிக்கப்பட்டது."
+
+#: cases/views.py:290
+msgid "Case closed."
+msgstr "கோரிக்கை மூடப்பட்டது."
+
+#: cases/views.py:305
+msgid "Case reopened and sent back to the authority."
+msgstr "கோரிக்கை மீண்டும் திறக்கப்பட்டு பிரிவுக்கு அனுப்பப்பட்டது."
+
+#: cases/views.py:320
+msgid "Case marked as solved. The reporter has been notified."
+msgstr "கோரிக்கை தீர்க்கப்பட்டது எனக் குறிக்கப்பட்டு சமர்ப்பித்தவருக்கு அறிவிக்கப்பட்டது."
+
+#: cases/views.py:366
+msgid "File missing"
+msgstr "கோப்பு காணப்படவில்லை"
+
+#: config/urls.py:8
+msgid "FMSC Case Desk: system administration"
+msgstr "FMSC கோரிக்கை மையம்: அமைப்பு நிர்வாகம்"
+
+#: config/urls.py:9
+msgid "FMSC Case Desk admin"
+msgstr "FMSC நிர்வாகம்"
+
+#: config/urls.py:10
+msgid "Users, roles and records"
+msgstr "பயனர்கள், பயனர் வகைகள் மற்றும் பதிவுகள்"
+
+#: templates/403.html:3
+msgid "Not allowed"
+msgstr "அனுமதியில்லை"
+
+#: templates/403.html:5
+msgid "You don't have access to this page"
+msgstr "இந்தப் பக்கத்தை அணுக முடியாது"
+
+#: templates/403.html:5
+msgid "Your role doesn't include this screen. If you think it should, contact the system administrator."
+msgstr "உங்கள் பயனர் வகைக்கு இந்தப் பக்கத்தில் அனுமதியில்லை. அமைப்பு நிர்வாகியைத் தொடர்புகொள்ளவும்."
+
+#: templates/403.html:6 templates/404.html:6
+msgid "Go to your home page"
+msgstr "உங்கள் முகப்புக்குச் செல்லவும்"
+
+#: templates/404.html:3
+msgid "Not found"
+msgstr "காணப்படவில்லை"
+
+#: templates/404.html:5
+msgid "We couldn't find that page"
+msgstr "அந்தப் பக்கம் காணப்படவில்லை"
+
+#: templates/404.html:5
+msgid "The case number may be wrong, or the case may belong to someone else."
+msgstr "கோரிக்கை எண் தவறாக இருக்கலாம் அல்லது அது மற்றொருவருடையதாக இருக்கலாம்."
+
+#: templates/admin/base_site.html:3
+msgid "Django site admin"
+msgstr "Django நிர்வாகம்"
+
+#: templates/admin/base_site.html:56
+msgid "Django administration"
+msgstr "Django நிர்வாகம்"
+
+#: templates/base.html:7
+msgid "Workspace"
+msgstr "பணித்தளம்"
+
+#: templates/base.html:16
+msgid "USJ"
+msgstr "USJ"
+
+#: templates/base.html:18
+msgid "FMSC"
+msgstr "FMSC"
+
+#: templates/base.html:18
+msgid "Complaint & Suggestion"
+msgstr "புகார்கள் மற்றும் பரிந்துரைகள்"
+
+#: templates/base.html:18
+msgid "Management App"
+msgstr "முகாமைத்துவச் செயலி"
+
+#: templates/base.html:20
+msgid "Main"
+msgstr "முதன்மை"
+
+#: templates/base.html:22
+msgid "MANAGE"
+msgstr "நிர்வாகம்"
+
+#: templates/base.html:26
+msgid "Logout"
+msgstr "வெளியேறவும்"
+
+#: templates/base.html:26
+msgid "A better faculty, together."
+msgstr "ஒன்றிணைந்து சிறந்த பீடத்தை நோக்கி."
+
+#: templates/base.html:30
+msgid "Toggle navigation"
+msgstr "வழிசெலுத்தலைத் திறக்க/மூட"
+
+#: templates/base.html:30
+msgid "FMSC Dashboard"
+msgstr "FMSC முகப்பு"
+
+#: templates/base.html:33
+#, python-format
+msgid "Notifications, %(count)s unread"
+msgstr "அறிவிப்புகள், படிக்காதவை %(count)s"
+
+#: templates/base.html:36
+msgid "Sign out"
+msgstr "வெளியேறவும்"
+
+#: templates/base.html:45
+msgid "FMSC Case Desk"
+msgstr "FMSC கோரிக்கை மையம்"
+
+#: templates/partials/dashboard_charts.html:4
+msgid "Cases overview"
+msgstr "கோரிக்கைக் கண்ணோட்டம்"
+
+#: templates/partials/dashboard_charts.html:6
+#, python-format
+msgid "%(complaints)s complaints and %(suggestions)s suggestions"
+msgstr "%(complaints)s புகார்களும் %(suggestions)s பரிந்துரைகளும்"
+
+#: templates/partials/dashboard_charts.html:13
+msgid "No cases yet. Your overview will grow with real submissions."
+msgstr "இன்னும் கோரிக்கைகள் இல்லை. புதிய சமர்ப்பிப்புகளுடன் கண்ணோட்டம் உருவாகும்."
+
+#: templates/partials/dashboard_charts.html:18
+msgid "Case status trend"
+msgstr "கோரிக்கை நிலைப் போக்கு"
+
+#: templates/partials/dashboard_charts.html:21
+#, python-format
+msgid "Daily submissions and resolutions, %(value_0)s to %(value_1)s. Exact values are in the data table below."
+msgstr "%(value_0)s முதல் %(value_1)s வரையான தினசரிச் சமர்ப்பிப்புகளும் தீர்வுகளும். சரியான பெறுமதிகள் கீழுள்ள அட்டவணையில் உள்ளன."
+
+#: templates/partials/dashboard_charts.html:26
+#, python-format
+msgid "%(value_0)s: %(value_1)s submitted"
+msgstr "%(value_0)s: சமர்ப்பிக்கப்பட்டவை %(value_1)s"
+
+#: templates/partials/dashboard_charts.html:26
+#, python-format
+msgid "%(value_0)s: %(value_1)s solved"
+msgstr "%(value_0)s: தீர்க்கப்பட்டவை %(value_1)s"
+
+#: templates/partials/dashboard_charts.html:28
+msgid "Last 7 days"
+msgstr "கடந்த 7 நாட்கள்"
+
+#: templates/partials/dashboard_charts.html:28
+#, python-format
+msgid "%(value_0)s – %(value_1)s · View data"
+msgstr "%(value_0)s – %(value_1)s · தரவைக் காண்க"
+
+#: templates/partials/dashboard_charts.html:28
+msgid "Daily case activity"
+msgstr "தினசரி கோரிக்கைச் செயற்பாடு"
+
+#: templates/partials/dashboard_charts.html:28
+#: templates/partials/recent_cases.html:4
+msgid "Date"
+msgstr "தேதி"
+
+#: templates/partials/dashboard_metrics.html:2
+msgid "Case summary"
+msgstr "கோரிக்கைச் சுருக்கம்"
+
+#: templates/partials/field.html:6 templates/partials/upload_box.html:3
+msgid "(optional)"
+msgstr "(விருப்பத்தேர்வு)"
+
+#: templates/partials/filters.html:3
+msgid "Filters"
+msgstr "வடிகட்டிகள்"
+
+#: templates/partials/filters.html:3
+#, python-format
+msgid "%(value_0)s active"
+msgstr "செயலில் %(value_0)s"
+
+#: templates/partials/filters.html:3
+msgid "Refine your view"
+msgstr "காட்சியை வடிகட்டவும்"
+
+#: templates/partials/filters.html:4
+msgid "Filter cases"
+msgstr "கோரிக்கைகளை வடிகட்டவும்"
+
+#: templates/partials/filters.html:8
+msgid "Clear filters"
+msgstr "வடிகட்டிகளை நீக்கவும்"
+
+#: templates/partials/form_errors.html:4
+msgid "These files could not be accepted:"
+msgstr "இந்தக் கோப்புகளை ஏற்க முடியாது:"
+
+#: templates/partials/form_errors.html:4
+msgid "Check this before you continue:"
+msgstr "தொடரும் முன் இதைச் சரிபார்க்கவும்:"
+
+#: templates/partials/language_selector.html:3
+msgid "Language"
+msgstr "மொழி"
+
+#: templates/partials/language_selector.html:3
+msgid "Change language"
+msgstr "மொழியை மாற்றவும்"
+
+#: templates/partials/pager.html:3
+msgid "Pages"
+msgstr "பக்கங்கள்"
+
+#: templates/partials/pager.html:4
+#, python-format
+msgid "Page %(value_0)s of %(value_1)s (%(value_2)s cases)"
+msgstr "பக்கம் %(value_0)s / %(value_1)s (%(value_2)s கோரிக்கைகள்)"
+
+#: templates/partials/pager.html:6
+msgid "Previous"
+msgstr "முந்தையது"
+
+#: templates/partials/pager.html:7
+msgid "Next"
+msgstr "அடுத்தது"
+
+#: templates/partials/progress.html:4
+msgid "Starting upload…"
+msgstr "பதிவேற்றம் தொடங்குகிறது…"
+
+#: templates/partials/quick_actions.html:3
+msgid "Quick actions"
+msgstr "விரைவு நடவடிக்கைகள்"
+
+#: templates/partials/quick_actions.html:6
+msgid "Submit a complaint"
+msgstr "புகாரைச் சமர்ப்பிக்கவும்"
+
+#: templates/partials/quick_actions.html:7
+msgid "Submit a suggestion"
+msgstr "பரிந்துரையைச் சமர்ப்பிக்கவும்"
+
+#: templates/partials/quick_actions.html:8
+msgid "Track my cases"
+msgstr "எனது கோரிக்கைகளைக் காண்க"
+
+#: templates/partials/quick_actions.html:9
+msgid "View updates"
+msgstr "புதுப்பிப்புகளைக் காண்க"
+
+#: templates/partials/quick_actions.html:11
+msgid "Review cases"
+msgstr "கோரிக்கைகளைப் பரிசீலிக்கவும்"
+
+#: templates/partials/quick_actions.html:11
+#, python-format
+msgid "%(value_0)s new"
+msgstr "புதியவை %(value_0)s"
+
+#: templates/partials/quick_actions.html:12
+msgid "Confirm solutions"
+msgstr "தீர்வுகளை உறுதிப்படுத்தவும்"
+
+#: templates/partials/quick_actions.html:12
+#, python-format
+msgid "%(value_0)s to close"
+msgstr "மூட வேண்டியவை %(value_0)s"
+
+#: templates/partials/quick_actions.html:13
+msgid "Browse all cases"
+msgstr "அனைத்து கோரிக்கைகளையும் காண்க"
+
+#: templates/partials/quick_actions.html:14
+#: templates/partials/quick_actions.html:19
+msgid "View reports"
+msgstr "அறிக்கைகளைக் காண்க"
+
+#: templates/partials/quick_actions.html:16
+msgid "Browse cases"
+msgstr "கோரிக்கைகளைக் காண்க"
+
+#: templates/partials/quick_actions.html:17
+msgid "Authority progress"
+msgstr "பிரிவுகளின் முன்னேற்றம்"
+
+#: templates/partials/recent_cases.html:3
+msgid "Recent cases"
+msgstr "அண்மைய கோரிக்கைகள்"
+
+#: templates/partials/recent_cases.html:3
+msgid "View all"
+msgstr "அனைத்தையும் காண்க"
+
+#: templates/partials/recent_cases.html:6
+msgid "No cases yet"
+msgstr "இன்னும் கோரிக்கைகள் இல்லை"
+
+#: templates/partials/recent_cases.html:6
+msgid "Your submissions will appear here as you make them."
+msgstr "நீங்கள் சமர்ப்பிக்கும் கோரிக்கைகள் இங்கே காட்டப்படும்."
+
+#: templates/partials/recent_cases.html:6
+msgid "New submissions will appear here for review."
+msgstr "புதிய கோரிக்கைகள் பரிசீலனைக்காக இங்கே காட்டப்படும்."
+
+#: templates/partials/upload_box.html:4
+msgid "Choose files"
+msgstr "கோப்புகளைத் தேர்ந்தெடுக்கவும்"
+
+#: templates/partials/upload_box.html:4
+msgid "No files chosen"
+msgstr "கோப்புகள் தேர்ந்தெடுக்கப்படவில்லை"

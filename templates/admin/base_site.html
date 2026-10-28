@@ -1,0 +1,60 @@
+{% extends "admin/base.html" %}
+{% load static i18n %}
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+{% block extrastyle %}{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/language.css' %}">
+<style>
+  /* University of Sri Jayewardenepura colours for the system administration pages */
+  html[data-theme="light"], :root {
+    --primary: #800000;
+    --secondary: #660000;
+    --accent: #ffee0c;
+    --primary-fg: #fff;
+    --header-bg: #800000;
+    --header-color: #fff;
+    --header-branding-color: #fff;
+    --header-link-color: #fff;
+    --breadcrumbs-bg: #5c0000;
+    --breadcrumbs-fg: #f6dede;
+    --breadcrumbs-link-fg: #fff;
+    --link-fg: #800000;
+    --link-hover-color: #5c0000;
+    --link-selected-fg: #5c0000;
+    --button-bg: #800000;
+    --button-hover-bg: #5c0000;
+    --default-button-bg: #5c0000;
+    --default-button-hover-bg: #3d0000;
+    --selected-row: #fff9c2;
+  }
+  html[data-theme="dark"] {
+    --breadcrumbs-bg: #5c0000;
+    --breadcrumbs-fg: #f6dede;
+    --breadcrumbs-link-fg: #fff;
+    --link-fg: #ffb3b3;
+    --link-hover-color: #ffe5e5;
+    --link-selected-fg: #ffee0c;
+    --selected-row: #3a2828;
+    --selected-bg: #3a2828;
+  }
+  @media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) {
+      --breadcrumbs-bg: #5c0000;
+      --breadcrumbs-fg: #f6dede;
+      --breadcrumbs-link-fg: #fff;
+      --link-fg: #ffb3b3;
+      --link-hover-color: #ffe5e5;
+      --link-selected-fg: #ffee0c;
+      --selected-row: #3a2828;
+      --selected-bg: #3a2828;
+    }
+  }
+  #header { border-bottom: 4px solid #ffee0c; }
+  .breadcrumbs a { text-decoration: underline; text-underline-offset: 3px; }
+</style>
+{% endblock %}
+{% block branding %}
+<div id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></div>
+{% endblock %}
+{% block nav-global %}{% include "partials/language_selector.html" %}{% endblock %}
+
+{% block extrahead %}{{ block.super }}<script src="{% url 'javascript-catalog' %}"></script><script src="{% static 'js/language.js' %}" defer></script>{% endblock %}
