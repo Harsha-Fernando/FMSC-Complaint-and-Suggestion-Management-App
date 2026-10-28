@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% if authority %}{% blocktranslate with value_0=authority.name %}Edit {{ value_0 }}{% endblocktranslate %}{% else %}{% translate "Add authority" %}{% endif %}{% endblock %}
+{% block content %}
+<div class="page-head"><h1>{% if authority %}{% blocktranslate with value_0=authority.name %}Edit {{ value_0 }}{% endblocktranslate %}{% else %}{% translate "Add authority" %}{% endif %}</h1></div>
+<form class="panel panel-body" method="post" novalidate style="max-width:640px">
+  {% csrf_token %}
+  {% include "partials/form_errors.html" %}
+  {% include "partials/field.html" with field=form.name %}
+  <div class="field-row">
+    {% include "partials/field.html" with field=form.officer_name %}
+    {% include "partials/field.html" with field=form.designation %}
+  </div>
+  <div class="field-row">
+    {% include "partials/field.html" with field=form.email %}
+    {% include "partials/field.html" with field=form.phone %}
+  </div>
+  {% include "partials/field.html" with field=form.unit %}
+  {% include "partials/field.html" with field=form.is_active %}
+  <div class="btn-row">
+    <button class="btn btn-primary" type="submit">{% if authority %}{% translate "Save changes" %}{% else %}{% translate "Add authority" %}{% endif %}</button>
+    <a class="btn btn-secondary" href="{% url 'cases:authority_list' %}">{% translate "Cancel" %}</a>
+  </div>
+</form>
+{% endblock %}

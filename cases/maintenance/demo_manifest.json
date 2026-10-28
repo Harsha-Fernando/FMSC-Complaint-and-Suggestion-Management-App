@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Projector not working in Hall A",
+    "description_sha256": "be962ad756e230188008b1568e8345612d8f53ff89ec21cb6e6467df04d73ab7",
+    "location": "Lecture Hall A"
+  },
+  {
+    "title": "Add more seating near the library",
+    "description_sha256": "e30a979e63ab876283ef533f6569d433cb15ca8885a78f423abfb90ef01916e1",
+    "location": "Library entrance"
+  },
+  {
+    "title": "Water leak near corridor",
+    "description_sha256": "e948b5d7915d3f7c44d0ecf83280041d71a2e77402e184dd3e8088331d5d38d0",
+    "location": "Ground floor corridor, Block B"
+  },
+  {
+    "title": "Broken chair in lecture hall",
+    "description_sha256": "388085936056bc62ad5273010ef1d982ff14fc1f26356830fa49a3f7e57d4f08",
+    "location": "Hall C, row 4"
+  },
+  {
+    "title": "Wi-Fi drops in the computer lab",
+    "description_sha256": "7740ada443763e2d339ec1205cdeadd64bfddaf2c44ce67273861e0b0cf7c3b9",
+    "location": "Computer Lab 2"
+  },
+  {
+    "title": "Exam timetable clash for MGT 3204 and ACC 3301",
+    "description_sha256": "e8ae6fa31bdfd5f874ad2bbef43add861e2d76c20c6dea6f437e6ba1d8b1ce98",
+    "location": "Exam timetable (online)"
+  },
+  {
+    "title": "Washrooms on the second floor need a cleaning schedule",
+    "description_sha256": "a9800797901d4b89d8d5296e60d8c5bb99d18a4bd2926447d114ad207c090da5",
+    "location": "Block A, second floor"
+  },
+  {
+    "title": "Install a water filter near the canteen",
+    "description_sha256": "5de7cbdfc0c8aa537a17f0336a64c927947510ec5292e7c4324091a5e8ff7d0f",
+    "location": "Canteen"
+  },
+  {
+    "title": "Projector in Hall A again",
+    "description_sha256": "31ae2cd6ee2199307282737c5336f06254e20e0ac081bb74234420a9356d8e50",
+    "location": "Lecture Hall A"
+  },
+  {
+    "title": "Lecture recordings for the evening batch",
+    "description_sha256": "755350f2edc3418dc7f5450f9f62e853992bcae4faf20451b70eab3b1fdb5a0b",
+    "location": "Evening programme"
+  },
+  {
+    "title": "Air conditioner noisy in Hall D",
+    "description_sha256": "b25eafc0ab65f5887db5fb17faa423182ebc29c773028ca223a6060a136da8cf",
+    "location": "Hall D"
+  },
+  {
+    "title": "Notice board outside the department office is outdated",
+    "description_sha256": "931942ae4bb5ac3a52434b6ad4c21d3249b5e923a84e70d60f2b44b4bfcbf216",
+    "location": "Department of Business Administration"
+  },
+  {
+    "title": "Loose electrical socket in the seminar room",
+    "description_sha256": "254be5258c68346d78bc290e5550e8e0faa13b545d01a7faee78995f3292f1b1",
+    "location": "Seminar Room 2"
+  },
+  {
+    "title": "Results release dates not announced",
+    "description_sha256": "564357b8977e674a7c04787e3dc85cde060453b263743cce58524c5b9fe98ec3",
+    "location": "Examination Unit notices"
+  },
+  {
+    "title": "Bicycle rack near Block A",
+    "description_sha256": "45d0f32a13559b600a2997f33211822112233a05f7d6c275e9b62e4dca5bd87e",
+    "location": "Block A entrance"
+  },
+  {
+    "title": "Printer in the student common room is out of toner",
+    "description_sha256": "f85a7dd6373274bcaae8170d00b37a61ce5683a0a13fb4ae5ffb902df2d9411b",
+    "location": "Student common room"
+  }
+]
