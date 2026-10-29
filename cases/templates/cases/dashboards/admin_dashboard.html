@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load case_tags ui_icons i18n %}
+{% block title %}{% translate "Dashboard" %}{% endblock %}
+{% block page_class %} dashboard-page{% endblock %}
+{% block content %}
+<h1 class="visually-hidden">{% translate "Case dashboard" %}</h1>
+<div class="stack dashboard-stack">
+  {% include "partials/dashboard_metrics.html" %}
+  {% include "partials/dashboard_charts.html" %}
+  <div class="dashboard-lower">
+    {% include "partials/recent_cases.html" %}
+    <aside class="dashboard-side">{% include "partials/quick_actions.html" %}<div class="latest-update"><span class="update-icon">{% ui_icon 'clock' %}</span><span><strong>{% blocktranslate with value_0=counts.not_attempted %}{{ value_0 }} awaiting review{% endblocktranslate %}</strong><span>{% blocktranslate count total=counts.solved %}{{ total }} solved case ready to confirm.{% plural %}{{ total }} solved cases ready to confirm.{% endblocktranslate %}</span></span></div></aside>
+  </div>
+  {% include "partials/filters.html" %}
+  <details class="panel disclosure-panel">
+    <summary><span>{% translate "Review & closure queues" %} <span class="filter-count">{% blocktranslate with value_0=counts.not_attempted value_1=counts.solved %}{{ value_0 }} new · {{ value_1 }} to close{% endblocktranslate %}</span></span><span class="disclosure-chevron" aria-hidden="true">⌄</span></summary>
+  <div class="grid-halves panel-body">
+    <section class="panel">
+      <div class="panel-head"><div><h2>{% translate "Waiting for review" %}</h2><p>{% translate "Newly submitted and under review, urgent first" %}</p></div></div>
+      {% if waiting_review %}
+      <div class="table-wrap"><table>
+        <thead><tr><th>{% translate "Case" %}</th><th>{% translate "Priority" %}</th><th class="num">{% translate "Age" %}</th></tr></thead>
+        <tbody>
+        {% for case in waiting_review %}
+          <tr>
+            <td class="row-title"><a href="{{ case.get_absolute_url }}">{{ case.title }}</a><div class="meta"><span class="case-no">{{ case.case_number }}</span>, {{ case.category }}, {% status_badge case %}</div></td>
+            <td>{% priority_badge case %}</td>
+            <td class="num"><span class="age {{ case.age_days|age_tone }}">{{ case.age_days|age_label }}</span></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table></div>
+      {% else %}<div class="empty"><strong>{% translate "Nothing to review" %}</strong>{% translate "New submissions will appear here." %}</div>{% endif %}
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><div><h2>{% translate "Solved, waiting to close" %}</h2><p>{% translate "Confirm the work is done, then close" %}</p></div></div>
+      {% if solved_to_confirm %}
+      <div class="table-wrap"><table>
+        <thead><tr><th>{% translate "Case" %}</th><th>{% translate "Authority" %}</th><th>{% translate "Solved" %}</th></tr></thead>
+        <tbody>
+        {% for case in solved_to_confirm %}
+          <tr>
+            <td class="row-title"><a href="{{ case.get_absolute_url }}">{{ case.title }}</a><div class="meta"><span class="case-no">{{ case.case_number }}</span></div></td>
+            <td>{{ case.assigned_authority|default:"—" }}</td>
+            <td class="small">{{ case.solved_at|date:"j M" }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table></div>
+      {% else %}<div class="empty"><strong>{% translate "Nothing to close" %}</strong>{% translate "Cases appear here when an authority marks them solved." %}</div>{% endif %}
+    </section>
+  </div>
+
+  </details>
+
+  <details class="panel disclosure-panel">
+    <summary><span>{% translate "Not started: ageing report" %} <span class="filter-count">{% blocktranslate with value_0=ageing_total %}{{ value_0 }} cases{% endblocktranslate %}</span></span><span class="disclosure-chevron" aria-hidden="true">⌄</span></summary>
+    {% if ageing %}
+    <div class="table-wrap"><table>
+      <thead><tr><th>{% translate "Case no." %}</th><th>{% translate "Title" %}</th><th>{% translate "Priority" %}</th><th>{% translate "Authority" %}</th><th>{% translate "Status" %}</th><th>{% translate "Submitted" %}</th><th class="num">{% translate "Age" %}</th></tr></thead>
+      <tbody>
+      {% for case in ageing %}
+        <tr>
+          <td><span class="case-no">{{ case.case_number }}</span></td>
+          <td class="row-title"><a href="{{ case.get_absolute_url }}">{{ case.title }}</a></td>
+          <td>{% priority_badge case %}</td>
+          <td>{{ case.assigned_authority|default:_("Not assigned") }}</td>
+          <td>{% status_badge case %}</td>
+          <td class="small nowrap">{{ case.submitted_at|date:"Y-m-d" }}</td>
+          <td class="num"><span class="age {{ case.age_days|age_tone }}">{{ case.age_days }}</span> <span class="small muted">{% translate "days" %}</span></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    {% else %}<div class="empty"><strong>{% translate "Every accepted case has started" %}</strong>{% translate "Cases that are waiting for action will be listed here with their age." %}</div>{% endif %}
+  </details>
+  <details class="panel disclosure-panel"><summary><span>{% translate "All case metrics" %}</span><span class="disclosure-chevron" aria-hidden="true">⌄</span></summary>
+    <dl class="metrics-list"><div><dt>{% translate "Total" %}</dt><dd>{{ counts.total }}</dd></div><div><dt>{% translate "Attempted" %}</dt><dd>{{ counts.attempted }}</dd></div><div><dt>{% translate "Not attempted" %}</dt><dd>{{ counts.not_attempted }}</dd></div><div><dt>{% translate "Not started" %}</dt><dd>{{ counts.not_started }}</dd></div><div><dt>{% translate "Urgent" %}</dt><dd>{{ counts.urgent }}</dd></div><div><dt>{% translate "Normal" %}</dt><dd>{{ counts.normal }}</dd></div><div><dt>{% translate "Solved" %}</dt><dd>{{ counts.solved }}</dd></div><div><dt>{% translate "Closed" %}</dt><dd>{{ counts.closed }}</dd></div><div><dt>{% translate "Rejected" %}</dt><dd>{{ counts.rejected }}</dd></div></dl>
+  </details>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% load ui_icons i18n %}
+<div class="dashboard-charts">
+  <section class="panel overview-panel" aria-labelledby="overview-title">
+    <div class="panel-head"><h2 id="overview-title">{% ui_icon 'chart' %} {% translate "Cases overview" %}</h2></div>
+    <div class="overview-content">
+      <div class="case-donut{% if not dashboard.counts.total %} is-empty{% endif %}" role="img" aria-label="{% blocktranslate with complaints=dashboard.counts.complaints suggestions=dashboard.counts.suggestions %}{{ complaints }} complaints and {{ suggestions }} suggestions{% endblocktranslate %}">
+        <svg class="donut-ring" viewBox="0 0 120 120" aria-hidden="true"><circle class="donut-track" cx="60" cy="60" r="46" pathLength="100"/>{% if dashboard.counts.total %}<circle class="donut-portion" cx="60" cy="60" r="46" pathLength="100" stroke-dasharray="{{ dashboard.complaint_share }} 100"/>{% endif %}</svg>
+        <div class="donut-center"><strong>{{ dashboard.counts.total }}</strong><span>{% translate "Total cases" %}</span></div>
+      </div>
+      <div class="donut-legend">
+        <div><span class="legend-dot complaints"></span><span>{% translate "Complaints" %}</span><strong>{{ dashboard.complaint_pct }}% <span>({{ dashboard.counts.complaints }})</span></strong></div>
+        <div><span class="legend-dot suggestions"></span><span>{% translate "Suggestions" %}</span><strong>{{ dashboard.suggestion_pct }}% <span>({{ dashboard.counts.suggestions }})</span></strong></div>
+        {% if not dashboard.counts.total %}<p>{% translate "No cases yet. Your overview will grow with real submissions." %}</p>{% endif %}
+      </div>
+    </div>
+  </section>
+  <section class="panel trend-panel" aria-labelledby="trend-title">
+    <div class="panel-head"><h2 id="trend-title">{% ui_icon 'trend' %} {% translate "Case status trend" %}</h2><div class="chart-legend"><span><i class="legend-dot complaints"></i>{% translate "Submitted" %}</span><span><i class="legend-dot resolved"></i>{% translate "Solved" %}</span></div></div>
+    <div class="trend-content">
+      <svg class="trend-chart" viewBox="0 0 620 205" role="img" aria-labelledby="trend-description">
+        <title id="trend-description">{% blocktranslate with value_0=dashboard.period_start|date:"j M" value_1=dashboard.period_end|date:"j M Y" %}Daily submissions and resolutions, {{ value_0 }} to {{ value_1 }}. Exact values are in the data table below.{% endblocktranslate %}</title>
+        {% for tick in dashboard.ticks %}<line class="chart-grid" x1="48" x2="576" y1="{{ tick.y }}" y2="{{ tick.y }}"/><text class="chart-label" x="30" y="{{ tick.y|add:4 }}" text-anchor="end">{{ tick.value }}</text>{% endfor %}
+        {% for day in dashboard.days %}<line class="chart-grid vertical" x1="{{ day.x }}" x2="{{ day.x }}" y1="22" y2="166"/><text class="chart-label" x="{{ day.x }}" y="193" text-anchor="middle">{{ day.date|date:"D" }}</text>{% endfor %}
+        <polyline class="chart-line submitted-line" points="{{ dashboard.submitted_points }}"/>
+        <polyline class="chart-line solved-line" points="{{ dashboard.solved_points }}"/>
+        {% for day in dashboard.days %}<circle class="submitted-point" cx="{{ day.x }}" cy="{{ day.submitted_y }}" r="4"><title>{% blocktranslate with value_0=day.date|date:"j M" value_1=day.submitted %}{{ value_0 }}: {{ value_1 }} submitted{% endblocktranslate %}</title></circle><circle class="solved-point" cx="{{ day.x }}" cy="{{ day.solved_y }}" r="3"><title>{% blocktranslate with value_0=day.date|date:"j M" value_1=day.solved %}{{ value_0 }}: {{ value_1 }} solved{% endblocktranslate %}</title></circle>{% endfor %}
+      </svg>
+      <details class="chart-data"><summary>{% translate "Last 7 days" %} <span>{% blocktranslate with value_0=dashboard.period_start|date:"j M" value_1=dashboard.period_end|date:"j M" %}{{ value_0 }} – {{ value_1 }} · View data{% endblocktranslate %}</span></summary><div class="table-wrap"><table><caption class="visually-hidden">{% translate "Daily case activity" %}</caption><thead><tr><th scope="col">{% translate "Date" %}</th><th scope="col">{% translate "Submitted" %}</th><th scope="col">{% translate "Solved" %}</th></tr></thead><tbody>{% for day in dashboard.days %}<tr><th scope="row">{{ day.date|date:"j M Y" }}</th><td>{{ day.submitted }}</td><td>{{ day.solved }}</td></tr>{% endfor %}</tbody></table></div></details>
+    </div>
+  </section>
+</div>

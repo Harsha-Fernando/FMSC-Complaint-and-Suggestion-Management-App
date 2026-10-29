@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load case_tags i18n %}
+{% block title %}{% translate "Cases and reports" %}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <h1>{% translate "Cases and reports" %}</h1>
+    <p>{% translate "Find a case or export a filtered report." %}</p>
+  </div>
+  <a class="btn btn-primary" href="?{{ export_qs }}">{% translate "Download CSV" %}</a>
+</div>
+
+<div class="stack">
+  {% include "partials/filters.html" with show_search=True %}
+
+  <div role="group" class="stats" aria-label="{% translate "Totals for this filter" %}">
+    <div class="stat"><span class="stat-label">{% translate "Cases" %}</span><span class="stat-value">{{ counts.total }}</span></div>
+    <div class="stat"><span class="stat-label">{% translate "Open" %}</span><span class="stat-value">{{ counts.open }}</span></div>
+    <div class="stat"><span class="stat-label">{% translate "Urgent" %}</span><span class="stat-value">{{ counts.urgent }}</span></div>
+    <div class="stat"><span class="stat-label">{% translate "Solved or closed" %}</span><span class="stat-value">{{ counts.solved|add:counts.closed }}</span></div>
+    <div class="stat"><span class="stat-label">{% translate "Rejected" %}</span><span class="stat-value">{{ counts.rejected }}</span></div>
+  </div>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>{% translate "Cases" %}</h2>
+      <nav class="sort-controls" aria-label="{% translate "Sort cases" %}"><span>{% translate "Sort" %}</span>
+        <a class="btn btn-small {% if sort_order == '-submitted_at' %}btn-primary{% else %}btn-secondary{% endif %}" href="{% keep_params sort='-submitted_at' page='' %}"{% if sort_order == '-submitted_at' %} aria-current="true"{% endif %}>{% translate "Newest" %}</a>
+        <a class="btn btn-small {% if sort_order == 'submitted_at' %}btn-primary{% else %}btn-secondary{% endif %}" href="{% keep_params sort='submitted_at' page='' %}"{% if sort_order == 'submitted_at' %} aria-current="true"{% endif %}>{% translate "Oldest" %}</a>
+        <a class="btn btn-small {% if sort_order == '-priority' %}btn-primary{% else %}btn-secondary{% endif %}" href="{% keep_params sort='-priority' page='' %}"{% if sort_order == '-priority' %} aria-current="true"{% endif %}>{% translate "Urgent first" %}</a>
+      </nav>
+    </div>
+    {% if page.object_list %}
+    <div class="table-wrap"><table>
+      <thead><tr><th>{% translate "Case no." %}</th><th>{% translate "Title" %}</th><th>{% translate "Type" %}</th><th>{% translate "Priority" %}</th><th>{% translate "Category" %}</th><th>{% translate "Authority" %}</th><th>{% translate "Status" %}</th><th class="num">{% translate "Age" %}</th></tr></thead>
+      <tbody>
+      {% for case in page %}
+        <tr>
+          <td><span class="case-no">{{ case.case_number }}</span></td>
+          <td class="row-title"><a href="{{ case.get_absolute_url }}">{{ case.title }}</a><div class="meta">{{ case.submitted_by.display_name }}, {{ case.submitted_at|date:"j M Y" }}</div></td>
+          <td>{{ case.get_case_type_display }}</td>
+          <td>{% priority_badge case %}</td>
+          <td>{{ case.category }}</td>
+          <td>{{ case.assigned_authority|default:"—" }}</td>
+          <td>{% status_badge case %}</td>
+          <td class="num"><span class="age {% if case.is_open %}{{ case.age_days|age_tone }}{% else %}age-new{% endif %}">{{ case.age_days }}</span></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    {% include "partials/pager.html" %}
+    {% else %}
+    <div class="empty"><strong>{% translate "No cases match these filters" %}</strong>{% translate "Widen the date range or clear a filter." %}</div>
+    {% endif %}
+  </section>
+
+  <details class="panel disclosure-panel"><summary><span>{% translate "Category & authority breakdown" %}</span><span class="disclosure-chevron" aria-hidden="true">⌄</span></summary>
+  <div class="grid-halves panel-body">
+    <section class="panel">
+      <div class="panel-head"><h2>{% translate "By category" %}</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>{% translate "Category" %}</th><th class="num">{% translate "Cases" %}</th></tr></thead>
+        <tbody>{% for row in by_category %}<tr><td>{{ row.category__name }}</td><td class="num">{{ row.n }}</td></tr>{% empty %}<tr><td colspan="2" class="muted">{% translate "No cases" %}</td></tr>{% endfor %}</tbody>
+      </table></div>
+    </section>
+    <section class="panel">
+      <div class="panel-head"><h2>{% translate "By authority" %}</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>{% translate "Authority" %}</th><th class="num">{% translate "Cases" %}</th></tr></thead>
+        <tbody>{% for row in by_authority %}<tr><td>{{ row.assigned_authority__name|default:_("Not assigned") }}</td><td class="num">{{ row.n }}</td></tr>{% empty %}<tr><td colspan="2" class="muted">{% translate "No cases" %}</td></tr>{% endfor %}</tbody>
+      </table></div>
+    </section>
+  </div>
+  </details>
+</div>
+{% endblock %}

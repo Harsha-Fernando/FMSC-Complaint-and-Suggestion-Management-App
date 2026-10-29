@@ -1,0 +1,7 @@
+{% load case_tags ui_icons i18n %}
+<section class="panel recent-panel">
+  <div class="panel-head"><h2>{% ui_icon 'list' %} {% translate "Recent cases" %}</h2><a class="panel-link" href="{% if user.is_reporter %}{% url 'cases:my_cases' %}{% else %}{% url 'cases:reports' %}{% if qs %}?{{ qs }}{% endif %}{% endif %}">{% translate "View all" %} <span aria-hidden="true">→</span></a></div>
+  {% if recent %}<div class="table-wrap"><table><thead><tr><th scope="col">{% translate "Case" %}</th><th scope="col">{% translate "Title" %}</th><th scope="col">{% translate "Type" %}</th><th scope="col">{% translate "Priority" %}</th><th scope="col">{% translate "Status" %}</th><th scope="col">{% translate "Date" %}</th></tr></thead><tbody>
+  {% for case in recent %}<tr><td class="case-no">{{ case.case_number }}</td><td class="row-title"><a href="{{ case.get_absolute_url }}">{{ case.title }}</a></td><td><span class="type-badge {{ case.case_type }}">{{ case.get_case_type_display }}</span></td><td>{% priority_badge case %}</td><td>{% status_badge case %}</td><td class="nowrap small">{{ case.submitted_at|date:"j M" }}</td></tr>{% endfor %}
+  </tbody></table></div>{% else %}<div class="empty"><span class="empty-symbol">{% ui_icon 'cases' %}</span><strong>{% translate "No cases yet" %}</strong>{% if user.is_reporter %}{% translate "Your submissions will appear here as you make them." %}{% else %}{% translate "New submissions will appear here for review." %}{% endif %}</div>{% endif %}
+</section>
