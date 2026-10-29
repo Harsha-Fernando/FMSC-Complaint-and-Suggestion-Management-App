@@ -1,0 +1,22 @@
+{% load ui_icons i18n %}
+<section class="panel quick-panel">
+  <div class="panel-head"><h2>{% ui_icon 'bolt' %} {% translate "Quick actions" %}</h2></div>
+  <div class="quick-actions">
+    {% if user.is_reporter %}
+    <a class="quick-action quick-brand" href="{% url 'cases:create' %}?type=complaint">{% ui_icon 'edit' %}<span>{% translate "Submit a complaint" %}</span></a>
+    <a class="quick-action quick-green" href="{% url 'cases:create' %}?type=suggestion">{% ui_icon 'bulb' %}<span>{% translate "Submit a suggestion" %}</span></a>
+    <a class="quick-action quick-plum" href="{% url 'cases:my_cases' %}">{% ui_icon 'folder' %}<span>{% translate "Track my cases" %}</span></a>
+    <a class="quick-action quick-gold" href="{% url 'cases:notifications' %}">{% ui_icon 'bell' %}<span>{% translate "View updates" %}</span></a>
+    {% elif user.is_case_admin %}
+    <a class="quick-action quick-brand" href="{% url 'cases:reports' %}?status=submitted">{% ui_icon 'edit' %}<span>{% translate "Review cases" %} <small>{% blocktranslate with value_0=counts.not_attempted %}{{ value_0 }} new{% endblocktranslate %}</small></span></a>
+    <a class="quick-action quick-green" href="{% url 'cases:reports' %}?status=solved">{% ui_icon 'check' %}<span>{% translate "Confirm solutions" %} <small>{% blocktranslate with value_0=counts.solved %}{{ value_0 }} to close{% endblocktranslate %}</small></span></a>
+    <a class="quick-action quick-plum" href="{% url 'cases:reports' %}">{% ui_icon 'folder' %}<span>{% translate "Browse all cases" %}</span></a>
+    <a class="quick-action quick-gold" href="{% url 'cases:management_dashboard' %}">{% ui_icon 'chart' %}<span>{% translate "View reports" %}</span></a>
+    {% else %}
+    <a class="quick-action quick-brand" href="{% url 'cases:reports' %}">{% ui_icon 'cases' %}<span>{% translate "Browse cases" %}</span></a>
+    <a class="quick-action quick-green" href="{% url 'cases:management_dashboard' %}">{% ui_icon 'building' %}<span>{% translate "Authority progress" %}</span></a>
+    <a class="quick-action quick-plum" href="{% url 'cases:reports' %}?priority=urgent">{% ui_icon 'alert' %}<span>{% translate "Urgent cases" %}</span></a>
+    <a class="quick-action quick-gold" href="{% url 'cases:reports' %}">{% ui_icon 'chart' %}<span>{% translate "View reports" %}</span></a>
+    {% endif %}
+  </div>
+</section>

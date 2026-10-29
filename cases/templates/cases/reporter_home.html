@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load ui_icons i18n %}
+{% block title %}{% translate "Dashboard" %}{% endblock %}
+{% block page_class %} dashboard-page{% endblock %}
+{% block content %}
+<h1 class="visually-hidden">{% translate "Your dashboard" %}</h1>
+<div class="stack dashboard-stack">
+  {% if summary.needs_reply %}<div class="callout"><h3>{% blocktranslate count total=summary.needs_reply %}{{ total }} case needs your reply{% plural %}{{ total }} cases need your reply{% endblocktranslate %}</h3><p><a href="{% url 'cases:my_cases' %}?view=reply">{% translate "View requests for information →" %}</a></p></div>{% endif %}
+  {% include "partials/dashboard_metrics.html" %}
+  {% include "partials/dashboard_charts.html" %}
+  <div class="dashboard-lower">
+    {% include "partials/recent_cases.html" %}
+    <aside class="dashboard-side">
+      {% include "partials/quick_actions.html" %}
+      {% if latest_notice %}<a class="latest-update" href="{% url 'cases:notifications' %}"><span class="update-icon">{% ui_icon 'bell' %}</span><span><strong>{% translate "Latest update" %}</strong><span>{{ latest_notice.localized_message }}</span><time datetime="{{ latest_notice.sent_at|date:'c' }}">{{ latest_notice.sent_at|date:"j M Y · g:i a" }}</time></span><span aria-hidden="true">→</span></a>{% else %}<div class="latest-update"><span class="update-icon">{% ui_icon 'bell' %}</span><span><strong>{% translate "You’re all caught up" %}</strong><span>{% translate "Your case updates will appear here." %}</span></span></div>{% endif %}
+    </aside>
+  </div>
+</div>
+{% endblock %}

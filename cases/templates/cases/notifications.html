@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Notifications" %}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>{% translate "Notifications" %}</h1><p>{% translate "Your latest case updates, all in one place." %}</p></div>
+  {% if unread_count %}
+  <form method="post" action="{% url 'cases:notifications_read_all' %}">{% csrf_token %}
+    <button class="btn btn-secondary" type="submit">{% translate "Mark all as read" %}</button>
+  </form>
+  {% endif %}
+</div>
+<p class="callout" data-new-notifications data-initial-unread="{{ unread_count }}" hidden role="status">{% translate "New updates are available." %} <a href="{{ request.path }}">{% translate "Refresh notifications" %}</a></p>
+<section class="panel">
+  {% if page.object_list %}
+  <ul class="notes">
+    {% for note in page %}
+    <li class="{% if not note.is_read %}unread{% endif %}">
+      <form method="post" action="{% url 'cases:notification_open' note.pk %}">{% csrf_token %}
+        <button type="submit">
+          <span class="dot" aria-hidden="true"></span>
+          <span>
+            <span class="msg">{{ note.localized_message }}</span>
+            {% if note.case %}<span class="small muted" style="display:block"><span class="case-no">{{ note.case.case_number }}</span>, {{ note.get_notification_type_display }}</span>{% endif %}
+            {% if not note.is_read %}<span class="visually-hidden">{% translate "(unread)" %}</span>{% endif %}
+          </span>
+          <span class="when">{% blocktranslate with value_0=note.sent_at|timesince %}{{ value_0 }} ago{% endblocktranslate %}</span>
+        </button>
+      </form>
+    </li>
+    {% endfor %}
+  </ul>
+  {% include "partials/pager.html" %}
+  {% else %}
+  <div class="empty"><strong>{% translate "No notifications yet" %}</strong>{% translate "You'll be told here when one of your cases changes." %}</div>
+  {% endif %}
+</section>
+{% endblock %}

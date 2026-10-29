@@ -1,0 +1,9 @@
+{% load ui_icons i18n %}
+<div class="dashboard-metrics" role="group" aria-label="{% translate "Case summary" %}">
+  {% for metric in dashboard.metrics %}
+  <div class="metric-card metric-{{ metric.tone }}">
+    <span class="metric-icon">{% ui_icon metric.icon %}</span>
+    <div><span class="metric-value">{{ metric.value }}</span><span class="metric-label">{{ metric.label }}</span><span class="metric-detail">{{ metric.detail }}</span></div>
+  </div>
+  {% endfor %}
+</div>

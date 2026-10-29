@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load case_tags i18n %}
+{% block title %}{% translate "Work queue" %}{% endblock %}
+{% block content %}
+{% if no_unit %}
+  <div class="page-head"><h1>{% translate "Work queue" %}</h1></div>
+  <div class="callout"><h3>{% translate "Your account is not linked to a unit yet" %}</h3><p>{% translate "Ask the system administrator to set your authority (for example, Maintenance Division) on your account. Cases will appear here after that." %}</p></div>
+{% else %}
+<div class="page-head">
+  <div><h1>{{ authority.name }}</h1><p>{% translate "Cases assigned to your unit. Urgent first, then oldest." %}</p></div>
+</div>
+<div class="stack">
+  {% include "partials/dashboard_metrics.html" %}
+  {% include "partials/dashboard_charts.html" %}
+  <section class="panel">
+    <div class="panel-head"><h2>{% translate "My assigned cases" %}</h2></div>
+    {% if active %}
+    <div class="table-wrap"><table>
+      <thead><tr><th>{% translate "Case no." %}</th><th>{% translate "Title" %}</th><th>{% translate "Priority" %}</th><th>{% translate "Status" %}</th><th class="num">{% translate "Age" %}</th><th><span class="visually-hidden">{% translate "Action" %}</span></th></tr></thead>
+      <tbody>
+      {% for case in active %}
+        <tr>
+          <td><span class="case-no">{{ case.case_number }}</span></td>
+          <td class="row-title"><a href="{{ case.get_absolute_url }}">{{ case.title }}</a><div class="meta">{{ case.location }}, {{ case.category }}</div></td>
+          <td>{% priority_badge case %}</td>
+          <td>{% status_badge case %}</td>
+          <td class="num"><span class="age {{ case.age_days|age_tone }}">{{ case.age_days|age_label }}</span></td>
+          <td><a class="btn btn-secondary btn-small" href="{{ case.get_absolute_url }}#update">{% translate "Update" %}</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    {% else %}
+    <div class="empty"><strong>{% blocktranslate with value_0=authority.name %}No open cases for {{ value_0 }}{% endblocktranslate %}</strong>{% translate "When the faculty office assigns a case to your unit, you'll get a notification and it will appear here." %}</div>
+    {% endif %}
+  </section>
+
+  {% if recent_done %}
+  <section class="panel">
+    <div class="panel-head"><h2>{% translate "Recently solved" %}</h2></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>{% translate "Case no." %}</th><th>{% translate "Title" %}</th><th>{% translate "Status" %}</th><th>{% translate "Solved" %}</th></tr></thead>
+      <tbody>
+      {% for case in recent_done %}
+        <tr>
+          <td><span class="case-no">{{ case.case_number }}</span></td>
+          <td class="row-title"><a href="{{ case.get_absolute_url }}">{{ case.title }}</a></td>
+          <td>{% status_badge case %}</td>
+          <td class="small">{{ case.solved_at|date:"j M Y"|default:"—" }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+  </section>
+  {% endif %}
+</div>
+{% endif %}
+{% endblock %}

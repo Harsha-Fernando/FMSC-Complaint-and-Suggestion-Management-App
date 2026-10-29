@@ -1,0 +1,10 @@
+{% load i18n %}
+<details class="filter-panel panel"{% if form.active_count or form.errors %} open{% endif %}>
+  <summary><span>{% translate "Filters" %} <span class="filter-count">{% if form.active_count %}{% blocktranslate with value_0=form.active_count %}{{ value_0 }} active{% endblocktranslate %}{% else %}{% translate "Refine your view" %}{% endif %}</span></span><span class="disclosure-chevron" aria-hidden="true">⌄</span></summary>
+  <form method="get" class="panel-body filters" aria-label="{% translate "Filter cases" %}">
+    {% for field in form %}{% if field.name != "q" or show_search %}
+    <div class="field"><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% if field.errors %}<ul class="errorlist">{% for e in field.errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}</div>
+    {% endif %}{% endfor %}
+    <div class="btn-row"><button class="btn btn-primary btn-small" type="submit">{% translate "Apply filters" %}</button>{% if form.active_count %}<a class="btn btn-secondary btn-small" href="{{ request.path }}">{% translate "Clear filters" %}</a>{% endif %}</div>
+  </form>
+</details>

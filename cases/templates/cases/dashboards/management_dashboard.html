@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load case_tags i18n %}
+{% block title %}{% translate "Management overview" %}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <h1>{% translate "Management overview" %}</h1>
+    <p>{% translate "How cases are reported and how quickly units resolve them." %}</p>
+  </div>
+  <a class="btn btn-secondary" href="{% url 'cases:reports' %}">{% translate "Open reports" %}</a>
+</div>
+
+<div class="stack">
+  {% include "partials/filters.html" %}
+
+  <div role="group" class="stats" aria-label="{% translate "Headline figures" %}">
+    <div class="stat">
+      <span class="stat-label">{% translate "Complaints / suggestions" %}</span>
+      <span class="stat-value">{{ counts.complaints }}<span class="muted" style="font-size:1.1rem"> / {{ counts.suggestions }}</span></span>
+      {% if counts.total %}
+      <div class="split" role="img" aria-label="{{ counts.complaints }} complaints and {{ counts.suggestions }} suggestions">
+        <span class="a" style="flex:{{ counts.complaints }}" title="Complaints: {{ counts.complaints }}"></span>
+        <span class="b" style="flex:{{ counts.suggestions }}" title="Suggestions: {{ counts.suggestions }}"></span>
+      </div>
+      <div class="legend"><span><i style="background:var(--primary)"></i>{% translate "Complaints" %}</span><span><i style="background:var(--gold-mark)"></i>{% translate "Suggestions" %}</span></div>
+      {% endif %}
+    </div>
+    <div class="stat">
+      <span class="stat-label">{% translate "Urgent / normal" %}</span>
+      <span class="stat-value">{{ counts.urgent }}<span class="muted" style="font-size:1.1rem"> / {{ counts.normal }}</span></span>
+      {% if counts.total %}
+      <div class="split" role="img" aria-label="{{ counts.urgent }} urgent and {{ counts.normal }} normal">
+        <span class="u" style="flex:{{ counts.urgent }}" title="Urgent: {{ counts.urgent }}"></span>
+        <span class="n" style="flex:{{ counts.normal }}" title="Normal: {{ counts.normal }}"></span>
+      </div>
+      <div class="legend"><span><i style="background:var(--urgent)"></i>{% translate "Urgent" %}</span><span><i style="background:var(--line-strong)"></i>{% translate "Normal" %}</span></div>
+      {% endif %}
+    </div>
+    <div class="stat">
+      <span class="stat-label">{% translate "Resolution rate" %}</span>
+      <span class="stat-value">{% if resolution_rate is not None %}{{ resolution_rate }}%{% else %}—{% endif %}</span>
+      <div class="sub">{% translate "Solved or closed, out of cases not rejected" %}</div>
+    </div>
+    <div class="stat">
+      <span class="stat-label">{% translate "Average resolution" %}</span>
+      <span class="stat-value">{% if average_resolution is not None %}{{ average_resolution }}<span class="muted" style="font-size:1.1rem"> {% translate "days" %}</span>{% else %}—{% endif %}</span>
+      <div class="sub">{% translate "From submission to solved" %}</div>
+    </div>
+  </div>
+
+  {% include "partials/dashboard_charts.html" %}
+
+  <div class="grid-halves">
+    <section class="panel">
+      <div class="panel-head"><div><h2>{% translate "Top categories" %}</h2><p>{% translate "Number of cases in each category" %}</p></div></div>
+      <div class="panel-body">
+        {% if categories %}
+        <ul class="bars">
+          {% for c in categories %}
+          <li title="{{ c.category__name }}: {{ c.n }} cases ({{ c.share }}% of total)">
+            <span>{{ c.category__name }}</span>
+            <span class="track"><span class="fill" style="display:block;width:{{ c.pct }}%"></span></span>
+            <span class="val">{{ c.n }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}<p class="muted">{% translate "No cases in this period." %}</p>{% endif %}
+      </div>
+    </section>
+
+    <details class="panel disclosure-panel">
+      <summary><span>{% translate "Cases by status" %}</span><span class="disclosure-chevron" aria-hidden="true">⌄</span></summary>
+      <div class="table-wrap"><table>
+        <thead><tr><th>{% translate "Status" %}</th><th class="num">{% translate "Cases" %}</th></tr></thead>
+        <tbody>
+          {% for row in status_rows %}
+          <tr><td>{% status_badge row.status row.label %}</td><td class="num"><a href="{% url 'cases:reports' %}?status={{ row.status }}">{{ row.n }}</a></td></tr>
+          {% endfor %}
+        </tbody>
+      </table></div>
+    </details>
+  </div>
+
+  <section class="panel">
+    <div class="panel-head"><div><h2>{% translate "Authority-wise pending cases" %}</h2><p>{% translate "Open cases with each unit. Average age counts days since submission." %}</p></div></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>{% translate "Authority" %}</th><th class="num">{% translate "Assigned" %}</th><th class="num">{% translate "In progress" %}</th><th class="num">{% translate "Not started" %}</th><th class="num">{% translate "Solved, not closed" %}</th><th class="num">{% translate "Urgent" %}</th><th class="num">{% translate "Average age" %}</th></tr></thead>
+      <tbody>
+        {% for row in authority_rows %}
+        <tr>
+          <td><a href="{% url 'cases:reports' %}?authority={{ row.authority.pk }}">{{ row.authority.name }}</a>{% if not row.authority.is_active %} <span class="tag">{% translate "Inactive" %}</span>{% endif %}</td>
+          <td class="num">{{ row.assigned }}</td>
+          <td class="num">{{ row.in_progress }}</td>
+          <td class="num">{{ row.not_started }}</td>
+          <td class="num">{{ row.solved_waiting }}</td>
+          <td class="num">{% if row.urgent %}<span class="priority urgent">{{ row.urgent }}</span>{% else %}0{% endif %}</td>
+          <td class="num">{% if row.average_age is not None %}<span class="age {{ row.average_age|floatformat:0|add:0|age_tone }}">{% blocktranslate with value_0=row.average_age %}{{ value_0 }} days{% endblocktranslate %}</span>{% else %}—{% endif %}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="7" class="empty">{% translate "No authorities set up yet." %}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table></div>
+  </section>
+</div>
+{% endblock %}
