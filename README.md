@@ -15,10 +15,16 @@ the proposal describes. AI classification is out of scope (Section 5.2).
 
 ## 1. Run it on your computer
 
+Clone the repository:
+
+```bash
+git clone https://github.com/Harsha-Fernando/FMSC-Complaint-and-Suggestion-Management-App.git
+cd FMSC-Complaint-and-Suggestion-Management-App
+```
+
 **Windows (PowerShell)**
 
 ```powershell
-cd fmsc_cms
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
@@ -30,7 +36,6 @@ python manage.py runserver
 **Linux / macOS**
 
 ```bash
-cd fmsc_cms
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -40,6 +45,38 @@ python manage.py runserver
 ```
 
 Open http://127.0.0.1:8000. For a fresh installation, sign in at `/system-admin/` using the superuser you created, change that user's application role to **System administrator**, then create your authorities, categories, and real users. No sample cases are loaded.
+
+### Demo & Presentation Accounts (All 6 Roles)
+
+To quickly populate authorities, categories, and one account for each of the six faculty roles with ready-to-use passwords, run:
+
+```bash
+python manage.py seed_demo_users
+```
+
+This creates the following evaluation accounts:
+
+| Role | Username / Email | Password | Assigned Unit |
+|---|---|---|---|
+| **Student** | `student@test.example` | `Demo@pass2026` | - |
+| **Lecturer** | `lecturer@test.example` | `Demo@pass2026` | - |
+| **Administrator** | `admin@test.example` | `Demo@pass2026` | - |
+| **Relevant Authority** | `authority@test.example` | `Demo@pass2026` | Maintenance Division |
+| **Faculty Management** | `management@test.example` | `Demo@pass2026` | - |
+| **System Administrator** | `sysadmin@test.example` | `Demo@pass2026` | - (Full staff / superuser) |
+
+*(You can also specify a custom password using `python manage.py seed_demo_users --password YourPassword123!`)*
+
+### Running browser and accessibility tests (Playwright)
+
+The core application runs without any JavaScript framework or Node build step. If you want to run the automated browser and WCAG accessibility tests:
+
+```bash
+npm install
+npx playwright install chromium
+npm run test:ui               # runs headless
+npx playwright test --headed  # runs with a visible browser window
+```
 
 Existing development accounts are retained. Their role and unit determine what each person can access. See [account management](docs/user-accounts.md) for the Django admin and bulk-import workflows, and [demo cleanup](docs/demo-cleanup.md) for recoverable removal of legacy sample cases.
 
@@ -148,7 +185,16 @@ Reports also export to CSV (UTF-8 with BOM, so Excel shows Sinhala and Tamil cor
 
 ## 5. Acceptance criteria → tests
 
-Run all tests with `python manage.py test`.
+Run backend unit and regression tests:
+```bash
+python manage.py test
+```
+
+Run browser integration and accessibility tests:
+```bash
+npm run test:ui               # headless
+npx playwright test --headed  # headed
+```
 
 | Section 17 criterion | Test class in `cases/tests/test_acceptance.py` |
 |---|---|
