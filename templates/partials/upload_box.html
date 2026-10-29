@@ -1,0 +1,7 @@
+{% load i18n %}
+<div class="upload-box">
+  <label for="{{ field.id_for_label }}"><strong>{{ field.label }}</strong> <span class="muted small">{% translate "(optional)" %}</span></label>
+  <div class="file-picker">{{ field }}<span class="file-picker-button" aria-hidden="true">{% translate "Choose files" %}</span><span class="file-picker-caption" data-file-caption aria-hidden="true">{% translate "No files chosen" %}</span></div>
+  <div class="help small muted" id="{{ field.auto_id }}_helptext">{{ field.help_text }}</div>
+  {% if field.errors %}<ul class="errorlist">{% for e in field.errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+</div>

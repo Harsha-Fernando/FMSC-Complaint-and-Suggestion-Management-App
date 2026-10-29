@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load case_tags i18n %}
+{% block title %}{% translate "My cases" %}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>{% translate "My cases" %}</h1><p>{% translate "Everything you've submitted, newest first." %}</p></div>
+  <a class="btn btn-primary" href="{% url 'cases:create' %}">{% translate "Submit a case" %}</a>
+</div>
+
+<section class="panel">
+  <div class="panel-head">
+    <nav class="tabs" aria-label="{% translate "Filter my cases" %}">
+      <a href="?view=all" {% if view == "all" %}aria-current="page"{% endif %}>{% translate "All" %}</a>
+      <a href="?view=open" {% if view == "open" %}aria-current="page"{% endif %}>{% translate "Open" %}</a>
+      <a href="?view=reply" {% if view == "reply" %}aria-current="page"{% endif %}>{% translate "Needs my reply" %}</a>
+      <a href="?view=done" {% if view == "done" %}aria-current="page"{% endif %}>{% translate "Finished" %}</a>
+    </nav>
+    <form method="get" class="btn-row" role="search">
+      <input type="hidden" name="view" value="{{ view }}">
+      <label class="visually-hidden" for="q">{% translate "Search my cases" %}</label>
+      <input id="q" type="text" name="q" value="{{ q }}" placeholder="{% translate "Case number or title" %}" style="width:220px">
+      <button class="btn btn-secondary btn-small" type="submit">{% translate "Search" %}</button>
+    </form>
+  </div>
+  {% if page.object_list %}
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>{% translate "Case no." %}</th><th>{% translate "Title" %}</th><th>{% translate "Type" %}</th><th>{% translate "Priority" %}</th><th>{% translate "Status" %}</th><th>{% translate "Updated" %}</th></tr></thead>
+      <tbody>
+      {% for case in page %}
+        <tr>
+          <td><span class="case-no">{{ case.case_number }}</span></td>
+          <td class="row-title"><a href="{{ case.get_absolute_url }}">{{ case.title }}</a><div class="meta">{{ case.category }}, {{ case.location }}</div></td>
+          <td>{{ case.get_case_type_display }}</td>
+          <td>{% priority_badge case %}</td>
+          <td>{% status_badge case %}</td>
+          <td class="small muted">{{ case.updated_at|date:"j M Y" }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% include "partials/pager.html" %}
+  {% else %}
+  <div class="empty">
+    {% if q %}<strong>{% blocktranslate with value_0=q %}No cases match “{{ value_0 }}”{% endblocktranslate %}</strong>{% translate "Try the case number, or part of the title." %}
+    {% elif view == "reply" %}<strong>{% translate "Nothing needs your reply" %}</strong>{% translate "If a unit asks you a question about a case, it will appear here." %}
+    {% else %}<strong>{% translate "No cases here yet" %}</strong><a href="{% url 'cases:create' %}">{% translate "Submit a complaint or suggestion" %}</a>{% endif %}
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

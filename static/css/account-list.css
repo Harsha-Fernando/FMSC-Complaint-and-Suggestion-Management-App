@@ -1,0 +1,11 @@
+.account-role-filter { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; padding: 16px; margin: 0; border-bottom: 1px solid var(--hairline-color); background: var(--darkened-bg); }
+.account-role-filter label { font-weight: 600; line-height: 1.65; }
+.account-role-filter select { min-height: 44px; min-width: 180px; max-width: 100%; padding: 8px 12px; font: inherit; line-height: 1.65; border-radius: 6px; background: var(--body-bg); color: var(--body-fg); border: 1px solid var(--border-color); }
+.account-role-filter button { min-height: 44px; padding: 8px 16px; border: 1px solid #800000; border-radius: 6px; background: #800000; color: #fff; cursor: pointer; font: inherit; line-height: 1.65; }
+.account-role-filter button:hover { background: #660000; }
+.account-role-filter :focus-visible { outline: 3px solid var(--link-fg); outline-offset: 3px; }
+@media (max-width: 760px) {
+  .account-role-filter { align-items: stretch; padding: 12px; }
+  .account-role-filter label { flex-basis: 100%; }
+  .account-role-filter select { flex: 1 1 160px; min-width: 0; }
+}
