@@ -1,0 +1,24 @@
+.roster-import { max-width: 1100px; }
+.roster-import p { max-width: 85ch; line-height: 1.65; }
+.roster-toolbar { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+.roster-import .button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; box-sizing: border-box; padding: 10px 16px; border: 1px solid #800000; border-radius: 6px; background: #800000; color: white; cursor: pointer; font: inherit; line-height: 1.65; text-decoration: none; white-space: normal; }
+.roster-import .button:hover { background: #660000; color: white; }
+.roster-import .button.secondary { background: white; color: #800000; }
+.roster-import :focus-visible { outline: 3px solid #800000; outline-offset: 3px; }
+.roster-guidance { padding: 16px 20px; border-left: 4px solid #800000; background: #f8eaea; color: #1f1a1a; margin-bottom: 24px; }
+.roster-guidance summary { cursor: pointer; font-weight: 600; min-height: 28px; line-height: 1.65; }
+.roster-guidance[open] summary { margin-bottom: 12px; }
+.roster-guidance p:last-child { margin-bottom: 0; }
+.roster-field { margin-bottom: 16px; }
+.roster-field label { display: block; font-weight: 600; margin-bottom: 8px; }
+.roster-field input { max-width: 100%; min-height: 44px; }
+.roster-import .help { font-size: 13px; color: #4f4646; margin: 6px 0; }
+.roster-result { margin-top: 28px; border-top: 1px solid #d4d4dc; padding-top: 20px; }
+.roster-table { max-width: 100%; overflow-x: auto; margin: 16px 0; }
+.roster-table table { width: 100%; min-width: 1100px; }
+.roster-table th, .roster-table td { padding: 10px 12px; vertical-align: top; line-height: 1.65; }
+.roster-table th { white-space: nowrap; }
+.roster-table td { overflow-wrap: normal; }
+.roster-table td:nth-child(2), .roster-table td:nth-child(3), .roster-table td:nth-child(5), .roster-table td:nth-child(6), .roster-table td:nth-child(7) { white-space: nowrap; }
+.roster-confirm { margin-top: 20px; }
+@media (max-width: 760px) { .roster-guidance { padding: 12px; } .roster-import .button { max-width: 100%; } }

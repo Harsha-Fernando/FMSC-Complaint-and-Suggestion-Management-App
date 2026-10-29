@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Submit a case" %}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <span class="eyebrow">{% translate "LET’S MAKE IT BETTER" %}</span>
+    <h1>{% translate "Submit a case" %}</h1>
+    <p>{% translate "The faculty office reads every case and sends it to the unit responsible." %}</p>
+  </div>
+</div>
+
+<form class="panel panel-body submission-form" method="post" enctype="multipart/form-data" data-upload novalidate>
+    {% csrf_token %}
+    {% include "partials/form_errors.html" %}
+
+    <fieldset class="field{% if form.case_type.errors %} has-error{% endif %}" style="border:0;padding:0;margin:0 0 18px">
+      <legend class="label" style="font-weight:600;margin-bottom:6px">{% translate "Case type" %}</legend>
+      <div class="segmented">{{ form.case_type }}</div>
+      {% if form.case_type.errors %}<ul class="errorlist"><li>{% translate "Choose complaint or suggestion." %}</li></ul>{% endif %}
+    </fieldset>
+
+    <fieldset class="field{% if form.priority.errors %} has-error{% endif %}" style="border:0;padding:0;margin:0 0 18px">
+      <legend class="label" style="font-weight:600;margin-bottom:6px">{% translate "Priority" %}</legend>
+      <div class="segmented seg-priority">{{ form.priority }}</div>
+      <div class="help">{{ form.priority.help_text }}</div>
+      {% if form.priority.errors %}<ul class="errorlist">{% for e in form.priority.errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+    </fieldset>
+
+    <div class="field-row">
+      {% include "partials/field.html" with field=form.category %}
+      {% include "partials/field.html" with field=form.location %}
+    </div>
+    {% include "partials/field.html" with field=form.title %}
+    {% include "partials/field.html" with field=form.description %}
+
+    <div class="field">
+      <div class="label" style="font-weight:600;margin-bottom:6px">{% translate "Attachments" %}</div>
+      {% include "partials/upload_box.html" with field=form.images %}
+      {% include "partials/upload_box.html" with field=form.videos %}
+    </div>
+
+    {% include "partials/field.html" with field=form.declaration %}
+
+    <div class="btn-row">
+      <button class="btn btn-primary" type="submit">{% translate "Submit case" %}</button>
+      <a class="btn btn-secondary" href="{% url 'cases:home' %}">{% translate "Cancel" %}</a>
+    </div>
+    {% include "partials/progress.html" %}
+  </form>
+
+{% endblock %}

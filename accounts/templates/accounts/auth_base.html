@@ -1,0 +1,46 @@
+{% load static i18n %}<!doctype html>
+{% get_current_language as LANGUAGE_CODE %}<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#800000">
+  <title>{% block title %}{% translate "Sign in" %}{% endblock %} {% translate "| FMSC Case Desk" %}</title>
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <link rel="stylesheet" href="{% static 'css/language.css' %}">
+</head>
+<body>
+  <a class="skip-link" href="#main">{% translate "Skip to content" %}</a>
+  <div class="auth">
+    <aside class="auth-side">
+      <div>
+        {% if university_logo or faculty_logo %}
+        <div class="auth-logos">
+          {% if university_logo %}<img src="{{ university_logo }}" alt="{% translate "University of Sri Jayewardenepura" %}" width="72" height="72">{% endif %}
+          {% if faculty_logo %}<img src="{{ faculty_logo }}" alt="{% translate "Faculty of Management Studies and Commerce" %}" width="72" height="72">{% endif %}
+        </div>
+        {% endif %}
+        <div class="mark">{% translate "Faculty of Management Studies and Commerce" %}<br>{% translate "University of Sri Jayewardenepura" %}</div>
+      </div>
+      <div>
+        <h1>{% translate "Your voice." %}<br>{% translate "Our next step." %}</h1>
+        <p>{% translate "A better faculty starts with a conversation. Report a concern, share an idea, and follow its progress." %}</p>
+        <ol class="auth-steps">
+          <li>{% translate "Submit a complaint or suggestion, with photos or a short video if they help." %}</li>
+          <li>{% translate "The faculty office reviews it and sends it to the unit responsible." %}</li>
+          <li>{% translate "You get a message when the case is solved." %}</li>
+        </ol>
+      </div>
+      <div class="mark auth-help">{% translate "Need help signing in? Contact the faculty office." %}</div>
+    </aside>
+    <main class="auth-main" id="main">
+      <div class="auth-card">
+        <div class="auth-language">{% include "partials/language_selector.html" %}</div>
+        {% block content %}{% endblock %}
+      </div>
+    </main>
+  </div>
+  <script src="{% url 'javascript-catalog' %}"></script>
+  <script src="{% static 'js/language.js' %}" defer></script>
+  <script src="{% static 'js/workspace.js' %}" defer></script>
+</body>
+</html>

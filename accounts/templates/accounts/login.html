@@ -1,0 +1,16 @@
+{% extends "accounts/auth_base.html" %}
+{% load i18n %}
+{% block content %}
+<span class="eyebrow">{% translate "FMSC CASE DESK" %}</span>
+<h2>{% translate "Welcome back" %}</h2>
+<p class="muted">{% translate "Use your university email or registration number." %}</p>
+{% include "partials/form_errors.html" %}
+<form method="post" novalidate>
+  {% csrf_token %}
+  <input type="hidden" name="next" value="{{ next }}">
+  {% include "partials/field.html" with field=form.username %}
+  {% include "partials/field.html" with field=form.password %}
+  <button class="btn btn-primary" type="submit">{% translate "Sign in" %}</button>
+</form>
+<p class="small" style="margin-top:16px"><a href="{% url 'accounts:password_reset' %}">{% translate "Forgot your password?" %}</a></p>
+{% endblock %}

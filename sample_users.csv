@@ -1,0 +1,6 @@
+email,first_name,last_name,role,cpm_number,lecturer_id,registration_number,department,contact_number,authority
+student.one@example.lk,Amaya,Perera,student,25678,,FMSC/2024/0101,Business Administration,,
+lecturer.one@example.lk,Saman,Kumara,lecturer,,LEC-001,,Accounting,0112800100,
+office.admin@example.lk,Nadeesha,Silva,admin,,,,Faculty Office,0112800200,
+works.officer@example.lk,Ruwan,Bandara,authority,,,,Faculty Works,0112800001,Maintenance Division
+dean@example.lk,Chandana,Wickramasinghe,management,,,,Dean's Office,,

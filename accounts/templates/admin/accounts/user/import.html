@@ -1,0 +1,37 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" href="{% static 'css/account-import.css' %}">{% endblock %}
+{% block breadcrumbs %}<div class="breadcrumbs"><a href="{% url 'admin:index' %}">{% translate "Home" %}</a> › <a href="{% url 'admin:accounts_user_changelist' %}">{% translate "Users" %}</a> › {% translate "Import accounts" %}</div>{% endblock %}
+{% block content %}
+<div class="roster-import">
+  <p>{% translate "Create or update student and lecturer accounts from the official register. Existing accounts are matched by email." %}</p>
+  <div class="roster-toolbar"><a class="button" href="{% url 'admin:accounts_user_import_template' %}">{% translate "Download CSV template" %}</a><a class="button secondary" href="{% url 'admin:accounts_user_changelist' %}">{% translate "Back to users" %}</a></div>
+  <details class="roster-guidance"><summary>{% translate "CSV requirements" %}</summary>
+    <p>{% translate "Students need a unique five-digit CPM number. Lecturers need a unique lecturer ID. Leading zeros are preserved; lecturer IDs are not case-sensitive." %}</p>
+    <p>{% translate "Use student or lecturer in the role column. Keep the template column names in English. Do not include passwords." %}</p>
+    <p>{% translate "Existing passwords, account activity and case records are preserved. New users set their password through Forgot your password? using their email." %}</p>
+  </details>
+  <form method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="roster-field">{{ form.csv_file.label_tag }}{{ form.csv_file }}<p class="help" id="id_csv_file_helptext">{{ form.csv_file.help_text }}</p>{{ form.csv_file.errors }}</div>
+    <button class="button default" type="submit">{% translate "Preview import" %}</button>
+  </form>
+  {% if problems %}
+  <section class="roster-result" role="alert">
+    <h2>{% translate "Fix these problems and upload the file again" %}</h2>
+    <p>{% translate "No accounts were changed. Up to 100 problem rows are shown." %}</p>
+    <ul>{% for problem in problems %}<li><strong>{% blocktranslate with number=problem.line %}Row {{ number }}{% endblocktranslate %}</strong><ul>{% for error in problem.errors %}<li>{{ error }}</li>{% endfor %}</ul></li>{% endfor %}</ul>
+  </section>
+  {% endif %}
+  {% if plan and not problems %}
+  <section class="roster-result">
+    <h2>{% translate "Review before importing" %}</h2>
+    <p>{% blocktranslate with created=plan.created updated=plan.updated %}New accounts: {{ created }} · Existing accounts to update: {{ updated }}{% endblocktranslate %}</p>
+    <p>{% translate "The first 50 rows are shown below. Every row has been checked. This preview expires after 15 minutes." %}</p>
+    <div class="roster-table" role="region" tabindex="0" aria-label="{% translate "Review before importing" %}"><table><thead><tr><th scope="col">{% translate "Row" %}</th><th scope="col">{% translate "Action" %}</th><th scope="col">{% translate "Email" %}</th><th scope="col">{% translate "Name" %}</th><th scope="col">{% translate "Role" %}</th><th scope="col">{% translate "CPM number" %}</th><th scope="col">{% translate "Lecturer ID" %}</th><th scope="col">{% translate "Registration number" %}</th><th scope="col">{% translate "Department" %}</th><th scope="col">{% translate "Contact number" %}</th></tr></thead><tbody>{% for row in preview_rows %}<tr><td>{{ row.line }}</td><td>{{ row.action }}</td><td>{{ row.email }}</td><td>{{ row.name }}</td><td>{{ row.role }}</td><td>{{ row.cpm_number|default:'—' }}</td><td>{{ row.lecturer_id|default:'—' }}</td><td>{{ row.registration_number|default:'—' }}</td><td>{{ row.department|default:'—' }}</td><td>{{ row.contact_number|default:'—' }}</td></tr>{% endfor %}</tbody></table></div>
+    {% if token %}<form method="post" class="roster-confirm">{% csrf_token %}<input type="hidden" name="action" value="confirm"><input type="hidden" name="token" value="{{ token }}"><button class="button default" type="submit">{% translate "Confirm import" %}</button></form>{% endif %}
+  </section>
+  {% endif %}
+</div>
+{% endblock %}

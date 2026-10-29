@@ -1,0 +1,20 @@
+{% extends "admin/change_list.html" %}
+{% load i18n static %}
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" href="{% static 'css/account-list.css' %}">{% endblock %}
+{% block object-tools-items %}
+{% if request.user.role == 'sysadmin' %}<li><a href="{% url 'admin:accounts_user_import' %}">{% translate "Import accounts" %}</a></li>{% endif %}
+{{ block.super }}
+{% endblock %}
+
+{% block search %}
+<form class="account-role-filter" method="get" action="{{ request.path }}">
+  {% for name,value in role_filter_preserved %}<input type="hidden" name="{{ name }}" value="{{ value }}">{% endfor %}
+  <label for="account-role">{% translate "Role" %}</label>
+  <select name="role__exact" id="account-role">
+    <option value="">{% translate "All roles" %}</option>
+    {% for value,label in account_roles %}<option value="{{ value }}"{% if selected_role == value %} selected{% endif %}>{{ label }}</option>{% endfor %}
+  </select>
+  <button type="submit">{% translate "Apply filters" %}</button>
+</form>
+{{ block.super }}
+{% endblock %}
